@@ -1,0 +1,8 @@
+SOLLICITUDIN (_#diam.1_, _#elit_, _#diam.2_, _#ipsum_, lectus)
+SEMPER (_#ultricies_, _#cras_, _#ligula_)
+RISUS (_ultricies.1_, _cras.1_, elementum, #ultricies.2, #cras.2)
+MAECENAS (_#ligula.1_, _#ligula.2_)
+DIGNISSIM (_ligula_, massa, varius, #ultricies, #cras, #elit, nec)
+CONSECTETUER (_elit_, sed)
+--- SUSPENDISSE (_diam_)
+LOREM (_#diam_, _ipsum_, dolor, sit, #elit, adipiscing)
