@@ -41,7 +41,7 @@ public class Fenêtre {
 				try {
 					Fenêtre window = new Fenêtre();
 					window.frame.setVisible(true);
-					UIManager.setLookAndFeel(new com.sun.java.swing.plaf.windows.WindowsLookAndFeel());
+					//UIManager.setLookAndFeel(new com.sun.java.swing.plaf.windows.WindowsLookAndFeel());
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
