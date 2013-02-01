@@ -1,0 +1,3 @@
+CONFIGURATION : cellule, pos_x, pos_y, etat
+ASSOCIER, 1N CONFIGURATION, 11 PARAMETRES
+PARAMETRES : id_configuration, nb_pas, vitesse, taille_grille 

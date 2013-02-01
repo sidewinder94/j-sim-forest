@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm11="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner" dslVersion="1.0.0.0" Id="fd431bfc-4177-41d7-808d-402a03e39aea" name="J-Sim Forest" linkedPackageId="941ec291-7e5b-454c-9f50-a7c7e373af76" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <profileInstances>
+    <packageHasProfileInstances Id="d94aa1c0-e890-4bd9-aa4a-285b6f0f3202">
+      <profileInstance Id="ec5d0d58-f16e-45c9-8e37-d6dd553fe4d7" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="edcf4021-f6fa-46a1-b006-d6cba889f9b5">
+      <profileInstance Id="4984f5f8-811a-41be-86d6-59d3abef80fa" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <subsystem Id="1dd2382e-d93e-4ec9-9c7d-b9aedc442ec1" name="J-Sim forest" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="1f66dc3e-45bf-423c-a248-3bddb6491223" />
+      </subsystem>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="95b3cc46-e3c0-4d2c-8641-f1e69672db0f" name="Utilisateur" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="59e57432-5b00-472a-83c7-0cf67f17f003" />
+        <targetEnds>
+          <association Id="736d335a-281a-4ca5-ac4b-93e6fea1e674" isDerived="false" sourceEndRoleName="Utilisateur" targetEndRoleName="Choix des paramètres" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="d060f0d8-9159-4147-a038-69e47e15ce73" LastKnownName="Choix des paramètres" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="783e3555-ac40-4af6-b210-d92a0f0d5c7c" name="Utilisateur" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="62275f0e-2112-4d55-a255-7636941389ea" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="b566e909-1686-464a-a071-56abc7a58ae8" name="Choix des paramètres" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="b40e4955-4004-4395-ac30-4e88094cbc1a" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="950ccde0-a021-49f9-81ae-209760efff75" />
+          </association>
+          <association Id="71d68756-e002-4ed6-8bf6-825fb39110b4" isDerived="false" sourceEndRoleName="Utilisateur" targetEndRoleName="Simulation forestière" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="2caf35eb-396c-4142-8e5e-6ac0900c26cb" LastKnownName="Simulation forestière" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="4a49fc16-7428-414e-9086-acfafe4ea46f" name="Utilisateur" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="f26edd92-7e5c-428c-bedc-579e839feb20" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="8ef93ef9-7453-46cc-9df6-138792fec848" name="Simulation forestière" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="29243822-2419-4824-ad59-698ebdf32bfb" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="adb0441d-d83a-4cef-83a9-723adfe83b8a" />
+          </association>
+          <association Id="d6da555a-e644-4bcb-8393-bfbb4d33d0b0" isDerived="false" sourceEndRoleName="Utilisateur" targetEndRoleName="Simulation Risque" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="efd1f9b7-4b6e-4d87-97da-f91432cd490b" LastKnownName="Simulation Risque" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="f1cd2dfe-a90a-4488-a96c-74f4e01c4b00" name="Utilisateur" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="b8d30858-6428-47ea-919c-f809f9f3f77e" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="e39c293c-9c6b-4975-8128-56af64a3565d" name="Simulation Risque" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="915cab15-ed10-402c-ac0a-4d401c655c01" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="07b8005b-b17f-48a7-95bf-a70916dc6f1f" />
+          </association>
+          <association Id="ae78deaa-3c98-404a-bfd4-e22701173c29" isDerived="false" sourceEndRoleName="Utilisateur" targetEndRoleName="Export des paramètres" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="f88f63bb-ad38-4942-991b-9572216e1061" LastKnownName="Export/Import des paramètres" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="8e4d7123-1c4c-4700-ab7d-4ca5327c3cd8" name="Utilisateur" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="038c9e18-8238-4cbb-838a-ef9a895072b8" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="3ef02a05-d21d-4bfb-87d6-598ea3b57573" name="Export des paramètres" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="e06b014a-18a3-49c8-b607-c49a9aca16ea" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="79cdfee2-0a45-4a05-96ce-89d3bab1a7d4" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <packageHasNamedElement>
+      <useCase Id="d060f0d8-9159-4147-a038-69e47e15ce73" name="Choix des paramètres" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="990046ec-23ed-4fcb-9a4e-f0a3659058ab" />
+        <additions>
+          <include Id="f9006f0a-6381-4bbc-bc6a-2d272d3a3937">
+            <useCaseMoniker Id="afa1b464-aabe-46bd-99fa-5249dc908467" LastKnownName="Choix de la taille" />
+            <elementDefinition Id="8968c2c1-d4dc-4a87-8fa0-1a7367c77f06" />
+          </include>
+          <include Id="68078d76-7769-443b-8a94-8f0e5532e26d">
+            <useCaseMoniker Id="670355bf-f48e-410c-bbe3-e9934b6c93bf" LastKnownName="Nombre da pas" />
+            <elementDefinition Id="2afcc612-2213-40c9-8642-2966800b1750" />
+          </include>
+          <include Id="778c78de-b512-4733-a693-d93e0e1d682d">
+            <useCaseMoniker Id="df1d1a49-57ff-4bd6-b917-459161513a90" LastKnownName="Vitesse d'exécution" />
+            <elementDefinition Id="18f7591f-9b60-49b4-9a5c-fc9aeb48d9c6" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker Id="1dd2382e-d93e-4ec9-9c7d-b9aedc442ec1" LastKnownName="J-Sim forest" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="afa1b464-aabe-46bd-99fa-5249dc908467" name="Choix de la taille" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="6c3cf4ab-b905-417a-bd24-fd4f0e6b4077" />
+        <subjects>
+          <subsystemMoniker Id="1dd2382e-d93e-4ec9-9c7d-b9aedc442ec1" LastKnownName="J-Sim forest" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="670355bf-f48e-410c-bbe3-e9934b6c93bf" name="Nombre da pas" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="57172a06-6b54-48e8-aef0-7eb01efb87dc" />
+        <subjects>
+          <subsystemMoniker Id="1dd2382e-d93e-4ec9-9c7d-b9aedc442ec1" LastKnownName="J-Sim forest" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="df1d1a49-57ff-4bd6-b917-459161513a90" name="Vitesse d'exécution" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="fcfad800-e283-43f7-8634-2d276fd0636a" />
+        <subjects>
+          <subsystemMoniker Id="1dd2382e-d93e-4ec9-9c7d-b9aedc442ec1" LastKnownName="J-Sim forest" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="2caf35eb-396c-4142-8e5e-6ac0900c26cb" name="Simulation forestière" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="80ecd46e-5eb1-4459-86c7-6b758431fde7" />
+        <suppliersInternal>
+          <dependency Id="dfa49006-0d82-4fdd-b47c-4f14b331a92d">
+            <useCaseMoniker Id="d060f0d8-9159-4147-a038-69e47e15ce73" LastKnownName="Choix des paramètres" />
+            <elementDefinition Id="85f46abf-f7e5-4fd8-a1b6-aa3881473ae9" />
+          </dependency>
+        </suppliersInternal>
+        <subjects>
+          <subsystemMoniker Id="1dd2382e-d93e-4ec9-9c7d-b9aedc442ec1" LastKnownName="J-Sim forest" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="efd1f9b7-4b6e-4d87-97da-f91432cd490b" name="Simulation Risque" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="fe072195-3ecd-4e95-842f-40a85cb424e5" />
+        <suppliersInternal>
+          <dependency Id="7d8d1fb2-bc6b-4e0e-8e82-077799c01efe">
+            <useCaseMoniker Id="2caf35eb-396c-4142-8e5e-6ac0900c26cb" LastKnownName="Simulation forestière" />
+            <elementDefinition Id="139572c6-8fc3-4f60-8517-868eab57c92f" />
+          </dependency>
+        </suppliersInternal>
+        <additions>
+          <include Id="e35b41b0-a7f4-4a89-b035-fc48b163c606">
+            <useCaseMoniker Id="09907719-5bd8-47b6-a334-98098ccd9933" LastKnownName="Choix du risque" />
+            <elementDefinition Id="a9b218a1-5938-47b2-9532-e0f867349f1c" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker Id="1dd2382e-d93e-4ec9-9c7d-b9aedc442ec1" LastKnownName="J-Sim forest" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="09907719-5bd8-47b6-a334-98098ccd9933" name="Choix du risque" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="b0c708b1-9e66-4a6f-a2ec-428de5467ebd" />
+        <subjects>
+          <subsystemMoniker Id="1dd2382e-d93e-4ec9-9c7d-b9aedc442ec1" LastKnownName="J-Sim forest" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="dbc6c948-f5a5-4207-867e-211db7bb7fe0" name="Risque Incendie" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="d65c71c1-304b-4e3f-b627-c644b0c0c0ea" />
+        <generalsInternal>
+          <generalization Id="a92f4d39-9340-4ad6-b43f-dbfec8c6321c" isSubstitutable="false">
+            <useCaseMoniker Id="efd1f9b7-4b6e-4d87-97da-f91432cd490b" LastKnownName="Simulation Risque" />
+            <elementDefinition Id="9093d119-8a80-487b-b39a-95c78f2ab98a" />
+          </generalization>
+        </generalsInternal>
+        <subjects>
+          <subsystemMoniker Id="1dd2382e-d93e-4ec9-9c7d-b9aedc442ec1" LastKnownName="J-Sim forest" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="d03c3305-1f14-4ec9-9341-3c29049ea3e1" name="Risque Insectes" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="5dea0af8-f51a-4c53-92ef-2f743130f8ac" />
+        <generalsInternal>
+          <generalization Id="73a43533-1d4d-460f-8f57-ef9286c0e50b" isSubstitutable="false">
+            <useCaseMoniker Id="efd1f9b7-4b6e-4d87-97da-f91432cd490b" LastKnownName="Simulation Risque" />
+            <elementDefinition Id="3c44c6dc-7520-44cc-827c-2c42b87df822" />
+          </generalization>
+        </generalsInternal>
+        <subjects>
+          <subsystemMoniker Id="1dd2382e-d93e-4ec9-9c7d-b9aedc442ec1" LastKnownName="J-Sim forest" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase Id="f88f63bb-ad38-4942-991b-9572216e1061" name="Export/Import des paramètres" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="0f9d813a-95a8-4c1f-a65a-f02c1ecfecc7" />
+        <suppliersInternal>
+          <dependency Id="8eed69af-5787-4e4e-8993-ea001622a03c">
+            <useCaseMoniker Id="d060f0d8-9159-4147-a038-69e47e15ce73" LastKnownName="Choix des paramètres" />
+            <elementDefinition Id="9b7c2846-7b83-4deb-a9be-6e7498f2f9df" />
+          </dependency>
+        </suppliersInternal>
+        <subjects>
+          <subsystemMoniker Id="1dd2382e-d93e-4ec9-9c7d-b9aedc442ec1" LastKnownName="J-Sim forest" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+  </packagedElements>
+  <package Id="941ec291-7e5b-454c-9f50-a7c7e373af76" name="UML">
+    <elementDefinition Id="ecc65ab3-d840-45a9-801a-2aa285d9aa3c" />
+  </package>
+</useCaseModelRoot>

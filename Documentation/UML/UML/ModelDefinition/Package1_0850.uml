@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="a6bc28e8-07d2-4bf6-bcde-f749c6749546"
+  name="Settings" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="8bb73761-3a40-4f00-94a4-c0168d181760"
+        name="Paramètres"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <generalsInternal>
+          <generalization
+            Id="99598737-7832-4b74-b6c0-f28c67700a40"
+            isSubstitutable="false">
+            <classMoniker
+              Id="0b2dcb19-4c11-4a0e-987a-9cf2e80ff65a"
+              LastKnownName="Fenêtre"
+              LastKnownLocation="Package_0849.uml" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association
+            Id="54ab6f58-bf4b-49ae-91ed-95ac06bbae95"
+            isDerived="false"
+            sourceEndRoleName="Paramètres"
+            targetEndRoleName="Mode"
+            isLeaf="false"
+            isAbstract="false">
+            <enumerationMoniker
+              Id="f5a19ca1-db18-45af-a13e-022ff9f6adb1"
+              LastKnownName="Mode"
+              LastKnownLocation="Package1_0850.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="90cf161f-4d08-4407-9951-498df34198fd"
+                  name="Paramètres"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="Shared"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="0e9350b1-00bf-4326-9d03-7551ea67b339"
+                  name="Mode"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+        <ownedAttributesInternal>
+          <property
+            Id="b34f6f27-4a33-4649-927c-5757b217a9fc"
+            name="nbPas"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="ebdcf9a3-f980-4205-b2f2-4524a9f260aa"
+            name="waitTime"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+          <property
+            Id="60c97bc4-8369-4c48-be1f-ac7c5baeec4b"
+            name="gridSize"
+            visibility="Private"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isUnique="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false" />
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="3189017d-8355-4322-87bf-efd65f3c2470"
+            name="getGridSize"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="00b548f7-09df-4c1c-a137-77427c62c194"
+            name="setGridSize"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="dd9ed6ba-c45c-49bf-9e69-e2ace3abffcd"
+            name="getNbPas"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="a98d1850-ed11-4407-98be-3362911ed70a"
+            name="setNbPas"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="cbbaa060-fab5-49af-a478-95e205a2d911"
+            name="getWaitTime"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+          <operation
+            Id="3fe4561d-f308-4ada-b159-b6b5d18235da"
+            name="setWaitTime"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false" />
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <enumeration
+        Id="f5a19ca1-db18-45af-a13e-022ff9f6adb1"
+        name="Mode"
+        isAbstract="false"
+        isLeaf="false">
+        <ownedLiterals>
+          <enumerationLiteral
+            Id="f9f795c3-7c5c-42f8-bf6e-90e18f4ddedc"
+            name="Forestier" />
+          <enumerationLiteral
+            Id="2a2844ff-1b47-4752-9aba-e6cbcf42efbe"
+            name="Incendie" />
+          <enumerationLiteral
+            Id="a22a012c-552c-47e8-847e-4c9e2532fc03"
+            name="Insectes" />
+        </ownedLiterals>
+      </enumeration>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <enumeration
+        Id="a7ce344e-b6e9-4a26-a422-d060ebed3366"
+        name="États"
+        isAbstract="false"
+        isLeaf="false">
+        <ownedLiterals>
+          <enumerationLiteral
+            Id="6c1fd0e0-6a5c-4f9e-b65c-3a2b6f7b0d0f"
+            name="Vide" />
+          <enumerationLiteral
+            Id="16d67c47-eceb-427a-ab48-27574835f1a2"
+            name="Jeune Pousse" />
+          <enumerationLiteral
+            Id="499ad2fc-4917-46d7-9c66-42942334eb6e"
+            name="Arbuste" />
+          <enumerationLiteral
+            Id="a2803b40-4d5b-40f9-874f-21c7fa3cd8fc"
+            name="Arbre" />
+          <enumerationLiteral
+            Id="89bf7bb0-f498-4405-888d-38fb670dd390"
+            name="Feu" />
+          <enumerationLiteral
+            Id="f1952a8c-43dd-4230-83b4-baa5ee8fd9a0"
+            name="Cendre" />
+          <enumerationLiteral
+            Id="bd93ba55-095b-48e4-8f31-e5bde3a7940e"
+            name="Infecté" />
+        </ownedLiterals>
+      </enumeration>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

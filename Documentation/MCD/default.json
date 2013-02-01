@@ -1,0 +1,17 @@
+{
+    "attraction": 40, 
+    "colors": "ocean", 
+    "df": "DF", 
+    "encoding": [
+        "utf8", 
+        "ISO_8859-15"
+    ], 
+    "input": "sandbox.mcd", 
+    "output": "sandbox-svg.py", 
+    "sep": ",", 
+    "shapes": "trebuchet", 
+    "table": [
+        "html",
+		"mysql"
+    ]
+}
