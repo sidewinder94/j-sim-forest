@@ -36,6 +36,7 @@ public class Fenêtre {
 	private JButton btnLancerLaSimulation;
 	private JPanel panel;
 	private JTextPane textPane;
+	private JButton btnQuitter;
 
 	/**
 	 * Launch the application.
@@ -67,7 +68,7 @@ public class Fenêtre {
 	private void initialize() {
 		
 		frame = new JFrame();
-		frame.setBounds(100, 100, 500, 300);
+		frame.setBounds(100, 100, 520, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{0, 80, 151, 0, 58, 73, 0};
@@ -197,6 +198,14 @@ public class Fenêtre {
 		gbc_btnNewButton.gridx = 2;
 		gbc_btnNewButton.gridy = 10;
 		frame.getContentPane().add(btnNewButton, gbc_btnNewButton);
+		
+		btnQuitter = new JButton("Quitter");
+		GridBagConstraints gbc_btnQuitter = new GridBagConstraints();
+		gbc_btnQuitter.anchor = GridBagConstraints.WEST;
+		gbc_btnQuitter.insets = new Insets(0, 0, 5, 0);
+		gbc_btnQuitter.gridx = 5;
+		gbc_btnQuitter.gridy = 10;
+		frame.getContentPane().add(btnQuitter, gbc_btnQuitter);
 	}
 
 }
