@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner" xmlns:dm11="http://schemas.microsoft.com/dsltools/UseCaseModel"
   dslVersion="1.0.0.0"
   Id="ecc65ab3-d840-45a9-801a-2aa285d9aa3c"
   name="UML" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -20,681 +20,730 @@
   <packagedElements>
     <packageHasNamedElement>
       <class
-        Id="4610ca45-bb6e-4ea9-a8c9-2630dfa1bdf6"
-        name="Cellule"
-        isAbstract="false"
-        isLeaf="false"
-        isActiveClass="false">
-        <suppliersInternal>
-          <interfaceRealization
-            Id="c9091bd3-e5bc-4be4-8e8c-71a0b3fa61d7">
-            <interfaceMoniker
-              Id="6b40ea00-b384-483e-a0e7-4b552e71ee58"
-              LastKnownName="Affichable"
-              LastKnownLocation="UML.uml" />
-          </interfaceRealization>
-        </suppliersInternal>
-        <targetEnds>
-          <association
-            Id="10e3807d-12cf-425f-aacc-8b014a137975"
-            isDerived="false"
-            sourceEndRoleName="Cellule"
-            targetEndRoleName="États"
-            isLeaf="false"
-            isAbstract="false">
-            <enumerationMoniker
-              Id="a7ce344e-b6e9-4a26-a422-d060ebed3366"
-              LastKnownName="États"
-              LastKnownLocation="UML.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="75241af5-0290-4a60-9077-9ba8acc593ab"
-                  name="Cellule"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="Shared"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="85868939-9e31-4433-af47-8244cb90849c"
-                  name="États"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false">
-                  <lowerValueInternal>
-                    <literalString
-                      Id="17402b3d-d49e-488e-be68-9ca3c44759c4"
-                      name="Lower"
-                      value="1" />
-                  </lowerValueInternal>
-                  <upperValueInternal>
-                    <literalString
-                      Id="13bf1047-be29-4f58-85d6-517a3b76a64c"
-                      name="Upper"
-                      value="*" />
-                  </upperValueInternal>
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-        </targetEnds>
-        <ownedAttributesInternal>
-          <property
-            Id="7ee4eea1-ea06-4444-a73e-82be0acf25e1"
-            name="Position"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false">
-            <lowerValueInternal>
-              <literalString
-                Id="83a7ef39-452b-4c8d-a218-bec1f0deda9f"
-                name="Lower"
-                value="2" />
-            </lowerValueInternal>
-            <upperValueInternal>
-              <literalString
-                Id="4023007e-4d05-4307-ba1e-00916895c163"
-                name="Upper"
-                value="2" />
-            </upperValueInternal>
-            <type_NamedElement>
-              <primitiveTypeMoniker
-                Id="220a3521-e091-4221-bae9-3ef9018e845c"
-                LastKnownName="Integer"
-                LastKnownLocation="UML.uml" />
-            </type_NamedElement>
-          </property>
-        </ownedAttributesInternal>
-        <ownedOperationsInternal>
-          <operation
-            Id="745a8b5f-8bf1-4b48-88bc-29016d6031a8"
-            name="getState"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-          <operation
-            Id="15514ad8-c289-4849-92c8-9195c6860af3"
-            name="getNeigboursCellStates"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-          <operation
-            Id="df422a7a-0cdf-4aec-9822-5550e6b87fb5"
-            name="update"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-        </ownedOperationsInternal>
-      </class>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <enumeration
-        Id="a7ce344e-b6e9-4a26-a422-d060ebed3366"
-        name="États"
-        isAbstract="false"
-        isLeaf="false">
-        <ownedLiterals>
-          <enumerationLiteral
-            Id="6c1fd0e0-6a5c-4f9e-b65c-3a2b6f7b0d0f"
-            name="Vide" />
-          <enumerationLiteral
-            Id="16d67c47-eceb-427a-ab48-27574835f1a2"
-            name="Jeune Pousse" />
-          <enumerationLiteral
-            Id="499ad2fc-4917-46d7-9c66-42942334eb6e"
-            name="Arbuste" />
-          <enumerationLiteral
-            Id="a2803b40-4d5b-40f9-874f-21c7fa3cd8fc"
-            name="Arbre" />
-          <enumerationLiteral
-            Id="89bf7bb0-f498-4405-888d-38fb670dd390"
-            name="Feu" />
-          <enumerationLiteral
-            Id="f1952a8c-43dd-4230-83b4-baa5ee8fd9a0"
-            name="Cendre" />
-          <enumerationLiteral
-            Id="bd93ba55-095b-48e4-8f31-e5bde3a7940e"
-            name="Infecté" />
-        </ownedLiterals>
-      </enumeration>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <Interface
-        Id="6b40ea00-b384-483e-a0e7-4b552e71ee58"
-        name="Affichable"
-        isAbstract="false"
-        isLeaf="false">
-        <ownedOperations>
-          <operation
-            Id="24283ffa-2f42-47b2-bd71-193a54d723bb"
-            name="update"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="true"
-            concurrency="Sequential"
-            isQuery="false" />
-        </ownedOperations>
-      </Interface>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <class
-        Id="b3b2cf67-a555-4459-b5ea-0ba60722493d"
-        name="Grille"
-        isAbstract="false"
-        isLeaf="false"
-        isActiveClass="false">
-        <suppliersInternal>
-          <interfaceRealization
-            Id="de08ff0d-3b86-4161-b48d-01a271845263">
-            <interfaceMoniker
-              Id="6b40ea00-b384-483e-a0e7-4b552e71ee58"
-              LastKnownName="Affichable"
-              LastKnownLocation="UML.uml" />
-          </interfaceRealization>
-        </suppliersInternal>
-        <targetEnds>
-          <association
-            Id="c89f704c-cf32-42ee-8a86-bcea3bfe4599"
-            isDerived="false"
-            sourceEndRoleName="Grille"
-            targetEndRoleName="Cellule"
-            isLeaf="false"
-            isAbstract="false">
-            <classMoniker
-              Id="4610ca45-bb6e-4ea9-a8c9-2630dfa1bdf6"
-              LastKnownName="Cellule"
-              LastKnownLocation="UML.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="ade7dc07-fa79-453f-b229-840917794371"
-                  name="Grille"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="Shared"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="237d66d6-298a-495e-9a83-300928786f28"
-                  name="Cellule"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false">
-                  <lowerValueInternal>
-                    <literalString
-                      Id="cebbbc0b-f4b4-4bdb-8876-044d792eb619"
-                      name="Lower"
-                      value="1" />
-                  </lowerValueInternal>
-                  <upperValueInternal>
-                    <literalString
-                      Id="f48c3761-5e7c-4244-8130-a7f5442bc1fd"
-                      name="Upper"
-                      value="*" />
-                  </upperValueInternal>
-                </memberEnd>
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-          <association
-            Id="49c20a7b-e1d2-4d73-a3b2-d7df413cd356"
-            isDerived="false"
-            sourceEndRoleName="Grille"
-            targetEndRoleName="Paramètres"
-            isLeaf="false"
-            isAbstract="false">
-            <classMoniker
-              Id="8bb73761-3a40-4f00-94a4-c0168d181760"
-              LastKnownName="Paramètres"
-              LastKnownLocation="UML.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="3bc603d4-47b7-453c-93c2-76bad84ff2e1"
-                  name="Grille"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="Composite"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="4cb01667-f67a-4d34-a55f-65bc98b5556f"
-                  name="Paramètres"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="true" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-        </targetEnds>
-        <ownedOperationsInternal>
-          <operation
-            Id="e5a1437b-f8cb-4da3-b6ed-9d2c2313be4c"
-            name="densityCalc"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-          <operation
-            Id="0d0da126-d423-4604-94bb-e37eb208cb13"
-            name="update"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-        </ownedOperationsInternal>
-      </class>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <class
-        Id="8bb73761-3a40-4f00-94a4-c0168d181760"
-        name="Paramètres"
-        isAbstract="false"
-        isLeaf="false"
-        isActiveClass="false">
-        <generalsInternal>
-          <generalization
-            Id="99598737-7832-4b74-b6c0-f28c67700a40"
-            isSubstitutable="false">
-            <classMoniker
-              Id="0b2dcb19-4c11-4a0e-987a-9cf2e80ff65a"
-              LastKnownName="Fenêtre"
-              LastKnownLocation="UML.uml" />
-          </generalization>
-        </generalsInternal>
-        <targetEnds>
-          <association
-            Id="54ab6f58-bf4b-49ae-91ed-95ac06bbae95"
-            isDerived="false"
-            sourceEndRoleName="Paramètres"
-            targetEndRoleName="Mode"
-            isLeaf="false"
-            isAbstract="false">
-            <enumerationMoniker
-              Id="f5a19ca1-db18-45af-a13e-022ff9f6adb1"
-              LastKnownName="Mode"
-              LastKnownLocation="UML.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="90cf161f-4d08-4407-9951-498df34198fd"
-                  name="Paramètres"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="Shared"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="0e9350b1-00bf-4326-9d03-7551ea67b339"
-                  name="Mode"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-        </targetEnds>
-        <ownedAttributesInternal>
-          <property
-            Id="b34f6f27-4a33-4649-927c-5757b217a9fc"
-            name="nbPas"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false" />
-          <property
-            Id="ebdcf9a3-f980-4205-b2f2-4524a9f260aa"
-            name="waitTime"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false" />
-          <property
-            Id="60c97bc4-8369-4c48-be1f-ac7c5baeec4b"
-            name="gridSize"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false" />
-        </ownedAttributesInternal>
-        <ownedOperationsInternal>
-          <operation
-            Id="3189017d-8355-4322-87bf-efd65f3c2470"
-            name="getGridSize"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-          <operation
-            Id="00b548f7-09df-4c1c-a137-77427c62c194"
-            name="setGridSize"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-          <operation
-            Id="dd9ed6ba-c45c-49bf-9e69-e2ace3abffcd"
-            name="getNbPas"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-          <operation
-            Id="a98d1850-ed11-4407-98be-3362911ed70a"
-            name="setNbPas"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-          <operation
-            Id="cbbaa060-fab5-49af-a478-95e205a2d911"
-            name="getWaitTime"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-          <operation
-            Id="3fe4561d-f308-4ada-b159-b6b5d18235da"
-            name="setWaitTime"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-        </ownedOperationsInternal>
-      </class>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <class
-        Id="8803693a-2c38-4b86-a7d5-1232b1ec73a9"
-        name="Timer"
-        isAbstract="false"
-        isLeaf="false"
-        isActiveClass="false">
-        <ownedAttributesInternal>
-          <property
-            Id="56a88c91-d2d7-4303-accb-fa0d975b6b42"
-            name="delay"
-            visibility="Private"
-            isLeaf="false"
-            isStatic="false"
-            isReadOnly="false"
-            isUnique="false"
-            isDerived="false"
-            isDerivedUnion="false"
-            aggregation="None"
-            isComposite="false" />
-        </ownedAttributesInternal>
-        <ownedOperationsInternal>
-          <operation
-            Id="f72ed348-2845-4aae-9988-6b6bc264c10e"
-            name="setDelay"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-          <operation
-            Id="a560c0fc-54da-4f32-b118-be420fb4c11e"
-            name="getDelay"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-        </ownedOperationsInternal>
-      </class>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <class
-        Id="0b2dcb19-4c11-4a0e-987a-9cf2e80ff65a"
-        name="Fenêtre"
-        isAbstract="false"
-        isLeaf="false"
-        isActiveClass="false">
-        <targetEnds>
-          <association
-            Id="0e62d9b9-d266-4e08-b966-92032ed82596"
-            isDerived="false"
-            sourceEndRoleName="Fenêtre"
-            targetEndRoleName="Grille"
-            isLeaf="false"
-            isAbstract="false">
-            <classMoniker
-              Id="b3b2cf67-a555-4459-b5ea-0ba60722493d"
-              LastKnownName="Grille"
-              LastKnownLocation="UML.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="002eeac5-949a-475f-9941-015b278c1676"
-                  name="Fenêtre"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="Shared"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="aac18d98-91d2-4851-8d39-5d23e306cb6e"
-                  name="Grille"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-          <association
-            Id="2f2e01f3-e9a5-4ab8-9f74-d6ad6cdca2c9"
-            isDerived="false"
-            sourceEndRoleName="Fenêtre"
-            targetEndRoleName="Timer"
-            isLeaf="false"
-            isAbstract="false">
-            <classMoniker
-              Id="8803693a-2c38-4b86-a7d5-1232b1ec73a9"
-              LastKnownName="Timer"
-              LastKnownLocation="UML.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="87a254a1-1d62-4bba-8734-7901673d443d"
-                  name="Fenêtre"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="Shared"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="e490fb30-b230-459e-9526-4ae186145b5a"
-                  name="Timer"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-          <association
-            Id="0da635bb-0bfa-4922-8dd7-1499f7796717"
-            isDerived="false"
-            sourceEndRoleName="Fenêtre"
-            targetEndRoleName="DataObjectAccess"
-            isLeaf="false"
-            isAbstract="false">
-            <classMoniker
-              Id="ceddeb35-285a-409f-bb02-cba61d0f579f"
-              LastKnownName="DataObjectAccess"
-              LastKnownLocation="UML.uml" />
-            <relationshipOwnedElementsInternal>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="9f63c79f-06ba-4b0c-9fdc-720fd703193e"
-                  name="Fenêtre"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="Shared"
-                  isComposite="false"
-                  isNavigableOwned="false" />
-              </associationHasOwnedEnds>
-              <associationHasOwnedEnds>
-                <memberEnd
-                  Id="37ddd937-5564-4a9e-bc3c-8ebc0dc3ad61"
-                  name="DataObjectAccess"
-                  isLeaf="false"
-                  isStatic="false"
-                  isReadOnly="false"
-                  isDerived="false"
-                  isDerivedUnion="false"
-                  aggregation="None"
-                  isComposite="false" />
-              </associationHasOwnedEnds>
-            </relationshipOwnedElementsInternal>
-          </association>
-        </targetEnds>
-        <ownedOperationsInternal>
-          <operation
-            Id="cba09636-11eb-4169-b667-9fa9ca6e0952"
-            name="saveState"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-          <operation
-            Id="a3787882-b057-4c96-9b0d-c9e52c1b731d"
-            name="loadState"
-            isLeaf="false"
-            isStatic="false"
-            isAbstract="false"
-            concurrency="Sequential"
-            isQuery="false" />
-        </ownedOperationsInternal>
-      </class>
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <class
-        Id="ceddeb35-285a-409f-bb02-cba61d0f579f"
-        name="DataObjectAccess"
-        isAbstract="false"
-        isLeaf="false"
-        isActiveClass="false" />
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <class
         Id="1ad40e9b-0cb3-408d-b98c-aeedfdbfdace"
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false" />
     </packageHasNamedElement>
     <packageHasNamedElement>
-      <enumeration
-        Id="f5a19ca1-db18-45af-a13e-022ff9f6adb1"
-        name="Mode"
+      <packageMoniker
+        Id="1b1b38e1-22c5-40e7-8ff8-4d7a0d2fb0d4"
+        LastKnownName="Display"
+        LastKnownLocation="Package_0849.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="9ee7169a-89cf-4625-86de-6b10a3375e56"
+        LastKnownName="Database"
+        LastKnownLocation="Package_0850.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="a6bc28e8-07d2-4bf6-bcde-f749c6749546"
+        LastKnownName="Settings"
+        LastKnownLocation="Package1_0850.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <subsystem
+        Id="1f66dc3e-45bf-423c-a248-3bddb6491223"
+        name="J-Sim forest"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="59e57432-5b00-472a-83c7-0cf67f17f003"
+        name="Utilisateur"
         isAbstract="false"
         isLeaf="false">
-        <ownedLiterals>
-          <enumerationLiteral
-            Id="f9f795c3-7c5c-42f8-bf6e-90e18f4ddedc"
-            name="Forestier" />
-          <enumerationLiteral
-            Id="2a2844ff-1b47-4752-9aba-e6cbcf42efbe"
-            name="Incendie" />
-          <enumerationLiteral
-            Id="a22a012c-552c-47e8-847e-4c9e2532fc03"
-            name="Insectes" />
-        </ownedLiterals>
-      </enumeration>
+        <targetEnds>
+          <association
+            Id="950ccde0-a021-49f9-81ae-209760efff75"
+            isDerived="false"
+            sourceEndRoleName="Utilisateur"
+            targetEndRoleName="Choix des paramètres"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="990046ec-23ed-4fcb-9a4e-f0a3659058ab"
+              LastKnownName="Choix des paramètres"
+              LastKnownLocation="UML.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="62275f0e-2112-4d55-a255-7636941389ea"
+                  name="Utilisateur"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b40e4955-4004-4395-ac30-4e88094cbc1a"
+                  name="Choix des paramètres"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="adb0441d-d83a-4cef-83a9-723adfe83b8a"
+            isDerived="false"
+            sourceEndRoleName="Utilisateur"
+            targetEndRoleName="Simulation forestière"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="80ecd46e-5eb1-4459-86c7-6b758431fde7"
+              LastKnownName="Simulation forestière"
+              LastKnownLocation="UML.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f26edd92-7e5c-428c-bedc-579e839feb20"
+                  name="Utilisateur"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="29243822-2419-4824-ad59-698ebdf32bfb"
+                  name="Simulation forestière"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="5744ae9d-2a73-4ee2-8ffd-4c8e06af4953"
+            isDerived="false"
+            sourceEndRoleName="Utilisateur"
+            targetEndRoleName="Choix du mode de risque"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="57b76382-0d52-44a3-bf4b-03969e0e12a4"
+              LastKnownName="Choix du mode de risque"
+              LastKnownLocation="UML.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="aae450ec-b9dd-4dde-b742-7d9fd0709b30"
+                  name="Utilisateur"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="322c7f4b-c140-4c48-9eb6-1afb4de533de"
+                  name="Choix du mode de risque"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="07b8005b-b17f-48a7-95bf-a70916dc6f1f"
+            isDerived="false"
+            sourceEndRoleName="Utilisateur"
+            targetEndRoleName="Simulation Risque"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="fe072195-3ecd-4e95-842f-40a85cb424e5"
+              LastKnownName="Simulation Risque"
+              LastKnownLocation="UML.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b8d30858-6428-47ea-919c-f809f9f3f77e"
+                  name="Utilisateur"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="915cab15-ed10-402c-ac0a-4d401c655c01"
+                  name="Simulation Risque"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="79cdfee2-0a45-4a05-96ce-89d3bab1a7d4"
+            isDerived="false"
+            sourceEndRoleName="Utilisateur"
+            targetEndRoleName="Export des paramètres"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="0f9d813a-95a8-4c1f-a65a-f02c1ecfecc7"
+              LastKnownName="Export/Import des paramètres"
+              LastKnownLocation="UML.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="038c9e18-8238-4cbb-838a-ef9a895072b8"
+                  name="Utilisateur"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e06b014a-18a3-49c8-b607-c49a9aca16ea"
+                  name="Export des paramètres"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="990046ec-23ed-4fcb-9a4e-f0a3659058ab"
+        name="Choix des paramètres"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="8968c2c1-d4dc-4a87-8fa0-1a7367c77f06">
+            <useCaseMoniker
+              Id="6c3cf4ab-b905-417a-bd24-fd4f0e6b4077"
+              LastKnownName="Choix de la taille"
+              LastKnownLocation="UML.uml" />
+          </include>
+          <include
+            Id="2afcc612-2213-40c9-8642-2966800b1750">
+            <useCaseMoniker
+              Id="57172a06-6b54-48e8-aef0-7eb01efb87dc"
+              LastKnownName="Nombre da pas"
+              LastKnownLocation="UML.uml" />
+          </include>
+          <include
+            Id="18f7591f-9b60-49b4-9a5c-fc9aeb48d9c6">
+            <useCaseMoniker
+              Id="fcfad800-e283-43f7-8634-2d276fd0636a"
+              LastKnownName="Vitesse d'exécution"
+              LastKnownLocation="UML.uml" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker
+            Id="1f66dc3e-45bf-423c-a248-3bddb6491223"
+            LastKnownName="J-Sim forest"
+            LastKnownLocation="UML.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="6c3cf4ab-b905-417a-bd24-fd4f0e6b4077"
+        name="Choix de la taille"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="1f66dc3e-45bf-423c-a248-3bddb6491223"
+            LastKnownName="J-Sim forest"
+            LastKnownLocation="UML.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="57172a06-6b54-48e8-aef0-7eb01efb87dc"
+        name="Nombre da pas"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="1f66dc3e-45bf-423c-a248-3bddb6491223"
+            LastKnownName="J-Sim forest"
+            LastKnownLocation="UML.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="fcfad800-e283-43f7-8634-2d276fd0636a"
+        name="Vitesse d'exécution"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="1f66dc3e-45bf-423c-a248-3bddb6491223"
+            LastKnownName="J-Sim forest"
+            LastKnownLocation="UML.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="80ecd46e-5eb1-4459-86c7-6b758431fde7"
+        name="Simulation forestière"
+        isAbstract="false"
+        isLeaf="false">
+        <suppliersInternal>
+          <dependency
+            Id="85f46abf-f7e5-4fd8-a1b6-aa3881473ae9">
+            <useCaseMoniker
+              Id="990046ec-23ed-4fcb-9a4e-f0a3659058ab"
+              LastKnownName="Choix des paramètres"
+              LastKnownLocation="UML.uml" />
+          </dependency>
+        </suppliersInternal>
+        <subjects>
+          <subsystemMoniker
+            Id="1f66dc3e-45bf-423c-a248-3bddb6491223"
+            LastKnownName="J-Sim forest"
+            LastKnownLocation="UML.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="57b76382-0d52-44a3-bf4b-03969e0e12a4"
+        name="Choix du mode de risque"
+        isAbstract="false"
+        isLeaf="false">
+        <suppliersInternal>
+          <dependency
+            Id="875b8080-e4b8-4efa-b867-d0817463c760">
+            <useCaseMoniker
+              Id="80ecd46e-5eb1-4459-86c7-6b758431fde7"
+              LastKnownName="Simulation forestière"
+              LastKnownLocation="UML.uml" />
+          </dependency>
+        </suppliersInternal>
+        <additions>
+          <include
+            Id="8e6154f9-8b68-4819-b45c-4bf702ce9ede">
+            <useCaseMoniker
+              Id="fe072195-3ecd-4e95-842f-40a85cb424e5"
+              LastKnownName="Simulation Risque"
+              LastKnownLocation="UML.uml" />
+          </include>
+        </additions>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="fe072195-3ecd-4e95-842f-40a85cb424e5"
+        name="Simulation Risque"
+        isAbstract="false"
+        isLeaf="false">
+        <suppliersInternal>
+          <dependency
+            Id="139572c6-8fc3-4f60-8517-868eab57c92f">
+            <useCaseMoniker
+              Id="80ecd46e-5eb1-4459-86c7-6b758431fde7"
+              LastKnownName="Simulation forestière"
+              LastKnownLocation="UML.uml" />
+          </dependency>
+        </suppliersInternal>
+        <additions>
+          <include
+            Id="a9b218a1-5938-47b2-9532-e0f867349f1c">
+            <useCaseMoniker
+              Id="b0c708b1-9e66-4a6f-a2ec-428de5467ebd"
+              LastKnownName="Choix du risque"
+              LastKnownLocation="UML.uml" />
+          </include>
+        </additions>
+        <subjects>
+          <subsystemMoniker
+            Id="1f66dc3e-45bf-423c-a248-3bddb6491223"
+            LastKnownName="J-Sim forest"
+            LastKnownLocation="UML.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="b0c708b1-9e66-4a6f-a2ec-428de5467ebd"
+        name="Choix du risque"
+        isAbstract="false"
+        isLeaf="false">
+        <subjects>
+          <subsystemMoniker
+            Id="1f66dc3e-45bf-423c-a248-3bddb6491223"
+            LastKnownName="J-Sim forest"
+            LastKnownLocation="UML.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="d65c71c1-304b-4e3f-b627-c644b0c0c0ea"
+        name="Risque Incendie"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="9093d119-8a80-487b-b39a-95c78f2ab98a"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="fe072195-3ecd-4e95-842f-40a85cb424e5"
+              LastKnownName="Simulation Risque"
+              LastKnownLocation="UML.uml" />
+          </generalization>
+        </generalsInternal>
+        <subjects>
+          <subsystemMoniker
+            Id="1f66dc3e-45bf-423c-a248-3bddb6491223"
+            LastKnownName="J-Sim forest"
+            LastKnownLocation="UML.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="5dea0af8-f51a-4c53-92ef-2f743130f8ac"
+        name="Risque Insectes"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="3c44c6dc-7520-44cc-827c-2c42b87df822"
+            isSubstitutable="false">
+            <useCaseMoniker
+              Id="fe072195-3ecd-4e95-842f-40a85cb424e5"
+              LastKnownName="Simulation Risque"
+              LastKnownLocation="UML.uml" />
+          </generalization>
+        </generalsInternal>
+        <subjects>
+          <subsystemMoniker
+            Id="1f66dc3e-45bf-423c-a248-3bddb6491223"
+            LastKnownName="J-Sim forest"
+            LastKnownLocation="UML.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="0f9d813a-95a8-4c1f-a65a-f02c1ecfecc7"
+        name="Export/Import des paramètres"
+        isAbstract="false"
+        isLeaf="false">
+        <suppliersInternal>
+          <dependency
+            Id="9b7c2846-7b83-4deb-a9be-6e7498f2f9df">
+            <useCaseMoniker
+              Id="990046ec-23ed-4fcb-9a4e-f0a3659058ab"
+              LastKnownName="Choix des paramètres"
+              LastKnownLocation="UML.uml" />
+          </dependency>
+        </suppliersInternal>
+        <subjects>
+          <subsystemMoniker
+            Id="1f66dc3e-45bf-423c-a248-3bddb6491223"
+            LastKnownName="J-Sim forest"
+            LastKnownLocation="UML.uml" />
+        </subjects>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <activity
+        Id="03fa2b12-cda5-4ff3-b692-9d6305ee3aad"
+        name="Simulation"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false"
+        isReentrant="false"
+        isReadOnly="false"
+        isSingleExecution="false">
+        <nodes>
+          <initialNode
+            Id="86519e48-ef8f-4665-83e5-ba5000027c9c"
+            name="Initial1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="0ad5e779-588c-47e9-bdde-4dba826277fb"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="4d5ded2b-e1d2-40fa-8698-b0a2df527f11"
+                  LastKnownName="Decision1"
+                  LastKnownLocation="UML.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </initialNode>
+          <decisionNode
+            Id="4d5ded2b-e1d2-40fa-8698-b0a2df527f11"
+            name="Decision1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="7d83888a-b260-443c-a513-a8dddb775079"
+                guard="Non Import de paramètres"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="b2020c29-c709-4d7c-ad34-6d70a121bc23"
+                  LastKnownName="Choix des paramètres"
+                  LastKnownLocation="UML.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="36e7e6fa-d764-4284-845b-a87785c1d566"
+                guard="Import de paramètres"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="8ee840f2-951b-4b84-8286-6b1bb274ec95"
+                  LastKnownName="Import de paramètres"
+                  LastKnownLocation="UML.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <opaqueAction
+            Id="8ee840f2-951b-4b84-8286-6b1bb274ec95"
+            name="Import de paramètres"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="afee9182-6418-4643-a040-5bbb2059f1db"
+                isLeaf="false">
+                <mergeNodeMoniker
+                  Id="dfb13035-a08d-473e-a0f4-e0a602ee0982"
+                  LastKnownName="Merge1"
+                  LastKnownLocation="UML.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="b2020c29-c709-4d7c-ad34-6d70a121bc23"
+            name="Choix des paramètres"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="a2e8051d-f3f4-44dd-b2b5-ae722beb5029"
+                isLeaf="false">
+                <mergeNodeMoniker
+                  Id="dfb13035-a08d-473e-a0f4-e0a602ee0982"
+                  LastKnownName="Merge1"
+                  LastKnownLocation="UML.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <mergeNode
+            Id="dfb13035-a08d-473e-a0f4-e0a602ee0982"
+            name="Merge1"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="f92bcb40-b0a8-4a17-8c45-e1b3a4379252"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="0587be2c-e5da-4956-ae85-dff7f1b5ec23"
+                  LastKnownName="Lancement Simulation"
+                  LastKnownLocation="UML.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </mergeNode>
+          <opaqueAction
+            Id="0587be2c-e5da-4956-ae85-dff7f1b5ec23"
+            name="Lancement Simulation"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="d08ae831-9e8b-4926-9980-a5b44b637df5"
+                isLeaf="false">
+                <mergeNodeMoniker
+                  Id="0da352d1-670f-4c71-8d91-f7a0846031ea"
+                  LastKnownName="Merge3"
+                  LastKnownLocation="UML.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="6cf6676f-72f1-4743-be39-a1f1ec70fe20"
+            name="Decision2"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="abc8b262-3c77-4351-a109-d21042de2639"
+                guard="Non Sauvegarde"
+                isLeaf="false">
+                <mergeNodeMoniker
+                  Id="fdf3cc1f-997f-4fd1-b7fc-144c061a00f3"
+                  LastKnownName="Merge2"
+                  LastKnownLocation="UML.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="e87461f4-ee15-4f5f-acd9-775e61fedf38"
+                guard="Sauvegarde"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="cc0fc565-da86-4599-9fef-8d161334bd4b"
+                  LastKnownName="Sauvegarde état"
+                  LastKnownLocation="UML.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <mergeNode
+            Id="fdf3cc1f-997f-4fd1-b7fc-144c061a00f3"
+            name="Merge2"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="060761c6-b944-46fe-97e9-396745649d91"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="e0a54bdc-ac94-44a6-8880-f8d4fbca1b55"
+                  LastKnownName="actualisation de la grille"
+                  LastKnownLocation="UML.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </mergeNode>
+          <opaqueAction
+            Id="cc0fc565-da86-4599-9fef-8d161334bd4b"
+            name="Sauvegarde état"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="73df47be-4452-4f9a-8861-7de02fd453c9"
+                isLeaf="false">
+                <mergeNodeMoniker
+                  Id="fdf3cc1f-997f-4fd1-b7fc-144c061a00f3"
+                  LastKnownName="Merge2"
+                  LastKnownLocation="UML.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="08816390-b758-4ff0-8aaf-77bb704ee268"
+            name="Affichage Statistiques"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="0e089f79-d3ee-4fcb-8304-4e101cf884da"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="011bd0da-1f21-4ede-8240-0273137b067b"
+                  LastKnownName="Decision3"
+                  LastKnownLocation="UML.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <opaqueAction
+            Id="e0a54bdc-ac94-44a6-8880-f8d4fbca1b55"
+            name="actualisation de la grille"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="8ba049a4-2512-41ce-b34f-875af9a7f8f0"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="08816390-b758-4ff0-8aaf-77bb704ee268"
+                  LastKnownName="Affichage Statistiques"
+                  LastKnownLocation="UML.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="011bd0da-1f21-4ede-8240-0273137b067b"
+            name="Decision3"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="75bc1c7c-f2ed-41d3-aec2-3d5571e25a77"
+                guard="t maximum non atteint"
+                name="t maximum non atteint"
+                isLeaf="false">
+                <mergeNodeMoniker
+                  Id="0da352d1-670f-4c71-8d91-f7a0846031ea"
+                  LastKnownName="Merge3"
+                  LastKnownLocation="UML.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="435066ee-51c9-4d55-9653-b490fb8937e5"
+                guard="t maximum atteint"
+                isLeaf="false">
+                <activityFinalNodeMoniker
+                  Id="a7d78004-3c0c-42e9-8379-65eb44567394"
+                  LastKnownName="ActivityFinal1"
+                  LastKnownLocation="UML.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
+          <mergeNode
+            Id="0da352d1-670f-4c71-8d91-f7a0846031ea"
+            name="Merge3"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="e000608c-f0ac-4a98-b525-a3ba378288a1"
+                isLeaf="false">
+                <decisionNodeMoniker
+                  Id="6cf6676f-72f1-4743-be39-a1f1ec70fe20"
+                  LastKnownName="Decision2"
+                  LastKnownLocation="UML.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </mergeNode>
+          <activityFinalNode
+            Id="a7d78004-3c0c-42e9-8379-65eb44567394"
+            name="ActivityFinal1"
+            isLeaf="false" />
+        </nodes>
+      </activity>
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType
