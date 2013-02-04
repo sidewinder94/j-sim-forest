@@ -2,5 +2,5 @@ package display;
 
 interface Affichable 
 {
-	public void update();
+	public void update(int itaration);
 }

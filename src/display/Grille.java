@@ -19,7 +19,7 @@ public class Grille implements Affichable
 	}
 	
 	@Override
-	public void update() {
+	public void update(int iteration) {
 		// TODO Auto-generated method stub
 		
 	}
