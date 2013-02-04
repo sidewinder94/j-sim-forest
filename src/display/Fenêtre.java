@@ -18,6 +18,7 @@ import java.awt.Color;
 import javax.swing.JTextPane;
 import java.awt.BorderLayout;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JScrollPane;
 
 public class Fenêtre {
 
@@ -36,8 +37,8 @@ public class Fenêtre {
 	private JButton btnPleincran;
 	private JButton btnLancerLaSimulation;
 	private JPanel panel;
-	private JTextPane textPane;
 	private JButton btnQuitter;
+	private JScrollPane scrollPane;
 
 	/**
 	 * Classe MouseListener permettant de réaliser des actions souris sur les controles
@@ -118,8 +119,8 @@ public class Fenêtre {
 		frame.getContentPane().add(panel, gbc_panel);
 		panel.setLayout(new BorderLayout(0, 0));
 		
-		textPane = new JTextPane();
-		panel.add(textPane);
+		scrollPane = new JScrollPane();
+		panel.add(scrollPane, BorderLayout.CENTER);
 		
 		lblDensits = new JLabel("Densit\u00E9s :");
 		GridBagConstraints gbc_lblDensits = new GridBagConstraints();
