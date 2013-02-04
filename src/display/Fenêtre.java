@@ -251,5 +251,35 @@ public class Fenêtre {
 		    	frame.move(0, 0);
 			}
 		});
+		
+		
+		
+		btnQuitter.addMouseListener(new MouseAbstractListener()
+		{
+			public void mouseClicked(MouseEvent e) 
+			{
+				frame.dispose();
+			}
+		});
+		
+		
+		btnNewButton.addMouseListener(new MouseAbstractListener()
+		{
+			public void mouseClicked(MouseEvent e) 
+			{
+			FenêtreSave Importation = new FenêtreSave();
+			Importation.main(null);
+			}
+		});
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 }
