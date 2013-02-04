@@ -1,9 +1,9 @@
 package Settings;
 
 public enum Mode {
-	FORESTIER("Forestier"),
-	INCENDIE("Incendie"),
-	INSECTES("Insecte");
+	FORESTIER("1"),
+	INCENDIE("2"),
+	INSECTES("3");
 	
 	private final String mode;
 	
