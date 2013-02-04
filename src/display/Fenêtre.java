@@ -2,25 +2,22 @@ package display;
 
 import java.awt.Dimension;
 import java.awt.EventQueue;
-import java.awt.Frame;
 import java.awt.Toolkit;
 import java.awt.event.*;
-
 import javax.swing.JFrame;
 import java.awt.GridBagLayout;
 import javax.swing.JPanel;
 import java.awt.GridBagConstraints;
 import javax.swing.JTextField;
-import javax.swing.SwingConstants;
 import java.awt.Insets;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
-import javax.swing.UIManager;
 import java.awt.Color;
 import javax.swing.JTextPane;
 import java.awt.BorderLayout;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JScrollPane;
 
 public class Fenêtre {
 
@@ -39,8 +36,8 @@ public class Fenêtre {
 	private JButton btnPleincran;
 	private JButton btnLancerLaSimulation;
 	private JPanel panel;
-	private JTextPane textPane;
 	private JButton btnQuitter;
+	private JScrollPane scrollPane;
 
 	/**
 	 * Classe MouseListener permettant de réaliser des actions souris sur les controles
@@ -48,6 +45,11 @@ public class Fenêtre {
 	static class MouseAbstractListener implements MouseListener
 	{
 		protected Object data;
+		
+		public MouseAbstractListener()
+		{
+			this.data = null;
+		}
 		
 		public MouseAbstractListener(Object data)
 		{
@@ -122,8 +124,8 @@ public class Fenêtre {
 		frame.getContentPane().add(panel, gbc_panel);
 		panel.setLayout(new BorderLayout(0, 0));
 		
-		textPane = new JTextPane();
-		panel.add(textPane);
+		scrollPane = new JScrollPane();
+		panel.add(scrollPane, BorderLayout.CENTER);
 		
 		lblDensits = new JLabel("Densit\u00E9s :");
 		GridBagConstraints gbc_lblDensits = new GridBagConstraints();
@@ -239,20 +241,15 @@ public class Fenêtre {
 		gbc_btnQuitter.gridx = 5;
 		gbc_btnQuitter.gridy = 10;
 		frame.getContentPane().add(btnQuitter, gbc_btnQuitter);
-		
-		ActionListener PleinEcran = new ActionListener() {
-		    public void actionPerformed(ActionEvent e) {
-		    	Toolkit defaultToolkit = Toolkit.getDefaultToolkit();
-		    	Dimension screenSize = defaultToolkit .getScreenSize();
-			    	frame.setSize(screenSize);
-			    	frame.move(0, 0);
-		    	
-		    	
-		    }
-		};
-		
-		btnPleincran.addActionListener(PleinEcran);
-		
+		btnPleincran.addMouseListener(new MouseAbstractListener()
+		{
+			public void mouseClicked(MouseEvent e) 
+			{
+			Toolkit defaultToolkit = Toolkit.getDefaultToolkit();
+	    	Dimension screenSize = defaultToolkit .getScreenSize();
+		    	frame.setSize(screenSize);
+		    	frame.move(0, 0);
+			}
+		});
 	}
-
 }
