@@ -248,7 +248,7 @@ public class Fenêtre {
 			Toolkit defaultToolkit = Toolkit.getDefaultToolkit();
 	    	Dimension screenSize = defaultToolkit .getScreenSize();
 		    	frame.setSize(screenSize);
-		    	frame.move(0, 0);
+		    	frame.setLocation(0, 0);
 			}
 		});
 		
@@ -268,7 +268,7 @@ public class Fenêtre {
 			public void mouseClicked(MouseEvent e) 
 			{
 			FenêtreSave Importation = new FenêtreSave();
-			Importation.main(null);
+			Importation.getFrame().setVisible(true);
 			}
 		});
 		
