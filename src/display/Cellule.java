@@ -31,6 +31,7 @@ public class Cellule implements Affichable
 		return this.state;
 	}
 	
+	@SuppressWarnings("unused")
 	private Hashtable<Etats, Integer> getNeighboursCellState()
 	{
 		Hashtable<Etats, Integer> results = new Hashtable<Etats, Integer>();
