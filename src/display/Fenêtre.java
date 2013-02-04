@@ -1,6 +1,7 @@
 package display;
 
 import java.awt.EventQueue;
+import java.awt.event.*;
 
 import javax.swing.JFrame;
 import java.awt.GridBagLayout;
@@ -38,6 +39,34 @@ public class Fenêtre {
 	private JTextPane textPane;
 	private JButton btnQuitter;
 
+	/**
+	 * Classe MouseListener permettant de réaliser des actions souris sur les controles
+	 */
+	static class MouseAbstractListener implements MouseListener
+	{
+		protected Object data;
+		public MouseAbstractListener(Object data)
+		{
+			this.data = data;
+		}
+		
+		@Override
+		public void mouseClicked(MouseEvent e) {}
+
+		@Override
+		public void mouseEntered(MouseEvent e) {}
+
+		@Override
+		public void mouseExited(MouseEvent e) {}
+
+		@Override
+		public void mousePressed(MouseEvent e) {}
+
+		@Override
+		public void mouseReleased(MouseEvent e) {}
+		
+	}
+	
 	/**
 	 * Launch the application.
 	 */
