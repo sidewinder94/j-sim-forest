@@ -5,7 +5,16 @@ public class Parametres {
 	private int gridSize[] = new int[2];
 	private int nbPas;
 	private float waitTime;
+	private Mode mode;
 	
+	public Mode getMode() {
+		return mode;
+	}
+
+	public void setMode(Mode mode) {
+		this.mode = mode;
+	}
+
 	public int[] getGridSize() {
 		return gridSize;
 	}
