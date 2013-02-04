@@ -1,6 +1,9 @@
 package display;
 
+import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.awt.Frame;
+import java.awt.Toolkit;
 import java.awt.event.*;
 
 import javax.swing.JFrame;
@@ -45,6 +48,7 @@ public class Fenêtre {
 	static class MouseAbstractListener implements MouseListener
 	{
 		protected Object data;
+		
 		public MouseAbstractListener(Object data)
 		{
 			this.data = data;
@@ -235,6 +239,20 @@ public class Fenêtre {
 		gbc_btnQuitter.gridx = 5;
 		gbc_btnQuitter.gridy = 10;
 		frame.getContentPane().add(btnQuitter, gbc_btnQuitter);
+		
+		ActionListener PleinEcran = new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {
+		    	Toolkit defaultToolkit = Toolkit.getDefaultToolkit();
+		    	Dimension screenSize = defaultToolkit .getScreenSize();
+			    	frame.setSize(screenSize);
+			    	frame.move(0, 0);
+		    	
+		    	
+		    }
+		};
+		
+		btnPleincran.addActionListener(PleinEcran);
+		
 	}
 
 }
