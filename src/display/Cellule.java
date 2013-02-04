@@ -10,6 +10,8 @@ public class Cellule implements Affichable
 	Etats state;
 	Mode mode;
 	Cellule[][] grid;
+	Etats nextState;
+	int nextStateApplicability;
 	/*
 	 * TODO : Création d'attributs contenants le prochain état et le tour auquel il sera appliqué
 	 * */
@@ -20,37 +22,48 @@ public class Cellule implements Affichable
 		this.position[1] = size_y;
 		this.state = Etats.VIDE;
 		this.grid = grid;
+		this.nextStateApplicability = -1;
 	}
 
 	@Override
-	public void update() 
-	{		
-		if (this.mode == Mode.FORESTIER)
+	public void update(int iteration) 
+	{	
+		if (nextStateApplicability >= iteration)
+		{
+			if (nextStateApplicability == iteration)
+			{
+				this.state = this.nextState;
+			}
+		}
+		else if (this.mode == Mode.FORESTIER)
 		{
 			Hashtable<Etats, Integer> stats = getNeighboursCellState();
 			int trees = stats.get(Etats.ARBRES).intValue(),
-				shrub = stats.get(Etats.ARBUSTE).intValue(),
-				seedlings = stats.get(Etats.JEUNE_POUSSE).intValue();
+				shrub = stats.get(Etats.ARBUSTE).intValue();
 			if (this.state == Etats.VIDE)
 			{
 				if ((trees >= 2) || (shrub >= 3) || (trees >= 1 && shrub >= 2))
 				{
-					this.state = Etats.JEUNE_POUSSE;
+					this.nextState = Etats.JEUNE_POUSSE;
+					this.nextStateApplicability = iteration + 1;
 				}
 				
 			}
 			else if (this.state == Etats.JEUNE_POUSSE)
 			{
 				if ((trees + shrub) <= 3)
-				{
-					this.state = Etats.ARBUSTE;
+				{ 
+					this.nextState = Etats.ARBUSTE;
+					this.nextStateApplicability = iteration + 1;
 				}
 			}
 			else if (this.state == Etats.ARBUSTE)
 			{
-				this.state = Etats.ARBRES;
+				this.nextState = Etats.ARBRES;
+				this.nextStateApplicability = iteration + 2;
 			}
 		}
+		//TODO : Finir les updates pour les modes incendies et infection
 	}
 	
 	public Etats getState()
@@ -58,7 +71,6 @@ public class Cellule implements Affichable
 		return this.state;
 	}
 	
-	@SuppressWarnings("unused")
 	private Hashtable<Etats, Integer> getNeighboursCellState()
 	{
 		Hashtable<Etats, Integer> results = new Hashtable<Etats, Integer>();
