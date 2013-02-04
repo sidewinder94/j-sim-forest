@@ -10,7 +10,9 @@ public class Cellule implements Affichable
 	Etats state;
 	Mode mode;
 	Cellule[][] grid;
-	
+	/*
+	 * TODO : Création d'attributs contenants le prochain état et le tour auquel il sera appliqué
+	 * */
 	public Cellule(int size_x, int size_y, Cellule[][] grid, Mode mode)
 	{
 		this.position = new int[2];
@@ -25,9 +27,28 @@ public class Cellule implements Affichable
 	{		
 		if (this.mode == Mode.FORESTIER)
 		{
+			Hashtable<Etats, Integer> stats = getNeighboursCellState();
+			int trees = stats.get(Etats.ARBRES).intValue(),
+				shrub = stats.get(Etats.ARBUSTE).intValue(),
+				seedlings = stats.get(Etats.JEUNE_POUSSE).intValue();
 			if (this.state == Etats.VIDE)
 			{
-				int trees;
+				if ((trees >= 2) || (shrub >= 3) || (trees >= 1 && shrub >= 2))
+				{
+					this.state = Etats.JEUNE_POUSSE;
+				}
+				
+			}
+			else if (this.state == Etats.JEUNE_POUSSE)
+			{
+				if ((trees + shrub) <= 3)
+				{
+					this.state = Etats.ARBUSTE;
+				}
+			}
+			else if (this.state == Etats.ARBUSTE)
+			{
+				this.state = Etats.ARBRES;
 			}
 		}
 	}
