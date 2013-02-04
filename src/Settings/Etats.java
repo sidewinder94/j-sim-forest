@@ -1,13 +1,13 @@
 package Settings;
 
 public enum Etats {
-	ARBRES("Arbres"),
-	ARBUSTE("Arbuste"), 
-	CENDRE("Cendre"),
-	FEU("Feu"),
-	INFECTE("Infecté"),
-	JEUNE_POUSSE("Jeune Pousse"),
-	VIDE("Vide");
+	ARBRES("1"),
+	ARBUSTE("2"), 
+	CENDRE("3"),
+	FEU("4"),
+	INFECTE("5"),
+	JEUNE_POUSSE("6"),
+	VIDE("7");
 	
 	public final String etats;
 	
