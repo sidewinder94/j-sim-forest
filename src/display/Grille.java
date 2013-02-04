@@ -1,5 +1,7 @@
 package display;
 
+import Settings.*;
+
 public class Grille implements Affichable
 {
 	Cellule[][] grille;
@@ -10,7 +12,8 @@ public class Grille implements Affichable
 		{
 			for (int j = 0; j < size_y; i++)
 			{
-				this.grille[size_x][size_y] = new Cellule(size_x, size_y);
+				//TODO compléter
+				this.grille[size_x][size_y] = new Cellule(size_x, size_y, this.grille,Mode.FORESTIER);
 			}
 		}
 	}
