@@ -46,7 +46,7 @@ public class FenêtreSave {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 354, 214);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(new FormLayout(new ColumnSpec[] {
 				ColumnSpec.decode("30px"),
 				ColumnSpec.decode("193px"),
