@@ -23,7 +23,13 @@ public class Cellule implements Affichable
 	@Override
 	public void update() 
 	{		
-		
+		if (this.mode == Mode.FORESTIER)
+		{
+			if (this.state == Etats.VIDE)
+			{
+				int trees;
+			}
+		}
 	}
 	
 	public Etats getState()
