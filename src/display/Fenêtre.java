@@ -113,11 +113,11 @@ public class Fenêtre {
 		panel = new JPanel();
 		panel.setForeground(new Color(0, 0, 0));
 		GridBagConstraints gbc_panel = new GridBagConstraints();
-		gbc_panel.gridwidth = 3;
+		gbc_panel.gridwidth = 4;
 		gbc_panel.gridheight = 8;
 		gbc_panel.insets = new Insets(0, 0, 5, 5);
 		gbc_panel.fill = GridBagConstraints.BOTH;
-		gbc_panel.gridx = 1;
+		gbc_panel.gridx = 0;
 		gbc_panel.gridy = 1;
 		frame.getContentPane().add(panel, gbc_panel);
 		panel.setLayout(new BorderLayout(0, 0));
