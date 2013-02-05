@@ -63,7 +63,7 @@ public class Cellule implements Affichable
 				this.nextStateApplicability = iteration + 2;
 			}
 		}
-		//TODO : Finir les updates pour les modes incendies et infection
+		//TODO : Finir les updates pour les modes incendies et infection 
 	}
 	
 	public Etats getState()
