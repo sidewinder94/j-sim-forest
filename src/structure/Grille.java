@@ -1,5 +1,4 @@
-
-package display;
+package structure;
 import java.util.*;
 
 import Settings.*;

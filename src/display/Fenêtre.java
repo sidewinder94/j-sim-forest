@@ -101,7 +101,6 @@ public class Fenêtre {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		
 		frame = new JFrame();
 		frame.setBounds(100, 100, 520, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
