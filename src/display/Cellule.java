@@ -4,7 +4,7 @@ import Settings.*;
 
 import java.util.*;
 
-public class Cellule implements Affichable
+public class Cellule
 {
 	int[] position;
 	Etats state;
@@ -25,7 +25,6 @@ public class Cellule implements Affichable
 		this.nextStateApplicability = -1;
 	}
 
-	@Override
 	public void update(int iteration) 
 	{	
 		if (nextStateApplicability >= iteration)
@@ -86,13 +85,14 @@ public class Cellule implements Affichable
 		
 		for (int i = startPos_x; i < max_x; i++)
 		{
-			for (int j = startPos_y; j < max_y; i++)
+			for (int j = startPos_y; j < max_y; j++)
 			{
 				Etats state = this.grid[i][j].getState();
 				try 
 				{
 					Integer temp = results.get(state);
 					temp++;
+					results.remove(state);
 					results.put(state, temp);
 				} catch (NullPointerException e) 
 				{
