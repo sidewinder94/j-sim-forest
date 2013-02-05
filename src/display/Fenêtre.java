@@ -38,6 +38,7 @@ public class Fenêtre {
 	private JPanel panel;
 	private JButton btnQuitter;
 	private JScrollPane scrollPane;
+	FenêtreSave Importation;
 
 	/**
 	 * Classe MouseListener permettant de réaliser des actions souris sur les controles
@@ -266,8 +267,15 @@ public class Fenêtre {
 		{
 			public void mouseClicked(MouseEvent e) 
 			{
-			FenêtreSave Importation = new FenêtreSave();
-			Importation.getFrame().setVisible(true);
+				if(Importation != null)
+				{
+					Importation.getFrame().setVisible(true);
+				}
+				else
+				{
+					Importation = new FenêtreSave();
+					Importation.getFrame().setVisible(true);
+				}
 			}
 		});
 		
