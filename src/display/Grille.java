@@ -1,6 +1,9 @@
+
 package display;
 
-import Settings.*;
+
+
+import Settings.*;;
 
 public class Grille implements Affichable
 {
