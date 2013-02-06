@@ -1,18 +1,11 @@
 package display;
 
 import javax.swing.*;
-
-import structure.Cellule;
-import structure.Grille;
-
+import structure.*;
 import java.awt.*;
 import java.awt.event.*;
 
-import Settings.GridSizes;
-import Settings.Etats;
-import Settings.Mode;
-import Settings.CellSizes;
-import java.awt.Window.Type;
+import Settings.*;
 //TODO : Renommer l'ensemble des contrôles de la fenêtre
 public class Fenêtre {
 
@@ -213,6 +206,20 @@ public class Fenêtre {
 		frmJsimForest.getContentPane().add(lblTailleDuneCellule, gbc_lblTailleDuneCellule);
 		
 		comboBox_2 = new JComboBox();
+		comboBox_2.addItemListener(new ItemListener() {
+			public void itemStateChanged(ItemEvent arg0) {
+				if (arg0.getStateChange() == ItemEvent.SELECTED)
+				{
+					GridSizes gridSize = (GridSizes)comboBox_1.getSelectedItem();
+					CellSizes cellSize = (CellSizes)comboBox_2.getSelectedItem();
+					int size = gridSize.getEtats() * cellSize.getCellSize();
+					grid.setCote(cellSize.getCellSize());
+					grid.setPreferredSize(new Dimension(size, size));
+					grid.repaint();
+					scrollPane.setViewportView(grid);
+				}
+			}
+		});
 		comboBox_2.setModel(new DefaultComboBoxModel(CellSizes.values()));
 		GridBagConstraints gbc_comboBox_2 = new GridBagConstraints();
 		gbc_comboBox_2.insets = new Insets(0, 0, 5, 0);
@@ -271,13 +278,14 @@ public class Fenêtre {
 			public void mouseClicked(MouseEvent e)
 			{
 				JScrollPane pane = (JScrollPane)this.data;
-				grid = new AffGrille();
+				
 				GridSizes gridSize = (GridSizes)comboBox_1.getSelectedItem();
 				CellSizes cellSize = (CellSizes)comboBox_2.getSelectedItem();
 				grille = new Grille(gridSize.getEtats(), 
 									gridSize.getEtats(),
 									(Mode)comboBox.getSelectedItem());
 				
+				grid = new AffGrille(grille.getGrille());
 				
 				grid.setTaille(gridSize.getEtats());
 				grid.setCote(cellSize.getCellSize());
@@ -307,6 +315,7 @@ public class Fenêtre {
 						
 						Cellule[][] cells = grille.getGrille();
 						cells[x][y].setState((Etats)comboBox_3.getSelectedItem());
+						//grid.repaint();
 						System.out.println("Cellule n° " + grid.numero + "\nx : " + x + "\ty : " + y + "\nÉtat : " + cells[x][y].getState());
 					}
 				});
@@ -426,7 +435,14 @@ class AffGrille extends JPanel { // Classe personnelle qui crée une grile
 	private int taille; //Nombre de polygones de cotés
 	int numero = 0; // Retien le n° du polygone sur lequel est la souris
 	Polygon pol;
+	Cellule[][] grid;
 
+	public AffGrille(Cellule[][] grid)
+	{
+		super();
+		this.grid = grid;
+	}
+	
 	//Getters - Setters
 	public int getTaille() {
 		return taille;
@@ -464,13 +480,17 @@ class AffGrille extends JPanel { // Classe personnelle qui crée une grile
 
 			for (int c = 0; c < this.taille; c++) {// largeur
 				Point p;
+				Etats state = this.grid[l][c].getState();
 				p = getMousePosition();
 				Polygon poly = getPolygon(c * r.width, (int) (l * cote), cote);
+				g2d.setPaint(getColor(state));
+				g2d.fill(poly);
 				if (p != null && poly.contains(p)) {
 					hovered = new Point(c * r.width, (int) (l * cote));
 					numero = l * this.taille + c;
 					pol = poly;
 				}
+				g2d.setPaint(new Color(0,0,0));
 				g2d.draw(poly);
 			}
 		}
@@ -482,6 +502,23 @@ class AffGrille extends JPanel { // Classe personnelle qui crée une grile
 		}
 	}
 
+	private Color getColor(Etats state)
+	{
+		//TODO : ajouter codes coleurs restants
+		switch (state) {
+		case VIDE:
+			return Color.white;
+		case JEUNE_POUSSE:
+			return new Color(148,202,81);
+		case ARBUSTE:
+			return new Color(45,154,70);
+		case ARBRES:
+			return new Color(27,72,34);
+		default:
+			return Color.white;
+		}
+	}
+	
 	public Polygon getPolHover() {
 		return pol;
 	}

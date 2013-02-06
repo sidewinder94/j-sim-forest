@@ -1,7 +1,6 @@
 package structure;
 
 import Settings.*;
-
 import java.util.*;
 
 public class Cellule
