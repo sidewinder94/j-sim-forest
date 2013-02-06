@@ -475,7 +475,7 @@ class AffGrille extends JPanel { // Classe personnelle qui crée une grile
 			}
 		}
 		if (hovered != null) {
-			arg0.setColor(Color.red);
+			arg0.setColor(Color.BLACK);
 			g2d.setStroke(bs3);
 			Polygon p = getPolygon(hovered.x, hovered.y, cote);
 			g2d.draw(p);
