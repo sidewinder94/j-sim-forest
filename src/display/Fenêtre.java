@@ -36,6 +36,8 @@ public class Fenêtre {
 	private JComboBox comboBox_3;
 	private JLabel lbltatDeLa;
 	private Grille grille;
+	private Timer timer;
+	private int iteration;
 
 	/**
 	 * Classe MouseListener permettant de réaliser des actions souris sur les controles
@@ -190,12 +192,40 @@ public class Fenêtre {
 		gbc_btnPleincran.gridy = 6;
 		frmJsimForest.getContentPane().add(btnPleincran, gbc_btnPleincran);
 		
+		
+		
 		btnLancerLaSimulation = new JButton("Lancer la simulation");
 		GridBagConstraints gbc_btnLancerLaSimulation = new GridBagConstraints();
 		gbc_btnLancerLaSimulation.insets = new Insets(0, 0, 5, 5);
 		gbc_btnLancerLaSimulation.gridx = 5;
 		gbc_btnLancerLaSimulation.gridy = 7;
 		frmJsimForest.getContentPane().add(btnLancerLaSimulation, gbc_btnLancerLaSimulation);
+		btnLancerLaSimulation.addMouseListener(new MouseAbstractListener(){
+			@Override
+			public void mouseClicked(MouseEvent e)
+			{//TODO
+				iteration = 0;
+				timer = new Timer(Integer.parseInt(txtChoixPas.getText()), new ActionListener(){
+
+					@Override
+					public void actionPerformed(ActionEvent arg0) 
+					{
+						System.out.println("tick !");
+						timer.stop();
+						grille.update(iteration);
+						iteration++;
+						grid.repaint();
+						if (iteration < Integer.parseInt(txtChoixPas.getText()))
+						{
+							timer.start();
+						}
+					}
+					
+				});
+				timer.start();
+			}
+			
+		});
 		
 		lblTailleDuneCellule = new JLabel("Taille d'une cellule : ");
 		GridBagConstraints gbc_lblTailleDuneCellule = new GridBagConstraints();

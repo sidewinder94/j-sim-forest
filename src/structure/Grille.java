@@ -28,7 +28,7 @@ public class Grille
 	{
 		for (int i = 0 ; i < this.grille.length; i++)
 		{
-			for(int j = 0 ; j < this.grille[i].length; i++)
+			for(int j = 0 ; j < this.grille[i].length; j++)
 			{
 				this.grille[i][j].update(iteration);
 			}
