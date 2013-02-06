@@ -7,7 +7,7 @@ import Settings.GridSizes;
 import Settings.Etats;
 import Settings.Mode;
 import Settings.CellSizes;
-
+//TODO : Renommer l'ensemble des contrôles de la fenêtre
 public class Fenêtre {
 
 	private JFrame frame;
@@ -221,7 +221,6 @@ public class Fenêtre {
 		
 		comboBox_1 = new JComboBox();
 		comboBox_1.setModel(new DefaultComboBoxModel(GridSizes.values()));
-		comboBox_1.setEditable(true);
 		GridBagConstraints gbc_comboBox_1 = new GridBagConstraints();
 		gbc_comboBox_1.insets = new Insets(0, 0, 5, 5);
 		gbc_comboBox_1.fill = GridBagConstraints.HORIZONTAL;
@@ -231,7 +230,6 @@ public class Fenêtre {
 		
 		btnNewButton_1 = new JButton("G\u00E9n\u00E9rer la grille");
 		btnNewButton_1.addMouseListener(new MouseAbstractListener(this.scrollPane){
-			//TODO
 			@Override
 			public void mouseClicked(MouseEvent e)
 			{
@@ -247,6 +245,29 @@ public class Fenêtre {
 				
 				grid.setPreferredSize(new Dimension(size,size));
 				pane.setViewportView(grid);
+				
+				grid.addMouseMotionListener(new MouseMotionListener() {
+					Polygon p; //création d'un polygone vide
+
+					@Override//Useless
+					public void mouseDragged(MouseEvent arg0) {
+						// TODO Auto-generated method stub
+					}
+
+					@Override//
+					public void mouseMoved(MouseEvent arg0) 
+					{
+						grid.repaint();
+					}
+				});// Repeint jp2 lorsque la souris se déplace
+				grid.addMouseListener(new MouseAbstractListener()
+				{
+					public void mouseClicked(MouseEvent arg0)
+					{
+						super.mouseClicked(arg0);
+						JOptionPane.showMessageDialog(null, "Tuile n° " + grid.numero);
+					}
+				});
 			}
 			
 			
