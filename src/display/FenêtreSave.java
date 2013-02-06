@@ -2,12 +2,9 @@ package display;
 
 import java.awt.EventQueue;
 
-import javax.swing.JFrame;
-import java.awt.GridBagLayout;
-import javax.swing.JComboBox;
-import java.awt.GridBagConstraints;
-import javax.swing.JButton;
-import java.awt.Insets;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.factories.FormFactory;

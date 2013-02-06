@@ -27,7 +27,7 @@ public class Fenêtre {
 	private JPanel panel;
 	private JButton btnQuitter;
 	private JScrollPane scrollPane;
-	FenêtreSave Importation;
+	private FenêtreSave Importation;
 	private JComboBox comboBox_1;
 	private JLabel lblChoixTaille;
 	private JButton btnNewButton_1;
@@ -247,14 +247,11 @@ public class Fenêtre {
 				pane.setViewportView(grid);
 				
 				grid.addMouseMotionListener(new MouseMotionListener() {
-					Polygon p; //création d'un polygone vide
 
 					@Override//Useless
-					public void mouseDragged(MouseEvent arg0) {
-						// TODO Auto-generated method stub
-					}
+					public void mouseDragged(MouseEvent arg0) {}
 
-					@Override//
+					@Override
 					public void mouseMoved(MouseEvent arg0) 
 					{
 						grid.repaint();

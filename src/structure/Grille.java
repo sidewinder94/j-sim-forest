@@ -7,6 +7,10 @@ public class Grille
 {
 	private Cellule[][] grille;
 	
+	public Cellule[][] getGrille() {
+		return grille;
+	}
+
 	public Grille(int size_x,int size_y,Mode mode)
 	{
 		this.grille = new Cellule[size_x][size_y];
@@ -37,7 +41,6 @@ public class Grille
 		Hashtable<Etats, Float> result = new Hashtable<Etats, Float>();
 		Hashtable<Etats, Integer> table = new Hashtable<Etats, Integer>();
 		
-		//TODO : Compléter les calculs de densités
 		//On compte le nombre total de cellules
 		int size_x = this.grille.length,
 			size_y = this.grille[0].length,

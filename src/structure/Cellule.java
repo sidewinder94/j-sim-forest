@@ -12,9 +12,7 @@ public class Cellule
 	Cellule[][] grid;
 	Etats nextState;
 	int nextStateApplicability;
-	/*
-	 * TODO : Création d'attributs contenants le prochain état et le tour auquel il sera appliqué
-	 * */
+	
 	public Cellule(int size_x, int size_y, Cellule[][] grid, Mode mode)
 	{
 		this.position = new int[2];
@@ -63,6 +61,10 @@ public class Cellule
 			}
 		}
 		//TODO : Finir les updates pour les modes incendies et infection 
+	}
+	
+	public void setState(Etats state) {
+		this.state = state;
 	}
 	
 	public Etats getState()
