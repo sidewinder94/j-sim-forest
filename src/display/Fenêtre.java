@@ -2,6 +2,7 @@ package display;
 
 import javax.swing.*;
 import structure.*;
+
 import java.awt.*;
 import java.awt.event.*;
 
@@ -212,9 +213,10 @@ public class Fenêtre {
 					{
 						System.out.println("tick !");
 						timer.stop();
-						grille.update(iteration);
-						iteration++;
+						grille = grille.update(iteration);
+						grid = new AffGrille(grille.getGrille());	
 						grid.repaint();
+						iteration++;
 						if (iteration < Integer.parseInt(txtChoixPas.getText()))
 						{
 							timer.start();
@@ -473,6 +475,10 @@ class AffGrille extends JPanel { // Classe personnelle qui crée une grile
 		this.grid = grid;
 	}
 	
+	public AffGrille(Grille grille) {
+		// TODO Auto-generated constructor stub
+	}
+
 	//Getters - Setters
 	public int getTaille() {
 		return taille;
