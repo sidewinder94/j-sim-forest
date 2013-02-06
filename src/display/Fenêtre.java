@@ -357,6 +357,21 @@ public class Fenêtre {
 			}
 		});
 	}
+
+	private void displayGrid()
+	{
+		
+	}
+	
+	private void updateGrid()
+	{
+		
+	}
+	
+	private void gridClicked()
+	{
+		
+	}
 }
 
 @SuppressWarnings("serial")
