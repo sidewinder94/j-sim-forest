@@ -207,7 +207,6 @@ public class Fenêtre {
 			{//TODO
 				iteration = 0;
 				timer = new Timer(Integer.parseInt(txtDlai.getText()), new ActionListener(){
-
 					@Override
 					public void actionPerformed(ActionEvent arg0) 
 					{
