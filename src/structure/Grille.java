@@ -24,10 +24,11 @@ public class Grille
 		}
 	}
 	
-	public Grille update(int iteration) 
+	public Grille update(int iteration, Mode mode) 
 	{
 		for (int i = 0; i < this.grille.length; i++) {
 			for (int j = 0; j < this.grille[i].length; j++) {
+				this.grille[i][j].setMode(mode);
 				this.grille[i][j].update(iteration);
 			}
 		}

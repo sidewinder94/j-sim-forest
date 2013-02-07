@@ -1,6 +1,7 @@
 package display;
 
 import javax.swing.*;
+
 import structure.*;
 
 import java.awt.*;
@@ -39,6 +40,7 @@ public class Fenêtre {
 	private Grille grille;
 	private Timer timer;
 	private int iteration;
+	private ComboBoxModel[] models = new ComboBoxModel[3];
 
 	/**
 	 * Classe MouseListener permettant de réaliser des actions souris sur les controles
@@ -207,21 +209,15 @@ public class Fenêtre {
 			{//TODO
 				iteration = 0;
 				timer = new Timer(Integer.parseInt(txtDlai.getText()), new ActionListener(){
-
 					@Override
 					public void actionPerformed(ActionEvent arg0) 
 					{
 						System.out.println("tick !" + iteration);
 						timer.stop();
-						if (iteration == 0)
-						{
-							grille = grille.update(iteration);
-							iteration++;
-						}
-						grille = grille.update(iteration);
+						grille = grille.update(iteration, (Mode)comboBox.getSelectedItem());
 						iteration++;
 						grid.repaint();
-						if (iteration < Integer.parseInt(txtChoixPas.getText()))
+						if (iteration <= Integer.parseInt(txtChoixPas.getText()))
 						{
 							timer.start();
 						}
@@ -383,6 +379,42 @@ public class Fenêtre {
 		txtChoixPas.setColumns(10);
 		
 		comboBox = new JComboBox();
+		comboBox.addItemListener(new ItemListener() {
+			
+			public void itemStateChanged(ItemEvent e) {
+				if((Mode)comboBox.getSelectedItem() == Mode.FORESTIER){
+					models[0] = new DefaultComboBoxModel(
+						new Etats[]{
+							Etats.JEUNE_POUSSE,
+							Etats.ARBUSTE,
+							Etats.ARBRES,
+							Etats.VIDE});
+					comboBox_3.setModel(models[0]);
+				}
+				else if((Mode)comboBox.getSelectedItem() == Mode.INCENDIE){
+					models[1] = new DefaultComboBoxModel(
+						new Etats[]{
+							Etats.JEUNE_POUSSE, 
+							Etats.ARBUSTE,	
+							Etats.ARBRES, 
+							Etats.FEU,
+							Etats.CENDRE, 
+							Etats.VIDE});
+					comboBox_3.setModel(models[1]);
+				}
+				else if((Mode)comboBox.getSelectedItem() == Mode.INSECTES){
+					models[2] = new DefaultComboBoxModel(
+						new Etats[]{
+							Etats.JEUNE_POUSSE, 
+							Etats.ARBUSTE,	
+							Etats.ARBRES, 
+							Etats.INFECTE,
+							Etats.VIDE});
+					comboBox_3.setModel(models[2]);
+				}
+				
+			}
+		});
 		comboBox.setModel(new DefaultComboBoxModel(Mode.values()));
 		GridBagConstraints gbc_comboBox = new GridBagConstraints();
 		gbc_comboBox.fill = GridBagConstraints.HORIZONTAL;
@@ -452,21 +484,6 @@ public class Fenêtre {
 				}
 			}
 		});
-	}
-
-	private void displayGrid()
-	{
-		
-	}
-	
-	private void updateGrid()
-	{
-		
-	}
-	
-	private void gridClicked()
-	{
-		
 	}
 }
 
@@ -564,6 +581,12 @@ class AffGrille extends JPanel { /**
 			return new Color(45,154,70);
 		case ARBRES:
 			return new Color(27,72,34);
+		case FEU:
+			return new Color(238, 31, 37);
+		case CENDRE:
+			return new Color(129, 130, 129);
+		case INFECTE:
+			return new Color(109, 58, 150);
 		default:
 			return Color.white;
 		}
