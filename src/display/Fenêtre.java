@@ -596,6 +596,12 @@ class AffGrille extends JPanel { /**
 			return new Color(45,154,70);
 		case ARBRES:
 			return new Color(27,72,34);
+		case FEU:
+			return new Color(238, 31, 37);
+		case CENDRE:
+			return new Color(129, 130, 129);
+		case INFECTE:
+			return new Color(109, 58, 150);
 		default:
 			return Color.white;
 		}
