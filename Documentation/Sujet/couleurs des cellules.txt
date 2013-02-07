@@ -1,0 +1,6 @@
+jeune pousse : (248, 202, 81)
+arbuste : (45, 154, 70)
+arbre : (27, 72, 34)
+en feu : (238, 31, 37)
+en cendre : (129, 130, 129)
+infecté : (109, 58, 150)
