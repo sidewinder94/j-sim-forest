@@ -214,7 +214,7 @@ public class Fenêtre {
 					{
 						System.out.println("tick !" + iteration);
 						timer.stop();
-						grille = grille.update(iteration);
+						grille = grille.update(iteration, (Mode)comboBox.getSelectedItem());
 						iteration++;
 						grid.repaint();
 						if (iteration <= Integer.parseInt(txtChoixPas.getText()))
@@ -484,21 +484,6 @@ public class Fenêtre {
 				}
 			}
 		});
-	}
-
-	private void displayGrid()
-	{
-		
-	}
-	
-	private void updateGrid()
-	{
-		
-	}
-	
-	private void gridClicked()
-	{
-		
 	}
 }
 
