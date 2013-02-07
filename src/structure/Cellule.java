@@ -20,7 +20,11 @@ public class Cellule {
 		this.grid = grid;
 		this.nextStateApplicability = -1;
 	}
-
+	public void setMode(Mode mode)
+	{
+		this.mode = mode;
+	}
+	
 	public void update(int iteration) {
 		// System.out.println(iteration + this.nextStateApplicability);
 		if (nextStateApplicability >= iteration) {
