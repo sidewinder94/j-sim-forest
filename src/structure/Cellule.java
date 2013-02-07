@@ -184,6 +184,7 @@ public class Cellule {
 					+ delta_y].getState();
 		} catch (ArrayIndexOutOfBoundsException e) {
 			return Etats.VIDE;
+			
 		}
 	}
 }

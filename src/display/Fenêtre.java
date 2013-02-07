@@ -1,9 +1,7 @@
 package display;
 
 import javax.swing.*;
-
 import structure.*;
-
 import java.awt.*;
 import java.awt.event.*;
 
@@ -104,6 +102,7 @@ public class Fenêtre {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+				
 		frmJsimForest = new JFrame();
 		frmJsimForest.setTitle("J-Sim Forest");
 		frmJsimForest.setMinimumSize(new Dimension(700, 360));
@@ -214,10 +213,10 @@ public class Fenêtre {
 					{
 						System.out.println("tick !" + iteration);
 						timer.stop();
-						grille = grille.update(iteration, (Mode)comboBox.getSelectedItem());
+						grille.update(iteration, (Mode)comboBox.getSelectedItem());
 						iteration++;
 						grid.repaint();
-						if (iteration <= Integer.parseInt(txtChoixPas.getText()))
+						if (iteration <= (Integer.parseInt(txtChoixPas.getText())+1))
 						{
 							timer.start();
 						}
@@ -544,7 +543,6 @@ class AffGrille extends JPanel { /**
 		BasicStroke bs3 = new BasicStroke(3);// Idem
 		g2d.setStroke(bs1);
 		for (int l = 0; l < this.taille; l++) {// hauteur
-
 			for (int c = 0; c < this.taille; c++) {// largeur
 				Point p;
 				Etats state = this.grid[l][c].getState();
