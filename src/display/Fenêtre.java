@@ -213,6 +213,11 @@ public class Fenêtre {
 					{
 						System.out.println("tick !" + iteration);
 						timer.stop();
+						if (iteration == 0)
+						{
+							grille = grille.update(iteration);
+							iteration++;
+						}
 						grille = grille.update(iteration);
 						iteration++;
 						grid.repaint();
@@ -247,6 +252,8 @@ public class Fenêtre {
 					grid.setPreferredSize(new Dimension(size, size));
 					grid.repaint();
 					scrollPane.setViewportView(grid);
+					scrollPane.getVerticalScrollBar().setUnitIncrement(cellSize.getCellSize());
+					scrollPane.getHorizontalScrollBar().setUnitIncrement(cellSize.getCellSize());
 				}
 			}
 		});
