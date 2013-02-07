@@ -248,9 +248,14 @@ public class Fenêtre {
 					GridSizes gridSize = (GridSizes)comboBox_1.getSelectedItem();
 					CellSizes cellSize = (CellSizes)comboBox_2.getSelectedItem();
 					int size = gridSize.getEtats() * cellSize.getCellSize();
-					grid.setCote(cellSize.getCellSize());
-					grid.setPreferredSize(new Dimension(size, size));
-					grid.repaint();
+					try
+					{
+						grid.setCote(cellSize.getCellSize());
+						grid.setPreferredSize(new Dimension(size, size));
+						grid.repaint();
+					}
+					catch (Exception e){}
+
 					scrollPane.setViewportView(grid);
 					scrollPane.getVerticalScrollBar().setUnitIncrement(cellSize.getCellSize());
 					scrollPane.getHorizontalScrollBar().setUnitIncrement(cellSize.getCellSize());
