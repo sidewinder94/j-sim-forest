@@ -212,15 +212,10 @@ public class Fenêtre {
 					{
 						System.out.println("tick !" + iteration);
 						timer.stop();
-						if (iteration == 0)
-						{
-							grille = grille.update(iteration);
-							iteration++;
-						}
 						grille = grille.update(iteration);
 						iteration++;
 						grid.repaint();
-						if (iteration < Integer.parseInt(txtChoixPas.getText()))
+						if (iteration <= Integer.parseInt(txtChoixPas.getText()))
 						{
 							timer.start();
 						}
