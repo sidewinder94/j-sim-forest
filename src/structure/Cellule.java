@@ -30,7 +30,7 @@ public class Cellule {
 		} else if (this.mode == Mode.FORESTIER) {
 
 			int trees, shrub;
-			Hashtable<Etats, Integer> stats = getNeighboursCellState();
+			Hashtable<Etats, Integer> stats = getMooreNeighboursCellState();
 			try {
 				trees = stats.get(Etats.ARBRES).intValue();
 			} catch (NullPointerException e) {
@@ -60,6 +60,56 @@ public class Cellule {
 				this.nextState = Etats.ARBRES;
 				this.nextStateApplicability = iteration + 2;
 			}
+		} else if (this.mode == Mode.INCENDIE){
+			
+			int fired = (int)(Math.random() * 100),
+				inFire = 0;
+
+			Hashtable<Etats, Integer> stats = getMooreNeighboursCellState();
+			
+			try 
+			{
+				inFire = stats.get(Etats.FEU).intValue();
+			} 
+			catch (NullPointerException e) {}
+			
+			if (this.state == Etats.JEUNE_POUSSE)
+			{
+				if (fired > 75)
+				{
+					this.nextState = Etats.FEU;
+					this.nextStateApplicability = iteration + 1;
+				}
+			}
+			else if (this.state == Etats.ARBUSTE)
+			{
+				if (fired > 50)
+				{
+					this.nextState = Etats.FEU;
+					this.nextStateApplicability = iteration + 1;
+				}
+			}
+			else if (this.state == Etats.ARBRES)
+			{
+				if (fired > 25)
+				{
+					this.nextState = Etats.FEU;
+					this.nextStateApplicability = iteration + 1;
+				}
+			}
+			else if (this.state == Etats.FEU)
+			{
+				this.nextState = Etats.CENDRE;
+				this.nextStateApplicability = iteration + 1;
+			}
+			else if (this.state == Etats.CENDRE)
+			{
+				this.nextState = Etats.VIDE;
+				this.nextStateApplicability = iteration +1;
+			}
+			
+		} else if (this.mode == Mode.INSECTES){
+			
 		}
 		// TODO : Finir les updates pour les modes incendies et infection
 	}
@@ -71,47 +121,8 @@ public class Cellule {
 	public Etats getState() {
 		return this.state;
 	}
-	/*
-	private Hashtable<Etats, Integer> getNeighboursCellState() {
-		Hashtable<Etats, Integer> results = new Hashtable<Etats, Integer>();
 
-		//Position de début de la recherche
-		int startPos_x = this.position[0],
-			startPos_y = this.position[1];
-		
-		//Coordonnées de fin de la recherche et taille max de la grille
-		int max_x = this.grid.length,
-			max_y = this.grid[0].length,
-			endPos_x = this.position[0] + 1,
-			endPos_y = this.position[1] + 1;
-		
-		//Limite la fin de la recherche aux bornes de la grille
-		if (max_x < endPos_x){endPos_x = max_x;}
-		if (max_y < endPos_y){endPos_y = max_y;}
-		
-		//Si la case de départ est en début de grille, on n'analyse pas les cases précédentes
-		if (this.position[0] != 0){startPos_x--;}
-		if (this.position[1] != 0){startPos_y--;}
-
-		//On commence a boucler depuis le début de la recherche
-		for (int i = startPos_x; i < endPos_x; i++) {
-			for (int j = startPos_y; j < endPos_y; j++) {
-				if ((i != this.position[0])&&(j != this.position[1])) {
-					Etats state = this.grid[i][j].getState();
-					try {
-						Integer temp = results.get(state);
-						temp++;
-						results.remove(state);
-						results.put(state, temp);
-					} catch (NullPointerException e) {
-						results.put(state, new Integer(1));
-					}
-				}
-			}
-		}
-		return results;
-	}*/
-	private Hashtable<Etats, Integer> getNeighboursCellState() {
+	private Hashtable<Etats, Integer> getMooreNeighboursCellState() {
 		Hashtable<Etats, Integer> results = new Hashtable<Etats, Integer>();
 		List<Etats> states = new ArrayList<Etats>();
 		states.add(getCellState(-1,-1));
