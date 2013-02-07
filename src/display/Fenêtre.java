@@ -206,17 +206,16 @@ public class Fenêtre {
 			public void mouseClicked(MouseEvent e)
 			{//TODO
 				iteration = 0;
-				timer = new Timer(Integer.parseInt(txtChoixPas.getText()), new ActionListener(){
+				timer = new Timer(Integer.parseInt(txtDlai.getText()), new ActionListener(){
 
 					@Override
 					public void actionPerformed(ActionEvent arg0) 
 					{
-						System.out.println("tick !");
+						System.out.println("tick !" + iteration);
 						timer.stop();
 						grille = grille.update(iteration);
-						grid = new AffGrille(grille.getGrille());	
-						grid.repaint();
 						iteration++;
+						grid.repaint();
 						if (iteration < Integer.parseInt(txtChoixPas.getText()))
 						{
 							timer.start();
@@ -226,7 +225,6 @@ public class Fenêtre {
 				});
 				timer.start();
 			}
-			
 		});
 		
 		lblTailleDuneCellule = new JLabel("Taille d'une cellule : ");
@@ -460,8 +458,12 @@ public class Fenêtre {
 	}
 }
 
-@SuppressWarnings("serial")
-class AffGrille extends JPanel { // Classe personnelle qui crée une grile
+
+class AffGrille extends JPanel { /**
+	 * 
+	 */
+	private static final long serialVersionUID = 904846388887407799L;
+// Classe personnelle qui crée une grile
 	// hexagonale.
 	int cote; // Ceci définit la taille du côté d'un polygone
 	private int taille; //Nombre de polygones de cotés
