@@ -209,21 +209,15 @@ public class Fenêtre {
 			{//TODO
 				iteration = 0;
 				timer = new Timer(Integer.parseInt(txtDlai.getText()), new ActionListener(){
-
 					@Override
 					public void actionPerformed(ActionEvent arg0) 
 					{
 						System.out.println("tick !" + iteration);
 						timer.stop();
-						if (iteration == 0)
-						{
-							grille = grille.update(iteration);
-							iteration++;
-						}
 						grille = grille.update(iteration);
 						iteration++;
 						grid.repaint();
-						if (iteration < Integer.parseInt(txtChoixPas.getText()))
+						if (iteration <= Integer.parseInt(txtChoixPas.getText()))
 						{
 							timer.start();
 						}
