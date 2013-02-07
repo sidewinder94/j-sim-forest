@@ -122,7 +122,6 @@ public class Cellule {
 				this.nextStateApplicability = iteration + 1;
 			}
 		}
-		// TODO : Finir l'update pour le mode infection
 	}
 
 	public void setState(Etats state) {
