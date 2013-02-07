@@ -30,7 +30,9 @@ public class DataBaseAccess {
 		    {
 		        try
 		        {
-		            Class.forName("org.sqlite.JDBC");
+		        	Class.forName("org.sqlite.JDBC");
+		        	dbName = "C:\\Users\\arnaud\\git\\j-sim-forest\\JSimBDD.sqlite";
+		        	
 		        }
 		        catch (ClassNotFoundException e)
 		        {
@@ -76,11 +78,11 @@ public class DataBaseAccess {
 		    }
 	        //classe qui permet de récupérer le résultat d'un sélect
 	
-		    public ResultSet getResultOf (String requete)
+		    public ResultSet getName ()
 		    {
 		        try
 		        {
-		            return this.statement.executeQuery(requete);
+		            return this.statement.executeQuery("SELECT DISTINCT * FROM PARAMETRES");
 		        }
 		        catch (SQLException e)
 		        {
@@ -90,11 +92,12 @@ public class DataBaseAccess {
 		        return null;
 		    }
 		    // classe qui permet de mettre à jour la BDD
-		    public void updateValue (String requete)
+		    public void Sauvegarde ()
 		    {
 		        try
 		        {
-		            this.statement.executeUpdate(requete);
+		            this.statement.executeUpdate("INSERT INTO PARAMETRES (id_configuration,nb_pas,vitesse,taille_grille_x,taille_grille_y,name) VALUES ()");
+		        
 		        }
 		        catch (SQLException e)
 		        {

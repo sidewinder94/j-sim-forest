@@ -6,6 +6,10 @@ import javax.swing.*;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.*;
+import java.util.ArrayList;
+
+import DataAccess.DataBaseAccess;
 
 import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;
@@ -49,6 +53,7 @@ public class FenêtreSave {
 	}
 
 	private JFrame frame;
+	private DataBaseAccess BDD;
 
 	public JFrame getFrame() {
 		return frame;
@@ -101,7 +106,7 @@ public class FenêtreSave {
 				FormFactory.RELATED_GAP_ROWSPEC,
 				FormFactory.DEFAULT_ROWSPEC,}));
 		
-		JComboBox comboBox = new JComboBox();
+		final JComboBox comboBox = new JComboBox();
 		comboBox.setEditable(true);
 		frame.getContentPane().add(comboBox, "2, 2, fill, center");
 		
@@ -130,7 +135,17 @@ public class FenêtreSave {
 			@Override
 			public void mouseClicked(MouseEvent e)
 			{//TODO
-				System.out.println("Sauvegarder");
+				if(comboBox.toString() == null)
+				{
+					System.out.println("Mettez un nom de fichier");
+				}
+				else
+				{
+					BDD = new DataBaseAccess("C:\\Users\\arnaud\\git\\j-sim-forest\\JSimBDD.sqlite");
+					BDD.Sauvegarde();
+					System.out.println("Sauvegarde effectuée");
+				}
+				
 			}
 		});
 		
@@ -138,7 +153,46 @@ public class FenêtreSave {
 			@Override
 			public void mouseClicked(MouseEvent e)
 			{//TODO
-				System.out.println("Parcourir");
+				try{
+				BDD = new DataBaseAccess("C:\\Users\\arnaud\\git\\j-sim-forest\\JSimBDD.sqlite");
+				BDD.connect();
+				ResultSet rs = BDD.getName();
+				ArrayList<String> temporaire = new ArrayList();
+				if (rs != null) {
+					int j = 0;
+				    do {
+				    	temporaire.add(rs.getString("name"));
+				        
+				    } while (rs.next());
+
+					int i=0;
+					
+					for (String item : temporaire)
+					{
+						
+						comboBox.addItem(item);
+						i++;
+					}
+					
+				}
+				if (rs == null) {
+					System.out.println("Pas de sauvegarde");
+				}
+
+				BDD.disconnect();
+				}
+						catch(SQLException e1)
+						{
+							do {
+						         System.out.println("SQL STATE: " + e1.getSQLState());
+						         System.out.println("ERROR CODE: " + e1.getErrorCode());
+						         System.out.println("MESSAGE: " + e1.getMessage());
+						         System.out.println();
+						         e1 = e1.getNextException();
+						      } while (e1 != null);
+						}
+
+				
 			}
 		});
 		
@@ -154,7 +208,7 @@ public class FenêtreSave {
 			@Override
 			public void mouseClicked(MouseEvent e)
 			{//TODO
-				System.out.println("Merde");
+				System.out.println("paramètres chargés");
 			}
 		});
 		
