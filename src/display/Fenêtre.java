@@ -1,6 +1,7 @@
 package display;
 
 import javax.swing.*;
+
 import structure.*;
 
 import java.awt.*;
@@ -39,6 +40,7 @@ public class Fenêtre {
 	private Grille grille;
 	private Timer timer;
 	private int iteration;
+	private ComboBoxModel[] models = new ComboBoxModel[3];
 
 	/**
 	 * Classe MouseListener permettant de réaliser des actions souris sur les controles
@@ -377,6 +379,42 @@ public class Fenêtre {
 		txtChoixPas.setColumns(10);
 		
 		comboBox = new JComboBox();
+		comboBox.addItemListener(new ItemListener() {
+			
+			public void itemStateChanged(ItemEvent e) {
+				if((Mode)comboBox.getSelectedItem() == Mode.FORESTIER){
+					models[0] = new DefaultComboBoxModel(
+						new Etats[]{
+							Etats.JEUNE_POUSSE,
+							Etats.ARBUSTE,
+							Etats.ARBRES,
+							Etats.VIDE});
+					comboBox_3.setModel(models[0]);
+				}
+				else if((Mode)comboBox.getSelectedItem() == Mode.INCENDIE){
+					models[1] = new DefaultComboBoxModel(
+						new Etats[]{
+							Etats.JEUNE_POUSSE, 
+							Etats.ARBUSTE,	
+							Etats.ARBRES, 
+							Etats.FEU,
+							Etats.CENDRE, 
+							Etats.VIDE});
+					comboBox_3.setModel(models[1]);
+				}
+				else if((Mode)comboBox.getSelectedItem() == Mode.INSECTES){
+					models[2] = new DefaultComboBoxModel(
+						new Etats[]{
+							Etats.JEUNE_POUSSE, 
+							Etats.ARBUSTE,	
+							Etats.ARBRES, 
+							Etats.INFECTE,
+							Etats.VIDE});
+					comboBox_3.setModel(models[2]);
+				}
+				
+			}
+		});
 		comboBox.setModel(new DefaultComboBoxModel(Mode.values()));
 		GridBagConstraints gbc_comboBox = new GridBagConstraints();
 		gbc_comboBox.fill = GridBagConstraints.HORIZONTAL;
