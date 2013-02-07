@@ -102,6 +102,7 @@ public class FenêtreSave {
 				FormFactory.DEFAULT_ROWSPEC,}));
 		
 		JComboBox comboBox = new JComboBox();
+		comboBox.setEditable(true);
 		frame.getContentPane().add(comboBox, "2, 2, fill, center");
 		
 		JButton btnParcourir = new JButton("Parcourir");
