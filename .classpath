@@ -3,6 +3,6 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="forms-1.3.0.jar" sourcepath="forms-1.3.0-src.zip"/>
-	<classpathentry kind="lib" path="C:/Users/Antoine-Ali/git/j-sim-forest/sqlite-jdbc-3.7.2.jar"/>
+	<classpathentry kind="lib" path="F:/GExia/Prosits A2/Projets/UML_Java/j-sim-forest/sqlite-jdbc-3.7.2.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
