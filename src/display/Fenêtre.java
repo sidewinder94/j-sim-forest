@@ -40,16 +40,13 @@ public class Fenêtre {
 	private int iteration;
 	private Fenêtre fenetre;
 	private ComboBoxModel[] models = new ComboBoxModel[3];
-<<<<<<< HEAD
 	private JLabel lblMode;
 	private JButton btnPlaypause;
 	private JButton btnPasPas;
 	private boolean btnPlayPauseIcon = true;
-=======
 	public JTextField getTxtChoixPas() {
 		return txtChoixPas;
 	}
->>>>>>> branch 'master' of https://SocialSupaCrew@bitbucket.org/sidewinder94/j-sim-forest.git
 
 	public void setTxtChoixPas(JTextField txtChoixPas) {
 		this.txtChoixPas = txtChoixPas;
@@ -256,7 +253,6 @@ public class Fenêtre {
 				iteration = 0;
 				btnPlaypause.setVisible(true);
 				btnPlaypause.setEnabled(true);
-				btnPasPas.setVisible(true);
 				timer = new Timer(Integer.parseInt(txtDlai.getText()), new ActionListener(){
 					@Override
 					public void actionPerformed(ActionEvent arg0) 
@@ -415,9 +411,13 @@ public class Fenêtre {
 				btnPlayPauseIcon = !btnPlayPauseIcon;
 				if(btnPlayPauseIcon == true){
 					btnPlaypause.setIcon(new ImageIcon(Fenêtre.class.getResource("/display/bouton_stop.png")));
+					timer.start();
+					btnPasPas.setVisible(false);
 				}
 				else{
 					btnPlaypause.setIcon(new ImageIcon(Fenêtre.class.getResource("/display/bouton_play.png")));
+					timer.stop();
+					btnPasPas.setVisible(true);
 				}
 			}
 		});
@@ -430,6 +430,15 @@ public class Fenêtre {
 		frmJsimForest.getContentPane().add(btnPlaypause, gbc_btnPlaypause);
 		
 		btnPasPas = new JButton("");
+		btnPasPas.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				System.out.println("tick !" + iteration);
+				grille.update(iteration, (Mode)comboBox.getSelectedItem());
+				iteration++;
+				grid.repaint();
+			}
+		});
 		btnPasPas.setVisible(false);
 		btnPasPas.setIcon(new ImageIcon(Fenêtre.class.getResource("/display/bouton_pas_a_pas.png")));
 		GridBagConstraints gbc_btnPasPas = new GridBagConstraints();
