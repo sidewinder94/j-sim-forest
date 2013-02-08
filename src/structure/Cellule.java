@@ -30,6 +30,7 @@ public class Cellule {
 		if (nextStateApplicability >= iteration) {
 			if (nextStateApplicability == iteration) {
 				this.state = this.nextState;
+				this.nextStateApplicability = -1;
 			}
 		} else if (this.mode == Mode.FORESTIER) {
 
