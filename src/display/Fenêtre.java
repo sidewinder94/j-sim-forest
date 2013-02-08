@@ -87,7 +87,6 @@ public class Fenêtre {
 	public void setComboBox_3(JComboBox comboBox_3) {
 		this.comboBox_3 = comboBox_3;
 	}
-	private JButton btnNewButton_1;
 	/**
 	 * Classe MouseListener permettant de réaliser des actions souris sur les controles
 	 */
