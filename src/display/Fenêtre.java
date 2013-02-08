@@ -276,15 +276,22 @@ public class Fenêtre {
 		//TODO: Virer les print
 		comboBox_3 = new JComboBox();
 		Etats etat = Etats.JEUNE_POUSSE;
+		models[0] = new DefaultComboBoxModel(new Etats[]{
+			Etats.JEUNE_POUSSE,
+			Etats.ARBUSTE,
+			Etats.ARBRES,
+			Etats.VIDE
+		});
 		comboBox_3.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent e) {
 				Etats etat = (Etats)comboBox_3.getSelectedItem();
 				System.out.println(etat);
 			}
 		});
-		System.out.println(etat);
+		//System.out.println(etat);
 		
-		comboBox_3.setModel(new DefaultComboBoxModel(Etats.values()));
+		//comboBox_3.setModel(new DefaultComboBoxModel(Etats.values()));
+		comboBox_3.setModel(models[0]);
 		GridBagConstraints gbc_comboBox_3 = new GridBagConstraints();
 		gbc_comboBox_3.insets = new Insets(0, 0, 5, 0);
 		gbc_comboBox_3.fill = GridBagConstraints.HORIZONTAL;
@@ -393,21 +400,21 @@ public class Fenêtre {
 				else if((Mode)comboBox.getSelectedItem() == Mode.INCENDIE){
 					models[1] = new DefaultComboBoxModel(
 						new Etats[]{
-							Etats.JEUNE_POUSSE, 
-							Etats.ARBUSTE,	
-							Etats.ARBRES, 
 							Etats.FEU,
-							Etats.CENDRE, 
+							Etats.CENDRE,
+							Etats.JEUNE_POUSSE,
+							Etats.ARBUSTE,
+							Etats.ARBRES,
 							Etats.VIDE});
 					comboBox_3.setModel(models[1]);
 				}
 				else if((Mode)comboBox.getSelectedItem() == Mode.INSECTES){
 					models[2] = new DefaultComboBoxModel(
 						new Etats[]{
-							Etats.JEUNE_POUSSE, 
-							Etats.ARBUSTE,	
-							Etats.ARBRES, 
 							Etats.INFECTE,
+							Etats.JEUNE_POUSSE,
+							Etats.ARBUSTE,
+							Etats.ARBRES,
 							Etats.VIDE});
 					comboBox_3.setModel(models[2]);
 				}
