@@ -1,19 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <activityRootModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm11="http://schemas.microsoft.com/dsltools/UseCaseModel" dslVersion="1.0.0.0" Id="b22b3ed0-fa6d-4694-833a-57bf3eeea37c" name="Simulation" linkedPackageId="10a6dc37-9787-4fc8-a731-cd86e7657a98" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner">
-  <profileInstances>
-    <packageHasProfileInstances Id="6dbabbb6-0fd4-4e16-8238-ac7426f3643b">
-      <profileInstance Id="c3bd6d4c-074c-4583-9e82-0df6a2d47b5a" name="StandardProfileL2">
-        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
-      </profileInstance>
-      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
-    </packageHasProfileInstances>
-    <packageHasProfileInstances Id="2fc4acc0-50dc-4584-834e-8ceb2f8ac8ae">
-      <profileInstance Id="c286441d-5830-434b-aae7-46edb5781ad9" name="StandardProfileL3">
-        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
-      </profileInstance>
-      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
-    </packageHasProfileInstances>
-  </profileInstances>
   <packagedElements>
     <activityRootModelHasActivity>
       <activity Id="c5f2aa37-04a0-46cb-991c-edfab34ec61b" name="Simulation" isAbstract="false" isLeaf="false" isActiveClass="false" isReentrant="false" isReadOnly="false" isSingleExecution="false">
@@ -53,9 +39,9 @@
           <opaqueAction Id="16583cdd-27f5-4ce9-b703-28469e17a199" name="Choix des paramètres" isLeaf="false">
             <elementDefinition Id="b2020c29-c709-4d7c-ad34-6d70a121bc23" />
             <flowNodeTargets>
-              <controlFlow Id="e09c77db-ccb8-4f13-9496-48a14b425ef4" isLeaf="false">
-                <mergeNodeMoniker Id="a1f17b82-f8a6-45df-ad6f-090bdad48a0a" LastKnownName="Merge1" />
-                <elementDefinition Id="a2e8051d-f3f4-44dd-b2b5-ae722beb5029" />
+              <controlFlow Id="7236ebe9-c22b-4e4a-8f23-d3baae295099" isLeaf="false">
+                <decisionNodeMoniker Id="2a658a1b-8808-4f4e-8611-1297a5711bbd" LastKnownName="Decision4" />
+                <elementDefinition Id="3bef6ec1-fc6e-4757-b19a-1d65549302eb" />
               </controlFlow>
             </flowNodeTargets>
           </opaqueAction>
@@ -151,11 +137,47 @@
           <activityFinalNode Id="94419d01-83c6-4be3-8afb-062ef469d31a" name="ActivityFinal1" isLeaf="false">
             <elementDefinition Id="a7d78004-3c0c-42e9-8379-65eb44567394" />
           </activityFinalNode>
+          <opaqueAction Id="1f0af4b6-ec5a-4f0f-887b-9e922222353a" name="Sauvegarde état" isLeaf="false">
+            <elementDefinition Id="190ac5f6-94d6-409d-8ae4-790ef5fdab72" />
+            <flowNodeTargets>
+              <controlFlow Id="483b8e9a-20f1-477b-906d-0fdd108af7cc" isLeaf="false">
+                <mergeNodeMoniker Id="a1f17b82-f8a6-45df-ad6f-090bdad48a0a" LastKnownName="Merge1" />
+                <elementDefinition Id="a56531c6-4869-4f08-91da-43d9f082582c" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode Id="2a658a1b-8808-4f4e-8611-1297a5711bbd" name="Decision4" isLeaf="false">
+            <elementDefinition Id="e9210a0f-e648-40ba-a510-405feb5e9c5f" />
+            <flowNodeTargets>
+              <controlFlow Id="514f1cba-5ad4-4546-bd52-fb6543190aab" guard="Sauvegarde" isLeaf="false">
+                <opaqueActionMoniker Id="1f0af4b6-ec5a-4f0f-887b-9e922222353a" LastKnownName="Sauvegarde état" />
+                <elementDefinition Id="5287d044-8915-4306-837c-5d3e30419cf7" />
+              </controlFlow>
+              <controlFlow Id="c1c44309-38fe-451e-b053-3924998e6df3" guard="Non Sauvegarde" isLeaf="false">
+                <mergeNodeMoniker Id="a1f17b82-f8a6-45df-ad6f-090bdad48a0a" LastKnownName="Merge1" />
+                <elementDefinition Id="7d16df75-4525-4cf8-8747-10bab62f390e" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
         </nodes>
       </activity>
     </activityRootModelHasActivity>
   </packagedElements>
   <package Id="10a6dc37-9787-4fc8-a731-cd86e7657a98" name="UML">
     <elementDefinition Id="ecc65ab3-d840-45a9-801a-2aa285d9aa3c" />
+    <profileInstances>
+      <packageHasProfileInstances Id="6dbabbb6-0fd4-4e16-8238-ac7426f3643b">
+        <profileInstance Id="c3bd6d4c-074c-4583-9e82-0df6a2d47b5a" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="2fc4acc0-50dc-4584-834e-8ceb2f8ac8ae">
+        <profileInstance Id="c286441d-5830-434b-aae7-46edb5781ad9" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
   </package>
 </activityRootModel>

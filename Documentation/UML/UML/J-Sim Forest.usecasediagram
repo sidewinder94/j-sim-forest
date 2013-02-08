@@ -1,19 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm11="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner" dslVersion="1.0.0.0" Id="fd431bfc-4177-41d7-808d-402a03e39aea" name="J-Sim Forest" linkedPackageId="941ec291-7e5b-454c-9f50-a7c7e373af76" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
-  <profileInstances>
-    <packageHasProfileInstances Id="d94aa1c0-e890-4bd9-aa4a-285b6f0f3202">
-      <profileInstance Id="ec5d0d58-f16e-45c9-8e37-d6dd553fe4d7" name="StandardProfileL2">
-        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
-      </profileInstance>
-      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
-    </packageHasProfileInstances>
-    <packageHasProfileInstances Id="edcf4021-f6fa-46a1-b006-d6cba889f9b5">
-      <profileInstance Id="4984f5f8-811a-41be-86d6-59d3abef80fa" name="StandardProfileL3">
-        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
-      </profileInstance>
-      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
-    </packageHasProfileInstances>
-  </profileInstances>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="fd431bfc-4177-41d7-808d-402a03e39aea" name="J-Sim Forest" linkedPackageId="941ec291-7e5b-454c-9f50-a7c7e373af76" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
   <packagedElements>
     <useCaseModelRootHasTypes>
       <subsystem Id="1dd2382e-d93e-4ec9-9c7d-b9aedc442ec1" name="J-Sim forest" isAbstract="false" isLeaf="false" isActiveClass="false">
@@ -182,12 +168,12 @@
     <packageHasNamedElement>
       <useCase Id="dbc6c948-f5a5-4207-867e-211db7bb7fe0" name="Risque Incendie" isAbstract="false" isLeaf="false">
         <elementDefinition Id="d65c71c1-304b-4e3f-b627-c644b0c0c0ea" />
-        <generalsInternal>
-          <generalization Id="a92f4d39-9340-4ad6-b43f-dbfec8c6321c" isSubstitutable="false">
+        <extendedCases>
+          <extend Id="b5e0f373-a079-4c08-bab4-617241206645">
             <useCaseMoniker Id="efd1f9b7-4b6e-4d87-97da-f91432cd490b" LastKnownName="Simulation Risque" />
-            <elementDefinition Id="9093d119-8a80-487b-b39a-95c78f2ab98a" />
-          </generalization>
-        </generalsInternal>
+            <elementDefinition Id="325b8c9f-78b3-4204-8f0e-b40d3775a2a4" />
+          </extend>
+        </extendedCases>
         <subjects>
           <subsystemMoniker Id="1dd2382e-d93e-4ec9-9c7d-b9aedc442ec1" LastKnownName="J-Sim forest" />
         </subjects>
@@ -196,12 +182,12 @@
     <packageHasNamedElement>
       <useCase Id="d03c3305-1f14-4ec9-9341-3c29049ea3e1" name="Risque Insectes" isAbstract="false" isLeaf="false">
         <elementDefinition Id="5dea0af8-f51a-4c53-92ef-2f743130f8ac" />
-        <generalsInternal>
-          <generalization Id="73a43533-1d4d-460f-8f57-ef9286c0e50b" isSubstitutable="false">
+        <extendedCases>
+          <extend Id="378f188c-4fab-4060-b696-b61a7fae73f9">
             <useCaseMoniker Id="efd1f9b7-4b6e-4d87-97da-f91432cd490b" LastKnownName="Simulation Risque" />
-            <elementDefinition Id="3c44c6dc-7520-44cc-827c-2c42b87df822" />
-          </generalization>
-        </generalsInternal>
+            <elementDefinition Id="6a836e2e-8202-4485-896e-626aace8023b" />
+          </extend>
+        </extendedCases>
         <subjects>
           <subsystemMoniker Id="1dd2382e-d93e-4ec9-9c7d-b9aedc442ec1" LastKnownName="J-Sim forest" />
         </subjects>
@@ -224,5 +210,19 @@
   </packagedElements>
   <package Id="941ec291-7e5b-454c-9f50-a7c7e373af76" name="UML">
     <elementDefinition Id="ecc65ab3-d840-45a9-801a-2aa285d9aa3c" />
+    <profileInstances>
+      <packageHasProfileInstances Id="d94aa1c0-e890-4bd9-aa4a-285b6f0f3202">
+        <profileInstance Id="ec5d0d58-f16e-45c9-8e37-d6dd553fe4d7" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="edcf4021-f6fa-46a1-b006-d6cba889f9b5">
+        <profileInstance Id="4984f5f8-811a-41be-86d6-59d3abef80fa" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
   </package>
 </useCaseModelRoot>

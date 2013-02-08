@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner" xmlns:dm11="http://schemas.microsoft.com/dsltools/UseCaseModel"
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel" xmlns:dm11="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner"
   dslVersion="1.0.0.0"
   Id="ecc65ab3-d840-45a9-801a-2aa285d9aa3c"
   name="UML" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -436,16 +436,15 @@
         name="Risque Incendie"
         isAbstract="false"
         isLeaf="false">
-        <generalsInternal>
-          <generalization
-            Id="9093d119-8a80-487b-b39a-95c78f2ab98a"
-            isSubstitutable="false">
+        <extendedCases>
+          <extend
+            Id="325b8c9f-78b3-4204-8f0e-b40d3775a2a4">
             <useCaseMoniker
               Id="fe072195-3ecd-4e95-842f-40a85cb424e5"
               LastKnownName="Simulation Risque"
               LastKnownLocation="UML.uml" />
-          </generalization>
-        </generalsInternal>
+          </extend>
+        </extendedCases>
         <subjects>
           <subsystemMoniker
             Id="1f66dc3e-45bf-423c-a248-3bddb6491223"
@@ -460,16 +459,15 @@
         name="Risque Insectes"
         isAbstract="false"
         isLeaf="false">
-        <generalsInternal>
-          <generalization
-            Id="3c44c6dc-7520-44cc-827c-2c42b87df822"
-            isSubstitutable="false">
+        <extendedCases>
+          <extend
+            Id="6a836e2e-8202-4485-896e-626aace8023b">
             <useCaseMoniker
               Id="fe072195-3ecd-4e95-842f-40a85cb424e5"
               LastKnownName="Simulation Risque"
               LastKnownLocation="UML.uml" />
-          </generalization>
-        </generalsInternal>
+          </extend>
+        </extendedCases>
         <subjects>
           <subsystemMoniker
             Id="1f66dc3e-45bf-423c-a248-3bddb6491223"
@@ -573,11 +571,11 @@
             isLeaf="false">
             <flowNodeTargets>
               <controlFlow
-                Id="a2e8051d-f3f4-44dd-b2b5-ae722beb5029"
+                Id="3bef6ec1-fc6e-4757-b19a-1d65549302eb"
                 isLeaf="false">
-                <mergeNodeMoniker
-                  Id="dfb13035-a08d-473e-a0f4-e0a602ee0982"
-                  LastKnownName="Merge1"
+                <decisionNodeMoniker
+                  Id="e9210a0f-e648-40ba-a510-405feb5e9c5f"
+                  LastKnownName="Decision4"
                   LastKnownLocation="UML.uml" />
               </controlFlow>
             </flowNodeTargets>
@@ -742,8 +740,66 @@
             Id="a7d78004-3c0c-42e9-8379-65eb44567394"
             name="ActivityFinal1"
             isLeaf="false" />
+          <opaqueAction
+            Id="190ac5f6-94d6-409d-8ae4-790ef5fdab72"
+            name="Sauvegarde état"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="a56531c6-4869-4f08-91da-43d9f082582c"
+                isLeaf="false">
+                <mergeNodeMoniker
+                  Id="dfb13035-a08d-473e-a0f4-e0a602ee0982"
+                  LastKnownName="Merge1"
+                  LastKnownLocation="UML.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </opaqueAction>
+          <decisionNode
+            Id="e9210a0f-e648-40ba-a510-405feb5e9c5f"
+            name="Decision4"
+            isLeaf="false">
+            <flowNodeTargets>
+              <controlFlow
+                Id="5287d044-8915-4306-837c-5d3e30419cf7"
+                guard="Sauvegarde"
+                isLeaf="false">
+                <opaqueActionMoniker
+                  Id="190ac5f6-94d6-409d-8ae4-790ef5fdab72"
+                  LastKnownName="Sauvegarde état"
+                  LastKnownLocation="UML.uml" />
+              </controlFlow>
+              <controlFlow
+                Id="7d16df75-4525-4cf8-8747-10bab62f390e"
+                guard="Non Sauvegarde"
+                isLeaf="false">
+                <mergeNodeMoniker
+                  Id="dfb13035-a08d-473e-a0f4-e0a602ee0982"
+                  LastKnownName="Merge1"
+                  LastKnownLocation="UML.uml" />
+              </controlFlow>
+            </flowNodeTargets>
+          </decisionNode>
         </nodes>
       </activity>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="70e7b48a-c094-4fbc-ada6-b79e75d58162"
+        LastKnownName="Display1"
+        LastKnownLocation="Package_1408.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="197d07b4-1894-4ab1-888b-50ae31487d6e"
+        LastKnownName="Database1"
+        LastKnownLocation="Package1_1408.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="ed56b44d-051e-4095-af30-d031b8b50389"
+        LastKnownName="Settings1"
+        LastKnownLocation="Package2_1408.uml" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType
