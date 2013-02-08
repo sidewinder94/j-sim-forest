@@ -4,9 +4,7 @@ import javax.swing.*;
 import structure.*;
 import java.awt.*;
 import java.awt.event.*;
-
 import Settings.*;
-import javax.swing.event.*;
 //TODO : Renommer l'ensemble des contrôles de la fenêtre
 public class Fenêtre {
 
