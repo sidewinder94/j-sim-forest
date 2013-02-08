@@ -5,5 +5,7 @@
 *.war
 *.ear
 *.suo
-.classpath
 .project
+/.classpath
+
+*.suo

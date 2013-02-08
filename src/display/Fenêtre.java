@@ -4,9 +4,9 @@ import javax.swing.*;
 import structure.*;
 import java.awt.*;
 import java.awt.event.*;
-
 import Settings.*;
-import javax.swing.event.*;
+import javax.swing.UIManager.*;
+
 //TODO : Renommer l'ensemble des contrôles de la fenêtre
 public class Fenêtre {
 
@@ -154,6 +154,17 @@ public class Fenêtre {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		try {
+		    for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+		        if ("Windows".equals(info.getName())) {
+		            UIManager.setLookAndFeel(info.getClassName());
+		            break;
+		        }
+		    }
+		} catch (Exception e) {
+		    // If Nimbus is not available, you can set the GUI to another look and feel.
+		}
+
 		fenetre = this;
 		frmJsimForest = new JFrame();
 		frmJsimForest.setTitle("J-Sim Forest");
