@@ -6,8 +6,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 import Settings.*;
-import javax.swing.event.ChangeListener;
-import javax.swing.event.ChangeEvent;
+import javax.swing.event.*;
 //TODO : Renommer l'ensemble des contrôles de la fenêtre
 public class Fenêtre {
 
@@ -31,7 +30,6 @@ public class Fenêtre {
 	private FenêtreSave Importation;
 	private JComboBox comboBox_1;
 	private JLabel lblChoixTaille;
-	private JButton btnNewButton_1;
 	private JLabel lblTailleDuneCellule;
 	private JComboBox comboBox_2;
 	private AffGrille grid;
@@ -40,12 +38,63 @@ public class Fenêtre {
 	private Grille grille;
 	private Timer timer;
 	private int iteration;
+	private Fenêtre fenetre;
 	private ComboBoxModel[] models = new ComboBoxModel[3];
+<<<<<<< HEAD
 	private JLabel lblMode;
 	private JButton btnPlaypause;
 	private JButton btnPasPas;
 	private boolean btnPlayPauseIcon = true;
+=======
+	public JTextField getTxtChoixPas() {
+		return txtChoixPas;
+	}
+>>>>>>> branch 'master' of https://SocialSupaCrew@bitbucket.org/sidewinder94/j-sim-forest.git
 
+	public void setTxtChoixPas(JTextField txtChoixPas) {
+		this.txtChoixPas = txtChoixPas;
+	}
+
+	public JTextField getTxtDlai() {
+		return txtDlai;
+	}
+
+	public void setTxtDlai(JTextField txtDlai) {
+		this.txtDlai = txtDlai;
+	}
+
+	public JComboBox getComboBox() {
+		return comboBox;
+	}
+
+	public void setComboBox(JComboBox comboBox) {
+		this.comboBox = comboBox;
+	}
+
+	public JComboBox getComboBox_1() {
+		return comboBox_1;
+	}
+
+	public void setComboBox_1(JComboBox comboBox_1) {
+		this.comboBox_1 = comboBox_1;
+	}
+	private JButton btnNewButton_1;
+
+	public JComboBox getComboBox_2() {
+		return comboBox_2;
+	}
+
+	public void setComboBox_2(JComboBox comboBox_2) {
+		this.comboBox_2 = comboBox_2;
+	}
+
+	public JComboBox getComboBox_3() {
+		return comboBox_3;
+	}
+
+	public void setComboBox_3(JComboBox comboBox_3) {
+		this.comboBox_3 = comboBox_3;
+	}
 	/**
 	 * Classe MouseListener permettant de réaliser des actions souris sur les controles
 	 */
@@ -108,7 +157,7 @@ public class Fenêtre {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-				
+		fenetre = this;
 		frmJsimForest = new JFrame();
 		frmJsimForest.setTitle("J-Sim Forest");
 		frmJsimForest.setMinimumSize(new Dimension(700, 360));
@@ -518,7 +567,7 @@ public class Fenêtre {
 				}
 				else
 				{
-					Importation = new FenêtreSave();
+					Importation = new FenêtreSave(fenetre);
 					Importation.getFrame().setVisible(true);
 				}
 			}

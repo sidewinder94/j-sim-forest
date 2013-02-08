@@ -43,7 +43,7 @@ public class DataBaseAccess {
 		        this.connection = null;
 		    }
 	
-		    //classe qui permet la connection à la BBD
+		    //méthode qui permet la connection à la BBD
 		    public boolean connect ()
 		    {
 		        try
@@ -60,7 +60,7 @@ public class DataBaseAccess {
 		            return false;
 		        }
 		    }
-		     //classe qui permet la déconnexion
+		     //méthode qui permet la déconnexion
 		    public boolean disconnect ()
 		    {
 		        try
@@ -76,7 +76,7 @@ public class DataBaseAccess {
 		            return false;
 		        }
 		    }
-	        //classe qui permet de récupérer le résultat d'un sélect
+	        //méthode qui permet de récupérer le résultat d'un sélect
 	
 		    public ResultSet getName ()
 		    {
@@ -91,19 +91,53 @@ public class DataBaseAccess {
 		         
 		        return null;
 		    }
-		    // classe qui permet de mettre à jour la BDD
-		    public void Sauvegarde ()
+		    // méthode qui permet de mettre à jour la BDD
+		    public String Sauvegarde (String index,String nb_pas, String vitesse, String taille, String name)
 		    {
 		        try
 		        {
-		            this.statement.executeUpdate("INSERT INTO PARAMETRES (id_configuration,nb_pas,vitesse,taille_grille_x,taille_grille_y,name) VALUES ()");
+		          this.statement.executeUpdate("INSERT INTO PARAMETRES (id_configuration,nb_pas,vitesse,taille_grille_x,taille_grille_y,name)"+
+		                          " VALUES ('"+index+"','"+nb_pas+"','"+vitesse+"','"+taille+"','"+taille+"','"+name+"')");
+		          return "Sauvegarde réussie";
 		        
 		        }
 		        catch (SQLException e)
 		        {
 		            e.printStackTrace();
 		        }
+		        return "Sauvegarde échouée";
 		    }
+		    
+		    
+		    public ResultSet GetParametre(String name)
+		    {
+		        try
+		        {
+		            return this.statement.executeQuery("SELECT * FROM PARAMETRES WHERE name = '"+ name +"' ");
+		        }
+		        catch (SQLException e)
+		        {
+		            e.printStackTrace();
+		        }
+		         
+		        return null;
+		    }
+		    
+		    public ResultSet getID ()
+		    {
+		        try
+		        {
+		            return this.statement.executeQuery("SELECT id_configuration FROM PARAMETRES");
+		        }
+		        catch (SQLException e)
+		        {
+		            e.printStackTrace();
+		        }
+		         
+		        return null;
+		    }
+		    
+		    
 		    
 		    
 		    
