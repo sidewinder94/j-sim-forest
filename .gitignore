@@ -7,3 +7,5 @@
 *.suo
 .project
 /.classpath
+
+*.suo
