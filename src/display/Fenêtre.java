@@ -6,6 +6,8 @@ import java.awt.*;
 import java.awt.event.*;
 
 import Settings.*;
+import javax.swing.event.ChangeListener;
+import javax.swing.event.ChangeEvent;
 //TODO : Renommer l'ensemble des contrôles de la fenêtre
 public class Fenêtre {
 
@@ -42,6 +44,7 @@ public class Fenêtre {
 	private JLabel lblMode;
 	private JButton btnPlaypause;
 	private JButton btnPasPas;
+	private boolean btnPlayPauseIcon = true;
 
 	/**
 	 * Classe MouseListener permettant de réaliser des actions souris sur les controles
@@ -202,6 +205,9 @@ public class Fenêtre {
 			public void mouseClicked(MouseEvent e)
 			{//TODO
 				iteration = 0;
+				btnPlaypause.setVisible(true);
+				btnPlaypause.setEnabled(true);
+				btnPasPas.setVisible(true);
 				timer = new Timer(Integer.parseInt(txtDlai.getText()), new ActionListener(){
 					@Override
 					public void actionPerformed(ActionEvent arg0) 
@@ -353,6 +359,19 @@ public class Fenêtre {
 		frmJsimForest.getContentPane().add(btnNewButton_1, gbc_btnNewButton_1);
 		
 		btnPlaypause = new JButton("");
+		btnPlaypause.setVisible(false);
+		btnPlaypause.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				btnPlayPauseIcon = !btnPlayPauseIcon;
+				if(btnPlayPauseIcon == true){
+					btnPlaypause.setIcon(new ImageIcon(Fenêtre.class.getResource("/display/bouton_stop.png")));
+				}
+				else{
+					btnPlaypause.setIcon(new ImageIcon(Fenêtre.class.getResource("/display/bouton_play.png")));
+				}
+			}
+		});
 		btnPlaypause.setBackground(UIManager.getColor("Button.background"));
 		btnPlaypause.setIcon(new ImageIcon(Fenêtre.class.getResource("/display/bouton_stop.png")));
 		GridBagConstraints gbc_btnPlaypause = new GridBagConstraints();
@@ -362,6 +381,7 @@ public class Fenêtre {
 		frmJsimForest.getContentPane().add(btnPlaypause, gbc_btnPlaypause);
 		
 		btnPasPas = new JButton("");
+		btnPasPas.setVisible(false);
 		btnPasPas.setIcon(new ImageIcon(Fenêtre.class.getResource("/display/bouton_pas_a_pas.png")));
 		GridBagConstraints gbc_btnPasPas = new GridBagConstraints();
 		gbc_btnPasPas.anchor = GridBagConstraints.WEST;
