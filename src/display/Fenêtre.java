@@ -216,7 +216,7 @@ public class Fenêtre {
 						grille.update(iteration, (Mode)comboBox.getSelectedItem());
 						iteration++;
 						grid.repaint();
-						if (iteration <= (Integer.parseInt(txtChoixPas.getText())+1))
+						if (iteration < (Integer.parseInt(txtChoixPas.getText()))-1)
 						{
 							timer.start();
 						}
