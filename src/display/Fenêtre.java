@@ -29,7 +29,6 @@ public class Fenêtre {
 	private FenêtreSave Importation;
 	private JComboBox comboBox_1;
 	private JLabel lblChoixTaille;
-	private JButton btnNewButton_1;
 	private JLabel lblTailleDuneCellule;
 	private JComboBox comboBox_2;
 	private AffGrille grid;
@@ -39,6 +38,7 @@ public class Fenêtre {
 	private Timer timer;
 	private int iteration;
 	private ComboBoxModel[] models = new ComboBoxModel[3];
+	private JButton btnNewButton_1;
 
 	/**
 	 * Classe MouseListener permettant de réaliser des actions souris sur les controles
