@@ -4,6 +4,8 @@ import javax.swing.*;
 import structure.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Hashtable;
+
 import Settings.*;
 import javax.swing.UIManager.*;
 
@@ -259,6 +261,18 @@ public class Fenêtre {
 						System.out.println("tick !" + iteration);
 						timer.stop();
 						grille.update(iteration, (Mode)comboBox.getSelectedItem());
+						Hashtable<Etats, Float> density = grille.densityCalc();
+						float trees = 0f,
+							  shrubs = 0f,
+							  sapling = 0f;
+						try {trees = density.get(Etats.ARBRES).floatValue(); }catch(Exception e){}
+						try {shrubs = density.get(Etats.ARBUSTE).floatValue(); }catch(Exception e){}
+						try {sapling = density.get(Etats.JEUNE_POUSSE).floatValue(); }catch(Exception e){}
+						
+						lblNewLabel.setText(String.valueOf(sapling));
+						lblNewLabel_1.setText(String.valueOf(shrubs));
+						lblNewLabel_2.setText(String.valueOf(trees));
+						
 						iteration++;
 						grid.repaint();
 						if (iteration < (Integer.parseInt(txtChoixPas.getText()))-1)
