@@ -4,6 +4,9 @@ import java.awt.EventQueue;
 
 import javax.swing.*;
 
+import structure.*;
+
+
 import java.awt.*;
 import java.awt.event.*;
 import java.sql.*;
@@ -55,6 +58,7 @@ public class FenêtreSave {
 	private JFrame frame;
 	private DataBaseAccess BDD;
 	private Fenêtre frmJsimForest;
+	private Grille grille;
 
 	public JFrame getFrame() {
 		return frame;
@@ -136,7 +140,7 @@ public class FenêtreSave {
 					System.out.println("Choississez un fichier");
 				}
 				else
-				{
+				{ //TODO : Remplacer par un chemin relatif !
 					BDD = new DataBaseAccess("C:\\Users\\arnaud\\git\\j-sim-forest\\JSimBDD.sqlite");
 					BDD.connect();
 
@@ -195,9 +199,14 @@ public class FenêtreSave {
 			public void mouseClicked(MouseEvent e)
 			{//TODO
 				try{
+					if(grille != null)
+					{
+						
 					BDD = new DataBaseAccess("C:\\Users\\arnaud\\git\\j-sim-forest\\JSimBDD.sqlite");
 					BDD.connect();
 					ResultSet rs = BDD.getID();
+					ResultSet id_config = BDD.getIDliaison();
+					ResultSet cellule = BDD.getIDcellule();
                     int i=0;
                     ArrayList<String> temporaire = new ArrayList();
                     if (rs != null) {
@@ -207,24 +216,91 @@ public class FenêtreSave {
     				        
     				    } while (rs.next());
                     }
-                    String index =temporaire.get(temporaire.size()-1)+1;
-					String retour = BDD.Sauvegarde(index,frmJsimForest.getTxtChoixPas().getText(), frmJsimForest.getTxtDlai().getText(), frmJsimForest.getComboBox_1().getSelectedItem().toString(),comboBox.getSelectedItem().toString());
-					System.out.println(retour);
+                    
+                    ArrayList<String> idliaison = new ArrayList();
+                    if (id_config != null) {
+    					int l = 0;
+    				    do {
+    				    	idliaison.add(id_config.getString("id_liaison"));
+    				        
+    				    } while (id_config.next());
+                    }
+                    
+                    ArrayList<String> idcellule = new ArrayList();
+                    if (cellule != null) {
+    					int m = 0;
+    				    do {
+    				    	idcellule.add(cellule.getString("cellule"));
+    				        
+    				    } while (cellule.next());
+                    }
+                    String index = temporaire.get(temporaire.size()-1)+1;
+                    String indexliaison = temporaire.get(temporaire.size()-1)+1;
+                    String idnextcellule = temporaire.get(temporaire.size()-1)+1;
+                    String retour = BDD.Sauvegarde(index,frmJsimForest.getTxtChoixPas().getText(), frmJsimForest.getTxtDlai().getText(), frmJsimForest.getComboBox_1().getSelectedItem().toString(),comboBox.getSelectedItem().toString());
+                    String retour2;
+                    Cellule[][] cells = grille.getGrille();
+                    int size =cells.length;
+                    int varindexliaison =Integer.parseInt(indexliaison); 
+                    int varindexcellule = Integer.parseInt(idnextcellule); 
+                    retour2 = "echec insertion";
+                    for (int varboucle = 0; varboucle < size; varboucle++) 
+            		{
+            			for (int varboucle2 = 0; varboucle2 < size; varboucle2++)
+            			{
+            				retour2 = BDD.Sauvegardeentiere(indexliaison,idnextcellule,index, Integer.toString (varboucle), Integer.toString (varboucle2), cells[varboucle][varboucle2].getState().getEtats());
+            				varindexliaison++;
+            				varindexcellule++;
+            				
+            				
+            			}
+            		}
+                     System.out.println(retour);
+				    System.out.println(retour2);
 					BDD.disconnect();
 					}
-							catch(Exception e1)
-							{
-
-							}
+					
+					else
+					{
+						BDD = new DataBaseAccess("C:\\Users\\arnaud\\git\\j-sim-forest\\JSimBDD.sqlite");
+						BDD.connect();
+						ResultSet rs = BDD.getID();
+	                    int i=0;
+	                    ArrayList<String> temporaire = new ArrayList();
+	                    if (rs != null) {
+	    					int j = 0;
+	    				    do {
+	    				    	temporaire.add(rs.getString("id_configuration"));
+	    				        
+	    				    } while (rs.next());
+	                    }
+	                    String index =temporaire.get(temporaire.size()-1)+1;
+						String retour = BDD.Sauvegarde(index,frmJsimForest.getTxtChoixPas().getText(), frmJsimForest.getTxtDlai().getText(), frmJsimForest.getComboBox_1().getSelectedItem().toString(),comboBox.getSelectedItem().toString());
+						System.out.println(retour);
+						BDD.disconnect();
+					}
+					}
+				catch(SQLException e1)
+				{
+					do {
+				         System.out.println("SQL STATE: " + e1.getSQLState());
+				         System.out.println("ERROR CODE: " + e1.getErrorCode());
+				         System.out.println("MESSAGE: " + e1.getMessage());
+				         System.out.println();
+				         e1 = e1.getNextException();
+				      } while (e1 != null);
+				}
 				
 			}
 		});
-		
+		// voir les différentes sauvegardes
 		btnParcourir.addMouseListener(new MouseAbstractListener(){
 			@Override
 			public void mouseClicked(MouseEvent e)
 			{//TODO
 				try{
+				comboBox.removeAllItems();
+				    
 				BDD = new DataBaseAccess("C:\\Users\\arnaud\\git\\j-sim-forest\\JSimBDD.sqlite");
 				BDD.connect();
 				ResultSet rs = BDD.getName();

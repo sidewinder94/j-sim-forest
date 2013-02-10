@@ -31,7 +31,7 @@ public class DataBaseAccess {
 		        try
 		        {
 		        	Class.forName("org.sqlite.JDBC");
-		        	dbName = "F:\\GExia\\Prosits A2\\Projets\\UML_Java\\j-sim-forest\\JSimBDD.sqlite";
+		        	dbName = "C:\\Users\\arnaud\\j-sim-forest\\JSimBDD.sqlite";
 		        	
 		        }
 		        catch (ClassNotFoundException e)
@@ -96,7 +96,7 @@ public class DataBaseAccess {
 		    {
 		        try
 		        {
-		          this.statement.executeUpdate("INSERT INTO PARAMETRES (id_configuration,nb_pas,vitesse,taille_grille_x,taille_grille_y,name)"+
+		            this.statement.executeUpdate("INSERT INTO PARAMETRES (id_configuration,nb_pas,vitesse,taille_grille_x,taille_grille_y,name)"+
 		                          " VALUES ('"+index+"','"+nb_pas+"','"+vitesse+"','"+taille+"','"+taille+"','"+name+"')");
 		          return "Sauvegarde réussie";
 		        
@@ -135,6 +135,53 @@ public class DataBaseAccess {
 		        }
 		         
 		        return null;
+		    }
+		    
+		    
+		    public ResultSet getIDliaison ()
+		    {
+		        try
+		        {
+		            return this.statement.executeQuery("SELECT id_configuration FROM CONFIGURATION_PARAMETRES");
+		        }
+		        catch (SQLException e)
+		        {
+		            e.printStackTrace();
+		        }
+		         
+		        return null;
+		    }
+		    
+		    
+		    public ResultSet getIDcellule ()
+		    {
+		        try
+		        {
+		            return this.statement.executeQuery("SELECT cellule FROM CONFIGURATION");
+		        }
+		        catch (SQLException e)
+		        {
+		            e.printStackTrace();
+		        }
+		         
+		        return null;
+		    }
+		    
+		    
+		    public String Sauvegardeentiere(String id_liaison, String cellule, String id_configuration, String posx, String posy, String Etat)
+		    {
+		        try
+		        {
+		            this.statement.executeUpdate("INSERT INTO CONFIGURATION,CONFIGURATION_PARAMETRES (CONFIGURATION.cellule,CONFIGURATION.pos_x,CONFIGURATION.pos_y,CONFIGURATION.etat,CONFIGURATION_PARAMETRES.id_liaison,CONFIGURATION_PARAMETRES.cellule,CONFIGURATION_PARAMETRES.id_configuration)"+
+		                          " VALUES ('"+cellule+"','"+posx+"','"+posy+"','"+Etat+"','"+id_liaison+"','"+cellule+"','"+id_configuration+"')");
+		          return "Sauvegarde réussie";
+		        
+		        }
+		        catch (SQLException e)
+		        {
+		            e.printStackTrace();
+		        }
+		        return "Sauvegarde échouée";
 		    }
 		    
 		    

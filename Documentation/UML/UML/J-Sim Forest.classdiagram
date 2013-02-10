@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner" xmlns:dm11="http://schemas.microsoft.com/dsltools/UseCaseModel" dslVersion="1.0.0.0" Id="5eb36bdf-bfb7-4be8-b695-79c816bd6740" name="J-Sim Forest" linkedPackageId="0ff6bc6c-31ad-4632-85fd-80c5656a5266" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel" xmlns:dm11="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ActivityDesigner" dslVersion="1.0.0.0" Id="5eb36bdf-bfb7-4be8-b695-79c816bd6740" name="J-Sim Forest" linkedPackageId="0ff6bc6c-31ad-4632-85fd-80c5656a5266" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
   <packagedElements>
     <packageHasNamedElement>
       <referencedType Id="a4de37c7-994f-4f56-8eda-f08d6414b0fb" name="Integer" isAbstract="false" isLeaf="false" cachedFullName="Integer">
@@ -255,9 +255,9 @@
             <class Id="9bfbb75f-ebfd-4de8-a7ab-e88ac9658ce6" name="Paramètres" isAbstract="false" isLeaf="false" isActiveClass="false">
               <elementDefinition Id="8bb73761-3a40-4f00-94a4-c0168d181760" />
               <generalsInternal>
-                <generalization Id="3d6cda0e-b09c-47a9-a839-079135802b7e" isSubstitutable="false">
+                <generalization Id="a2531ef5-1092-4c74-a61a-3f9ecfcb1154" isSubstitutable="false">
                   <classMoniker Id="a0503c8e-f05a-4d6d-9575-76f4738dfd3d" LastKnownName="Fenêtre" />
-                  <elementDefinition Id="99598737-7832-4b74-b6c0-f28c67700a40" />
+                  <elementDefinition Id="5a7ed325-683c-4f7b-adf0-35c4d0f3e132" />
                 </generalization>
               </generalsInternal>
               <targetEnds>

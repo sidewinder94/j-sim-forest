@@ -4,6 +4,8 @@ import javax.swing.*;
 import structure.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Hashtable;
+
 import Settings.*;
 import javax.swing.UIManager.*;
 
@@ -13,34 +15,22 @@ public class Fenêtre {
 	private JFrame frmJsimForest;
 	private JTextField txtChoixPas;
 	private JTextField txtDlai;
-	private JButton btnNewButton;
 	private JComboBox comboBox;
-	private JLabel lblDensits;
-	private JLabel lblJeunesPousses;
-	private JLabel lblArbustes;
-	private JLabel lblArbres;
 	private JLabel lblNewLabel;
 	private JLabel lblNewLabel_1;
 	private JLabel lblNewLabel_2;
-	private JButton btnPleincran;
-	private JButton btnLancerLaSimulation;
 	private JPanel panel;
-	private JButton btnQuitter;
 	private JScrollPane scrollPane;
 	private FenêtreSave Importation;
 	private JComboBox comboBox_1;
-	private JLabel lblChoixTaille;
-	private JLabel lblTailleDuneCellule;
 	private JComboBox comboBox_2;
 	private AffGrille grid;
 	private JComboBox comboBox_3;
-	private JLabel lbltatDeLa;
 	private Grille grille;
 	private Timer timer;
 	private int iteration;
 	private Fenêtre fenetre;
 	private ComboBoxModel[] models = new ComboBoxModel[3];
-	private JLabel lblMode;
 	private JButton btnPlaypause;
 	private JButton btnPasPas;
 	private boolean btnPlayPauseIcon = true;
@@ -76,6 +66,8 @@ public class Fenêtre {
 		this.comboBox_1 = comboBox_1;
 	}
 	private JButton btnNewButton_1;
+	private JSeparator separator;
+	private JLabel lblNewLabel_3;
 
 	public JComboBox getComboBox_2() {
 		return comboBox_2;
@@ -173,16 +165,16 @@ public class Fenêtre {
 		frmJsimForest.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{0, 80, 151, 72, 36, 58, 73, 0};
-		gridBagLayout.rowHeights = new int[]{0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+		gridBagLayout.rowHeights = new int[]{0, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 		gridBagLayout.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, Double.MIN_VALUE};
-		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		frmJsimForest.getContentPane().setLayout(gridBagLayout);
 		
 		panel = new JPanel();
 		panel.setForeground(new Color(0, 0, 0));
 		GridBagConstraints gbc_panel = new GridBagConstraints();
 		gbc_panel.gridwidth = 5;
-		gbc_panel.gridheight = 11;
+		gbc_panel.gridheight = 12;
 		gbc_panel.insets = new Insets(0, 0, 5, 5);
 		gbc_panel.fill = GridBagConstraints.BOTH;
 		gbc_panel.gridx = 0;
@@ -193,7 +185,7 @@ public class Fenêtre {
 		scrollPane = new JScrollPane();
 		panel.add(scrollPane, BorderLayout.CENTER);
 		
-		lblDensits = new JLabel("Densit\u00E9s :");
+		JLabel lblDensits = new JLabel("Densit\u00E9s :");
 		GridBagConstraints gbc_lblDensits = new GridBagConstraints();
 		gbc_lblDensits.anchor = GridBagConstraints.WEST;
 		gbc_lblDensits.insets = new Insets(0, 0, 5, 5);
@@ -201,7 +193,7 @@ public class Fenêtre {
 		gbc_lblDensits.gridy = 2;
 		frmJsimForest.getContentPane().add(lblDensits, gbc_lblDensits);
 		
-		lblJeunesPousses = new JLabel("Jeunes Pousses :");
+		JLabel lblJeunesPousses = new JLabel("Jeunes Pousses :");
 		GridBagConstraints gbc_lblJeunesPousses = new GridBagConstraints();
 		gbc_lblJeunesPousses.anchor = GridBagConstraints.WEST;
 		gbc_lblJeunesPousses.insets = new Insets(0, 0, 5, 5);
@@ -209,7 +201,7 @@ public class Fenêtre {
 		gbc_lblJeunesPousses.gridy = 3;
 		frmJsimForest.getContentPane().add(lblJeunesPousses, gbc_lblJeunesPousses);
 		
-		lblNewLabel = new JLabel("New label");
+		lblNewLabel = new JLabel("");
 		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
 		gbc_lblNewLabel.anchor = GridBagConstraints.WEST;
 		gbc_lblNewLabel.insets = new Insets(0, 0, 5, 0);
@@ -217,7 +209,7 @@ public class Fenêtre {
 		gbc_lblNewLabel.gridy = 3;
 		frmJsimForest.getContentPane().add(lblNewLabel, gbc_lblNewLabel);
 		
-		lblArbustes = new JLabel("Arbustes :");
+		JLabel lblArbustes = new JLabel("Arbustes :");
 		GridBagConstraints gbc_lblArbustes = new GridBagConstraints();
 		gbc_lblArbustes.anchor = GridBagConstraints.WEST;
 		gbc_lblArbustes.insets = new Insets(0, 0, 5, 5);
@@ -225,7 +217,7 @@ public class Fenêtre {
 		gbc_lblArbustes.gridy = 4;
 		frmJsimForest.getContentPane().add(lblArbustes, gbc_lblArbustes);
 		
-		lblNewLabel_1 = new JLabel("New label");
+		lblNewLabel_1 = new JLabel("");
 		GridBagConstraints gbc_lblNewLabel_1 = new GridBagConstraints();
 		gbc_lblNewLabel_1.anchor = GridBagConstraints.WEST;
 		gbc_lblNewLabel_1.insets = new Insets(0, 0, 5, 0);
@@ -233,7 +225,7 @@ public class Fenêtre {
 		gbc_lblNewLabel_1.gridy = 4;
 		frmJsimForest.getContentPane().add(lblNewLabel_1, gbc_lblNewLabel_1);
 		
-		lblArbres = new JLabel("Arbres :");
+		JLabel lblArbres = new JLabel("Arbres :");
 		GridBagConstraints gbc_lblArbres = new GridBagConstraints();
 		gbc_lblArbres.anchor = GridBagConstraints.WEST;
 		gbc_lblArbres.insets = new Insets(0, 0, 5, 5);
@@ -241,7 +233,7 @@ public class Fenêtre {
 		gbc_lblArbres.gridy = 5;
 		frmJsimForest.getContentPane().add(lblArbres, gbc_lblArbres);
 		
-		lblNewLabel_2 = new JLabel("New label");
+		lblNewLabel_2 = new JLabel("");
 		GridBagConstraints gbc_lblNewLabel_2 = new GridBagConstraints();
 		gbc_lblNewLabel_2.anchor = GridBagConstraints.WEST;
 		gbc_lblNewLabel_2.insets = new Insets(0, 0, 5, 0);
@@ -249,47 +241,111 @@ public class Fenêtre {
 		gbc_lblNewLabel_2.gridy = 5;
 		frmJsimForest.getContentPane().add(lblNewLabel_2, gbc_lblNewLabel_2);
 		
+		separator = new JSeparator();
+		GridBagConstraints gbc_separator = new GridBagConstraints();
+		gbc_separator.fill = GridBagConstraints.BOTH;
+		gbc_separator.gridwidth = 2;
+		gbc_separator.insets = new Insets(0, 0, 5, 0);
+		gbc_separator.gridx = 5;
+		gbc_separator.gridy = 6;
+		frmJsimForest.getContentPane().add(separator, gbc_separator);
+		
+		JLabel lblPas = new JLabel("Pas :");
+		GridBagConstraints gbc_lblPas = new GridBagConstraints();
+		gbc_lblPas.anchor = GridBagConstraints.WEST;
+		gbc_lblPas.insets = new Insets(0, 0, 5, 5);
+		gbc_lblPas.gridx = 5;
+		gbc_lblPas.gridy = 7;
+		frmJsimForest.getContentPane().add(lblPas, gbc_lblPas);
+		
+		lblNewLabel_3 = new JLabel("/");
+		GridBagConstraints gbc_lblNewLabel_3 = new GridBagConstraints();
+		gbc_lblNewLabel_3.anchor = GridBagConstraints.WEST;
+		gbc_lblNewLabel_3.insets = new Insets(0, 0, 5, 0);
+		gbc_lblNewLabel_3.gridx = 6;
+		gbc_lblNewLabel_3.gridy = 7;
+		frmJsimForest.getContentPane().add(lblNewLabel_3, gbc_lblNewLabel_3);
 		
 		
-		btnLancerLaSimulation = new JButton("Lancer la simulation");
+		
+		JButton btnLancerLaSimulation = new JButton("Lancer la simulation");
 		GridBagConstraints gbc_btnLancerLaSimulation = new GridBagConstraints();
 		gbc_btnLancerLaSimulation.insets = new Insets(0, 0, 5, 5);
 		gbc_btnLancerLaSimulation.gridx = 5;
-		gbc_btnLancerLaSimulation.gridy = 7;
+		gbc_btnLancerLaSimulation.gridy = 8;
 		frmJsimForest.getContentPane().add(btnLancerLaSimulation, gbc_btnLancerLaSimulation);
 		btnLancerLaSimulation.addMouseListener(new MouseAbstractListener(){
 			@Override
 			public void mouseClicked(MouseEvent e)
-			{//TODO
-				iteration = 0;
-				btnPlaypause.setVisible(true);
-				btnPlaypause.setEnabled(true);
-				timer = new Timer(Integer.parseInt(txtDlai.getText()), new ActionListener(){
-					@Override
-					public void actionPerformed(ActionEvent arg0) 
-					{
-						System.out.println("tick !" + iteration);
-						timer.stop();
-						grille.update(iteration, (Mode)comboBox.getSelectedItem());
-						iteration++;
-						grid.repaint();
-						if (iteration < (Integer.parseInt(txtChoixPas.getText()))-1)
-						{
-							timer.start();
-						}
-					}
-					
-				});
-				timer.start();
+			{//TODO : Vérifier que les valeurs dasn les textbox sont bien des nombres entiers
+				if (timer == null) {
+					iteration = 0;
+					btnPlaypause.setVisible(true);
+					btnPlaypause.setEnabled(true);
+					lblNewLabel_3.setText(String.valueOf(iteration+2) + "/"
+							+ String.valueOf(txtChoixPas.getText()));
+					timer = new Timer(Integer.parseInt(txtDlai.getText()),
+							new ActionListener() {
+								@Override
+								public void actionPerformed(ActionEvent arg0) {
+									System.out.println("tick !" + iteration);
+									timer.stop();
+									grille.update(iteration,
+											(Mode) comboBox.getSelectedItem());
+									Hashtable<Etats, Float> density = grille
+											.densityCalc();
+									float trees = 0f, shrubs = 0f, sapling = 0f;
+									try {
+										trees = density.get(Etats.ARBRES)
+												.floatValue();
+									} catch (Exception e) {
+									}
+									try {
+										shrubs = density.get(Etats.ARBUSTE)
+												.floatValue();
+									} catch (Exception e) {
+									}
+									try {
+										sapling = density.get(
+												Etats.JEUNE_POUSSE)
+												.floatValue();
+									} catch (Exception e) {
+									}
+
+									lblNewLabel.setText(String.valueOf(sapling));
+									lblNewLabel_1.setText(String
+											.valueOf(shrubs));
+									lblNewLabel_2.setText(String.valueOf(trees));
+
+									lblNewLabel_3.setText(String
+											.valueOf(iteration+2)
+											+ "/"
+											+ txtChoixPas.getText());
+
+									iteration++;
+									grid.repaint();
+									if (iteration < (Integer
+											.parseInt(txtChoixPas.getText())) - 1) {
+										timer.start();
+									}
+									else
+									{
+										timer = null;
+									}
+								}
+
+							});
+					timer.start();
+				}
 			}
 		});
 		
-		lblTailleDuneCellule = new JLabel("Taille d'une cellule : ");
+		JLabel lblTailleDuneCellule = new JLabel("Taille d'une cellule : ");
 		GridBagConstraints gbc_lblTailleDuneCellule = new GridBagConstraints();
 		gbc_lblTailleDuneCellule.anchor = GridBagConstraints.WEST;
 		gbc_lblTailleDuneCellule.insets = new Insets(0, 0, 5, 5);
 		gbc_lblTailleDuneCellule.gridx = 5;
-		gbc_lblTailleDuneCellule.gridy = 8;
+		gbc_lblTailleDuneCellule.gridy = 9;
 		frmJsimForest.getContentPane().add(lblTailleDuneCellule, gbc_lblTailleDuneCellule);
 		
 		comboBox_2 = new JComboBox();
@@ -319,15 +375,15 @@ public class Fenêtre {
 		gbc_comboBox_2.insets = new Insets(0, 0, 5, 0);
 		gbc_comboBox_2.fill = GridBagConstraints.BOTH;
 		gbc_comboBox_2.gridx = 6;
-		gbc_comboBox_2.gridy = 8;
+		gbc_comboBox_2.gridy = 9;
 		frmJsimForest.getContentPane().add(comboBox_2, gbc_comboBox_2);
 		
-		lbltatDeLa = new JLabel("\u00C9l\u00E9ment \u00E0 placer :");
+		JLabel lbltatDeLa = new JLabel("\u00C9l\u00E9ment \u00E0 placer :");
 		GridBagConstraints gbc_lbltatDeLa = new GridBagConstraints();
 		gbc_lbltatDeLa.insets = new Insets(0, 0, 5, 5);
 		gbc_lbltatDeLa.anchor = GridBagConstraints.WEST;
 		gbc_lbltatDeLa.gridx = 5;
-		gbc_lbltatDeLa.gridy = 9;
+		gbc_lbltatDeLa.gridy = 10;
 		frmJsimForest.getContentPane().add(lbltatDeLa, gbc_lbltatDeLa);
 		
 		//TODO: Virer les print
@@ -353,7 +409,7 @@ public class Fenêtre {
 		gbc_comboBox_3.insets = new Insets(0, 0, 5, 0);
 		gbc_comboBox_3.fill = GridBagConstraints.HORIZONTAL;
 		gbc_comboBox_3.gridx = 6;
-		gbc_comboBox_3.gridy = 9;
+		gbc_comboBox_3.gridy = 10;
 		frmJsimForest.getContentPane().add(comboBox_3, gbc_comboBox_3);
 		
 		btnNewButton_1 = new JButton("G\u00E9n\u00E9rer la grille");
@@ -361,6 +417,12 @@ public class Fenêtre {
 			@Override
 			public void mouseClicked(MouseEvent e)
 			{
+				lblNewLabel_3.setText("/");
+				
+				lblNewLabel.setText("0");
+				lblNewLabel_1.setText("0");
+				lblNewLabel_2.setText("0");
+				
 				JScrollPane pane = (JScrollPane)this.data;
 				
 				GridSizes gridSize = (GridSizes)comboBox_1.getSelectedItem();
@@ -399,7 +461,20 @@ public class Fenêtre {
 						
 						Cellule[][] cells = grille.getGrille();
 						cells[x][y].setState((Etats)comboBox_3.getSelectedItem());
-						//grid.repaint();
+						grid.repaint();
+						
+						Hashtable<Etats, Float> density = grille.densityCalc();
+						float trees = 0f,
+							  shrubs = 0f,
+							  sapling = 0f;
+						try {trees = density.get(Etats.ARBRES).floatValue(); }catch(Exception e){}
+						try {shrubs = density.get(Etats.ARBUSTE).floatValue(); }catch(Exception e){}
+						try {sapling = density.get(Etats.JEUNE_POUSSE).floatValue(); }catch(Exception e){}
+						
+						lblNewLabel.setText(String.valueOf(sapling));
+						lblNewLabel_1.setText(String.valueOf(shrubs));
+						lblNewLabel_2.setText(String.valueOf(trees));
+						
 						System.out.println("Cellule n° " + grid.numero + "\nx : " + x + "\ty : " + y + "\nÉtat : " + cells[x][y].getState());
 					}
 				});
@@ -411,7 +486,7 @@ public class Fenêtre {
 		gbc_btnNewButton_1.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnNewButton_1.insets = new Insets(0, 0, 5, 5);
 		gbc_btnNewButton_1.gridx = 5;
-		gbc_btnNewButton_1.gridy = 10;
+		gbc_btnNewButton_1.gridy = 11;
 		frmJsimForest.getContentPane().add(btnNewButton_1, gbc_btnNewButton_1);
 		
 		btnPlaypause = new JButton("");
@@ -437,7 +512,7 @@ public class Fenêtre {
 		GridBagConstraints gbc_btnPlaypause = new GridBagConstraints();
 		gbc_btnPlaypause.insets = new Insets(0, 0, 5, 5);
 		gbc_btnPlaypause.gridx = 1;
-		gbc_btnPlaypause.gridy = 12;
+		gbc_btnPlaypause.gridy = 13;
 		frmJsimForest.getContentPane().add(btnPlaypause, gbc_btnPlaypause);
 		
 		btnPasPas = new JButton("");
@@ -456,15 +531,15 @@ public class Fenêtre {
 		gbc_btnPasPas.anchor = GridBagConstraints.WEST;
 		gbc_btnPasPas.insets = new Insets(0, 0, 5, 5);
 		gbc_btnPasPas.gridx = 2;
-		gbc_btnPasPas.gridy = 12;
+		gbc_btnPasPas.gridy = 13;
 		frmJsimForest.getContentPane().add(btnPasPas, gbc_btnPasPas);
 		
-		btnPleincran = new JButton("Plein \u00C9cran");
+		JButton btnPleincran = new JButton("Plein \u00C9cran");
 		GridBagConstraints gbc_btnPleincran = new GridBagConstraints();
 		gbc_btnPleincran.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnPleincran.insets = new Insets(0, 0, 5, 5);
 		gbc_btnPleincran.gridx = 3;
-		gbc_btnPleincran.gridy = 12;
+		gbc_btnPleincran.gridy = 13;
 		frmJsimForest.getContentPane().add(btnPleincran, gbc_btnPleincran);
 		btnPleincran.addMouseListener(new MouseAbstractListener()
 		{
@@ -477,21 +552,22 @@ public class Fenêtre {
 			}
 		});
 		
-		lblChoixTaille = new JLabel("Choix Taille :");
+		JLabel lblChoixTaille = new JLabel("Choix Taille :");
 		GridBagConstraints gbc_lblChoixTaille = new GridBagConstraints();
 		gbc_lblChoixTaille.insets = new Insets(0, 0, 5, 5);
 		gbc_lblChoixTaille.anchor = GridBagConstraints.WEST;
 		gbc_lblChoixTaille.gridx = 1;
-		gbc_lblChoixTaille.gridy = 13;
+		gbc_lblChoixTaille.gridy = 14;
 		frmJsimForest.getContentPane().add(lblChoixTaille, gbc_lblChoixTaille);
 		
 		comboBox_1 = new JComboBox();
 		comboBox_1.setModel(new DefaultComboBoxModel(GridSizes.values()));
+		comboBox_1.setSelectedIndex(2);
 		GridBagConstraints gbc_comboBox_1 = new GridBagConstraints();
 		gbc_comboBox_1.insets = new Insets(0, 0, 5, 5);
 		gbc_comboBox_1.fill = GridBagConstraints.HORIZONTAL;
 		gbc_comboBox_1.gridx = 2;
-		gbc_comboBox_1.gridy = 13;
+		gbc_comboBox_1.gridy = 14;
 		frmJsimForest.getContentPane().add(comboBox_1, gbc_comboBox_1);
 		
 		comboBox = new JComboBox();
@@ -532,20 +608,20 @@ public class Fenêtre {
 			}
 		});
 		
-		lblMode = new JLabel("Mode :");
+		JLabel lblMode = new JLabel("Mode :");
 		GridBagConstraints gbc_lblMode = new GridBagConstraints();
 		gbc_lblMode.fill = GridBagConstraints.VERTICAL;
 		gbc_lblMode.insets = new Insets(0, 0, 5, 5);
 		gbc_lblMode.anchor = GridBagConstraints.WEST;
 		gbc_lblMode.gridx = 1;
-		gbc_lblMode.gridy = 14;
+		gbc_lblMode.gridy = 15;
 		frmJsimForest.getContentPane().add(lblMode, gbc_lblMode);
 		comboBox.setModel(new DefaultComboBoxModel(Mode.values()));
 		GridBagConstraints gbc_comboBox = new GridBagConstraints();
 		gbc_comboBox.fill = GridBagConstraints.HORIZONTAL;
 		gbc_comboBox.insets = new Insets(0, 0, 5, 5);
 		gbc_comboBox.gridx = 2;
-		gbc_comboBox.gridy = 14;
+		gbc_comboBox.gridy = 15;
 		frmJsimForest.getContentPane().add(comboBox, gbc_comboBox);
 		
 		txtDlai = new JTextField();
@@ -554,7 +630,7 @@ public class Fenêtre {
 		gbc_txtDlai.insets = new Insets(0, 0, 0, 5);
 		gbc_txtDlai.fill = GridBagConstraints.HORIZONTAL;
 		gbc_txtDlai.gridx = 1;
-		gbc_txtDlai.gridy = 15;
+		gbc_txtDlai.gridy = 16;
 		frmJsimForest.getContentPane().add(txtDlai, gbc_txtDlai);
 		txtDlai.setColumns(10);
 		
@@ -564,16 +640,16 @@ public class Fenêtre {
 		gbc_txtChoixPas.fill = GridBagConstraints.HORIZONTAL;
 		gbc_txtChoixPas.insets = new Insets(0, 0, 0, 5);
 		gbc_txtChoixPas.gridx = 2;
-		gbc_txtChoixPas.gridy = 15;
+		gbc_txtChoixPas.gridy = 16;
 		frmJsimForest.getContentPane().add(txtChoixPas, gbc_txtChoixPas);
 		txtChoixPas.setColumns(10);
 		
-		btnNewButton = new JButton("Importation/sauvegarde");
+		JButton btnNewButton = new JButton("Importation/sauvegarde");
 		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
 		gbc_btnNewButton.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnNewButton.insets = new Insets(0, 0, 0, 5);
 		gbc_btnNewButton.gridx = 3;
-		gbc_btnNewButton.gridy = 15;
+		gbc_btnNewButton.gridy = 16;
 		frmJsimForest.getContentPane().add(btnNewButton, gbc_btnNewButton);
 		
 		
@@ -593,11 +669,11 @@ public class Fenêtre {
 			}
 		});
 		
-		btnQuitter = new JButton("Quitter");
+		JButton btnQuitter = new JButton("Quitter");
 		GridBagConstraints gbc_btnQuitter = new GridBagConstraints();
 		gbc_btnQuitter.fill = GridBagConstraints.HORIZONTAL;
 		gbc_btnQuitter.gridx = 6;
-		gbc_btnQuitter.gridy = 15;
+		gbc_btnQuitter.gridy = 16;
 		frmJsimForest.getContentPane().add(btnQuitter, gbc_btnQuitter);
 		
 		
