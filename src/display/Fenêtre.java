@@ -278,41 +278,65 @@ public class Fenêtre {
 			@Override
 			public void mouseClicked(MouseEvent e)
 			{
-				iteration = 0;
-				btnPlaypause.setVisible(true);
-				btnPlaypause.setEnabled(true);
-				lblNewLabel_3.setText(String.valueOf(iteration) + "/" + String.valueOf(txtChoixPas.getText()));
-				timer = new Timer(Integer.parseInt(txtDlai.getText()), new ActionListener(){
-					@Override
-					public void actionPerformed(ActionEvent arg0) 
-					{
-						System.out.println("tick !" + iteration);
-						timer.stop();
-						grille.update(iteration, (Mode)comboBox.getSelectedItem());
-						Hashtable<Etats, Float> density = grille.densityCalc();
-						float trees = 0f,
-							  shrubs = 0f,
-							  sapling = 0f;
-						try {trees = density.get(Etats.ARBRES).floatValue(); }catch(Exception e){}
-						try {shrubs = density.get(Etats.ARBUSTE).floatValue(); }catch(Exception e){}
-						try {sapling = density.get(Etats.JEUNE_POUSSE).floatValue(); }catch(Exception e){}
-						
-						lblNewLabel.setText(String.valueOf(sapling));
-						lblNewLabel_1.setText(String.valueOf(shrubs));
-						lblNewLabel_2.setText(String.valueOf(trees));
-						
-						lblNewLabel_3.setText(String.valueOf(iteration) + "/" + String.valueOf(txtChoixPas.getText()));
-						
-						iteration++;
-						grid.repaint();
-						if (iteration < (Integer.parseInt(txtChoixPas.getText()))-1)
-						{
-							timer.start();
-						}
-					}
-					
-				});
-				timer.start();
+				if (timer == null) {
+					iteration = 0;
+					btnPlaypause.setVisible(true);
+					btnPlaypause.setEnabled(true);
+					lblNewLabel_3.setText(String.valueOf(iteration+2) + "/"
+							+ String.valueOf(txtChoixPas.getText()));
+					timer = new Timer(Integer.parseInt(txtDlai.getText()),
+							new ActionListener() {
+								@Override
+								public void actionPerformed(ActionEvent arg0) {
+									System.out.println("tick !" + iteration);
+									timer.stop();
+									grille.update(iteration,
+											(Mode) comboBox.getSelectedItem());
+									Hashtable<Etats, Float> density = grille
+											.densityCalc();
+									float trees = 0f, shrubs = 0f, sapling = 0f;
+									try {
+										trees = density.get(Etats.ARBRES)
+												.floatValue();
+									} catch (Exception e) {
+									}
+									try {
+										shrubs = density.get(Etats.ARBUSTE)
+												.floatValue();
+									} catch (Exception e) {
+									}
+									try {
+										sapling = density.get(
+												Etats.JEUNE_POUSSE)
+												.floatValue();
+									} catch (Exception e) {
+									}
+
+									lblNewLabel.setText(String.valueOf(sapling));
+									lblNewLabel_1.setText(String
+											.valueOf(shrubs));
+									lblNewLabel_2.setText(String.valueOf(trees));
+
+									lblNewLabel_3.setText(String
+											.valueOf(iteration+2)
+											+ "/"
+											+ txtChoixPas.getText());
+
+									iteration++;
+									grid.repaint();
+									if (iteration < (Integer
+											.parseInt(txtChoixPas.getText())) - 1) {
+										timer.start();
+									}
+									else
+									{
+										timer = null;
+									}
+								}
+
+							});
+					timer.start();
+				}
 			}
 		});
 		
