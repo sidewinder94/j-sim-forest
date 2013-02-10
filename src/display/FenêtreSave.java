@@ -140,7 +140,7 @@ public class FenêtreSave {
 					System.out.println("Choississez un fichier");
 				}
 				else
-				{
+				{ //TODO : Remplacer par un chemin relatif !
 					BDD = new DataBaseAccess("C:\\Users\\arnaud\\git\\j-sim-forest\\JSimBDD.sqlite");
 					BDD.connect();
 
