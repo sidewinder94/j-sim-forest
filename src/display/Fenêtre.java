@@ -277,7 +277,7 @@ public class Fenêtre {
 		btnLancerLaSimulation.addMouseListener(new MouseAbstractListener(){
 			@Override
 			public void mouseClicked(MouseEvent e)
-			{
+			{//TODO : Vérifier que les valeurs dasn les textbox sont bien des nombres entiers
 				if (timer == null) {
 					iteration = 0;
 					btnPlaypause.setVisible(true);
