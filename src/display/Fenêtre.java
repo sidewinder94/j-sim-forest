@@ -199,7 +199,7 @@ public class Fenêtre {
 		gbc_lblJeunesPousses.gridy = 3;
 		frmJsimForest.getContentPane().add(lblJeunesPousses, gbc_lblJeunesPousses);
 		
-		lblNewLabel = new JLabel("New label");
+		lblNewLabel = new JLabel("");
 		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
 		gbc_lblNewLabel.anchor = GridBagConstraints.WEST;
 		gbc_lblNewLabel.insets = new Insets(0, 0, 5, 0);
@@ -215,7 +215,7 @@ public class Fenêtre {
 		gbc_lblArbustes.gridy = 4;
 		frmJsimForest.getContentPane().add(lblArbustes, gbc_lblArbustes);
 		
-		lblNewLabel_1 = new JLabel("New label");
+		lblNewLabel_1 = new JLabel("");
 		GridBagConstraints gbc_lblNewLabel_1 = new GridBagConstraints();
 		gbc_lblNewLabel_1.anchor = GridBagConstraints.WEST;
 		gbc_lblNewLabel_1.insets = new Insets(0, 0, 5, 0);
@@ -231,7 +231,7 @@ public class Fenêtre {
 		gbc_lblArbres.gridy = 5;
 		frmJsimForest.getContentPane().add(lblArbres, gbc_lblArbres);
 		
-		lblNewLabel_2 = new JLabel("New label");
+		lblNewLabel_2 = new JLabel("");
 		GridBagConstraints gbc_lblNewLabel_2 = new GridBagConstraints();
 		gbc_lblNewLabel_2.anchor = GridBagConstraints.WEST;
 		gbc_lblNewLabel_2.insets = new Insets(0, 0, 5, 0);
@@ -250,7 +250,7 @@ public class Fenêtre {
 		btnLancerLaSimulation.addMouseListener(new MouseAbstractListener(){
 			@Override
 			public void mouseClicked(MouseEvent e)
-			{//TODO
+			{
 				iteration = 0;
 				btnPlaypause.setVisible(true);
 				btnPlaypause.setEnabled(true);
@@ -363,6 +363,10 @@ public class Fenêtre {
 			@Override
 			public void mouseClicked(MouseEvent e)
 			{
+				lblNewLabel.setText("0");
+				lblNewLabel_1.setText("0");
+				lblNewLabel_2.setText("0");
+				
 				JScrollPane pane = (JScrollPane)this.data;
 				
 				GridSizes gridSize = (GridSizes)comboBox_1.getSelectedItem();
@@ -401,7 +405,20 @@ public class Fenêtre {
 						
 						Cellule[][] cells = grille.getGrille();
 						cells[x][y].setState((Etats)comboBox_3.getSelectedItem());
-						//grid.repaint();
+						grid.repaint();
+						
+						Hashtable<Etats, Float> density = grille.densityCalc();
+						float trees = 0f,
+							  shrubs = 0f,
+							  sapling = 0f;
+						try {trees = density.get(Etats.ARBRES).floatValue(); }catch(Exception e){}
+						try {shrubs = density.get(Etats.ARBUSTE).floatValue(); }catch(Exception e){}
+						try {sapling = density.get(Etats.JEUNE_POUSSE).floatValue(); }catch(Exception e){}
+						
+						lblNewLabel.setText(String.valueOf(sapling));
+						lblNewLabel_1.setText(String.valueOf(shrubs));
+						lblNewLabel_2.setText(String.valueOf(trees));
+						
 						System.out.println("Cellule n° " + grid.numero + "\nx : " + x + "\ty : " + y + "\nÉtat : " + cells[x][y].getState());
 					}
 				});
