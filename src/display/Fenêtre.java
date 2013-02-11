@@ -338,6 +338,8 @@ public class Fenêtre {
 									else
 									{
 										timer = null;
+										btnPlaypause.setVisible(false);
+										btnPasPas.setVisible(false);
 									}
 								}
 
