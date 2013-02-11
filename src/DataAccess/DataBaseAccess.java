@@ -31,7 +31,7 @@ public class DataBaseAccess {
 		        try
 		        {
 		        	Class.forName("org.sqlite.JDBC");
-		        	dbName = "C:\\Users\\arnaud\\j-sim-forest\\JSimBDD.sqlite";
+		        	dbName = "C:\\Users\\arnaud\\git\\j-sim-forest";
 		        	
 		        }
 		        catch (ClassNotFoundException e)
