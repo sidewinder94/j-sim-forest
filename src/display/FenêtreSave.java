@@ -1,13 +1,10 @@
 package display;
 
-import java.awt.EventQueue;
-
 import javax.swing.*;
 
 import structure.*;
 
 
-import java.awt.*;
 import java.awt.event.*;
 import java.sql.*;
 import java.util.ArrayList;
@@ -18,8 +15,6 @@ import com.jgoodies.forms.layout.FormLayout;
 import com.jgoodies.forms.layout.ColumnSpec;
 import com.jgoodies.forms.factories.FormFactory;
 import com.jgoodies.forms.layout.RowSpec;
-
-import display.Fenêtre.MouseAbstractListener;
 
 public class FenêtreSave {
 	
@@ -113,7 +108,7 @@ public class FenêtreSave {
 				FormFactory.RELATED_GAP_ROWSPEC,
 				FormFactory.DEFAULT_ROWSPEC,}));
 		
-		final JComboBox comboBox = new JComboBox();
+		final JComboBox<String> comboBox = new JComboBox<String>();
 		comboBox.setEditable(true);
 		frame.getContentPane().add(comboBox, "2, 2, fill, center");
 		
@@ -145,12 +140,11 @@ public class FenêtreSave {
 					BDD.connect();
 
 					ResultSet rs = BDD.GetParametre(comboBox.getSelectedItem().toString());
-					ArrayList<String> nb_pas = new ArrayList();
-					ArrayList<String> vitesse = new ArrayList();
-					ArrayList<String> taille_grille = new ArrayList();
+					ArrayList<String> nb_pas = new ArrayList<String>();
+					ArrayList<String> vitesse = new ArrayList<String>();
+					ArrayList<String> taille_grille = new ArrayList<String>();
 					if (rs != null) {
-						int j = 0;
-					    do {
+						do {
 					    	nb_pas.add(rs.getString("nb_pas"));
 					    	vitesse.add(rs.getString("vitesse"));
 					    	taille_grille.add(rs.getString("taille_grille_x"));
@@ -207,29 +201,25 @@ public class FenêtreSave {
 					ResultSet rs = BDD.getID();
 					ResultSet id_config = BDD.getIDliaison();
 					ResultSet cellule = BDD.getIDcellule();
-                    int i=0;
-                    ArrayList<String> temporaire = new ArrayList();
+                    ArrayList<String> temporaire = new ArrayList<String>();
                     if (rs != null) {
-    					int j = 0;
-    				    do {
+    					do {
     				    	temporaire.add(rs.getString("id_configuration"));
     				        
     				    } while (rs.next());
                     }
                     
-                    ArrayList<String> idliaison = new ArrayList();
+                    ArrayList<String> idliaison = new ArrayList<String>();
                     if (id_config != null) {
-    					int l = 0;
-    				    do {
+    					do {
     				    	idliaison.add(id_config.getString("id_liaison"));
     				        
     				    } while (id_config.next());
                     }
                     
-                    ArrayList<String> idcellule = new ArrayList();
+                    ArrayList<String> idcellule = new ArrayList<String>();
                     if (cellule != null) {
-    					int m = 0;
-    				    do {
+    					do {
     				    	idcellule.add(cellule.getString("cellule"));
     				        
     				    } while (cellule.next());
@@ -241,16 +231,14 @@ public class FenêtreSave {
                     String retour2;
                     Cellule[][] cells = grille.getGrille();
                     int size =cells.length;
-                    int varindexliaison =Integer.parseInt(indexliaison); 
-                    int varindexcellule = Integer.parseInt(idnextcellule); 
+                    Integer.parseInt(indexliaison); 
+                    Integer.parseInt(idnextcellule); 
                     retour2 = "echec insertion";
                     for (int varboucle = 0; varboucle < size; varboucle++) 
             		{
             			for (int varboucle2 = 0; varboucle2 < size; varboucle2++)
             			{
             				retour2 = BDD.Sauvegardeentiere(indexliaison,idnextcellule,index, Integer.toString (varboucle), Integer.toString (varboucle2), cells[varboucle][varboucle2].getState().getEtats());
-            				varindexliaison++;
-            				varindexcellule++;
             				
             				
             			}
@@ -265,11 +253,9 @@ public class FenêtreSave {
 						BDD = new DataBaseAccess("C:\\Users\\arnaud\\git\\j-sim-forest\\JSimBDD.sqlite");
 						BDD.connect();
 						ResultSet rs = BDD.getID();
-	                    int i=0;
-	                    ArrayList<String> temporaire = new ArrayList();
+	                    ArrayList<String> temporaire = new ArrayList<String>();
 	                    if (rs != null) {
-	    					int j = 0;
-	    				    do {
+	    					do {
 	    				    	temporaire.add(rs.getString("id_configuration"));
 	    				        
 	    				    } while (rs.next());
@@ -304,21 +290,17 @@ public class FenêtreSave {
 				BDD = new DataBaseAccess("C:\\Users\\arnaud\\git\\j-sim-forest\\JSimBDD.sqlite");
 				BDD.connect();
 				ResultSet rs = BDD.getName();
-				ArrayList<String> temporaire = new ArrayList();
+				ArrayList<String> temporaire = new ArrayList<String>();
 				if (rs != null) {
-					int j = 0;
-				    do {
+					do {
 				    	temporaire.add(rs.getString("name"));
 				        
 				    } while (rs.next());
 
-					int i=0;
-					
 					for (String item : temporaire)
 					{
 						
 						comboBox.addItem(item);
-						i++;
 					}
 					
 				}
