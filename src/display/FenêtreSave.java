@@ -137,7 +137,7 @@ public class FenêtreSave {
 				}
 				else
 				{ //TODO : Remplacer par un chemin relatif !
-					BDD = new DataBaseAccess("..\\JSimBDD.sqlite");
+					BDD = new DataBaseAccess(".\\JSimBDD.sqlite");
 					BDD.connect();
 
 					ResultSet rs = BDD.GetParametre(comboBox.getSelectedItem().toString());
@@ -255,7 +255,7 @@ public class FenêtreSave {
 					
 					else
 					{*/
-						BDD = new DataBaseAccess("C:\\Users\\arnaud\\git\\j-sim-forest");
+						BDD = new DataBaseAccess(".\\JSimBDD.sqlite");
 						BDD.connect();
 						ResultSet rs = BDD.getID();
 	                    ArrayList<String> temporaire = new ArrayList<String>();
@@ -292,7 +292,7 @@ public class FenêtreSave {
 				try{
 				comboBox.removeAllItems();
 				    
-				BDD = new DataBaseAccess("C:\\Users\\arnaud\\git\\j-sim-forest");
+				BDD = new DataBaseAccess(".\\JSimBDD.sqlite");
 				BDD.connect();
 				ResultSet rs = BDD.getName();
 				ArrayList<String> temporaire = new ArrayList<String>();
