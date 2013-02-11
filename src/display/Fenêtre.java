@@ -389,7 +389,7 @@ public class Fenêtre {
 		//TODO: Virer les print
 		comboBox_3 = new JComboBox();
 		Etats etat = Etats.JEUNE_POUSSE;
-		models[0] = new DefaultComboBoxModel(new Etats[]{
+		models[0] = new DefaultComboBoxModel<Etats>(new Etats[]{
 			Etats.JEUNE_POUSSE,
 			Etats.ARBUSTE,
 			Etats.ARBRES,
@@ -575,7 +575,7 @@ public class Fenêtre {
 			
 			public void itemStateChanged(ItemEvent e) {
 				if((Mode)comboBox.getSelectedItem() == Mode.FORESTIER){
-					models[0] = new DefaultComboBoxModel(
+					models[0] = new DefaultComboBoxModel<Etats>(
 						new Etats[]{
 							Etats.JEUNE_POUSSE,
 							Etats.ARBUSTE,
@@ -584,7 +584,7 @@ public class Fenêtre {
 					comboBox_3.setModel(models[0]);
 				}
 				else if((Mode)comboBox.getSelectedItem() == Mode.INCENDIE){
-					models[1] = new DefaultComboBoxModel(
+					models[1] = new DefaultComboBoxModel<Etats>(
 						new Etats[]{
 							Etats.FEU,
 							Etats.CENDRE,
@@ -595,7 +595,7 @@ public class Fenêtre {
 					comboBox_3.setModel(models[1]);
 				}
 				else if((Mode)comboBox.getSelectedItem() == Mode.INSECTES){
-					models[2] = new DefaultComboBoxModel(
+					models[2] = new DefaultComboBoxModel<Etats>(
 						new Etats[]{
 							Etats.INFECTE,
 							Etats.JEUNE_POUSSE,
