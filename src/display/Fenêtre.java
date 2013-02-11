@@ -34,6 +34,13 @@ public class Fenêtre {
 	private JButton btnPlaypause;
 	private JButton btnPasPas;
 	private boolean btnPlayPauseIcon = true;
+	
+	public Grille getGrille()
+	{
+		return grille;
+	}
+	
+	
 	public JTextField getTxtChoixPas() {
 		return txtChoixPas;
 	}
