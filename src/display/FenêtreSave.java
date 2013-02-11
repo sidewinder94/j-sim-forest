@@ -85,6 +85,7 @@ public class FenêtreSave {
 	public FenêtreSave(Fenêtre frmJsimForest) {
 		super();
 		this.frmJsimForest = frmJsimForest;
+		grille = this.frmJsimForest.getGrille();
 		initialize();
 	}
 
