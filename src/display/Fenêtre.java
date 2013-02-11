@@ -1,11 +1,11 @@
 package display;
 
+import DataAccess.FileExport;
 import javax.swing.*;
 import structure.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.Hashtable;
-
 import Settings.*;
 import javax.swing.UIManager.*;
 
@@ -34,6 +34,7 @@ public class Fenêtre {
 	private JButton btnPlaypause;
 	private JButton btnPasPas;
 	private boolean btnPlayPauseIcon = true;
+	private FileExport csv;
 	
 	public Grille getGrille()
 	{
@@ -163,7 +164,10 @@ public class Fenêtre {
 		} catch (Exception e) {
 		    // If Nimbus is not available, you can set the GUI to another look and feel.
 		}
-
+		
+		csv = new FileExport("./export.csv");
+		csv.write("\"jeune pousse\";" + "arbuste;" + "arbre;" + "vide" + "\r\n");
+		
 		fenetre = this;
 		frmJsimForest = new JFrame();
 		frmJsimForest.setTitle("J-Sim Forest");
@@ -319,6 +323,11 @@ public class Fenêtre {
 									} catch (Exception e) {
 									}
 
+									csv.append(String.valueOf(sapling).replace(".",",")+ ";" + 
+											   String.valueOf(shrubs).replace(".",",") + ";" + 
+											   String.valueOf(trees).replace(".",",")+ ";" + 
+											   String.valueOf(1-(trees+sapling+shrubs)).replace(".",",")+ "\r\n");
+									
 									lblNewLabel.setText(String.valueOf(sapling));
 									lblNewLabel_1.setText(String
 											.valueOf(shrubs));
@@ -328,7 +337,7 @@ public class Fenêtre {
 											.valueOf(iteration+2)
 											+ "/"
 											+ txtChoixPas.getText());
-
+									
 									iteration++;
 									grid.repaint();
 									if (iteration < (Integer
