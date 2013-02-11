@@ -137,7 +137,7 @@ public class FenêtreSave {
 				}
 				else
 				{ //TODO : Remplacer par un chemin relatif !
-					BDD = new DataBaseAccess("C:\\Users\\arnaud\\git\\j-sim-forest\\JSimBDD.sqlite");
+					BDD = new DataBaseAccess("C:\\Users\\arnaud\\git\\j-sim-forest");
 					BDD.connect();
 
 					ResultSet rs = BDD.GetParametre(comboBox.getSelectedItem().toString());
@@ -194,10 +194,11 @@ public class FenêtreSave {
 			public void mouseClicked(MouseEvent e)
 			{//TODO
 				try{
-					if(grille != null)
+					//TODO achever la requète, la ligne qui récupère les cellules bug...
+					if(1==2)
 					{
-						
-					BDD = new DataBaseAccess("C:\\Users\\arnaud\\git\\j-sim-forest\\JSimBDD.sqlite");
+					Cellule[][] cells = grille.getGrille();
+					BDD = new DataBaseAccess("C:\\Users\\arnaud\\git\\j-sim-forest");
 					BDD.connect();
 					ResultSet rs = BDD.getID();
 					ResultSet id_config = BDD.getIDliaison();
@@ -225,12 +226,13 @@ public class FenêtreSave {
     				        
     				    } while (cellule.next());
                     }
+                    System.out.println(BDD.connection.toString());
                     String index = temporaire.get(temporaire.size()-1)+1;
                     String indexliaison = temporaire.get(temporaire.size()-1)+1;
                     String idnextcellule = temporaire.get(temporaire.size()-1)+1;
                     String retour = BDD.Sauvegarde(index,frmJsimForest.getTxtChoixPas().getText(), frmJsimForest.getTxtDlai().getText(), frmJsimForest.getComboBox_1().getSelectedItem().toString(),comboBox.getSelectedItem().toString());
                     String retour2;
-                    Cellule[][] cells = grille.getGrille();
+                    
                     int size =cells.length;
                     Integer.parseInt(indexliaison); 
                     Integer.parseInt(idnextcellule); 
@@ -239,6 +241,7 @@ public class FenêtreSave {
             		{
             			for (int varboucle2 = 0; varboucle2 < size; varboucle2++)
             			{
+            				BDD.connect();
             				retour2 = BDD.Sauvegardeentiere(indexliaison,idnextcellule,index, Integer.toString (varboucle), Integer.toString (varboucle2), cells[varboucle][varboucle2].getState().getEtats());
             				
             				
@@ -251,7 +254,7 @@ public class FenêtreSave {
 					
 					else
 					{
-						BDD = new DataBaseAccess("C:\\Users\\arnaud\\git\\j-sim-forest\\JSimBDD.sqlite");
+						BDD = new DataBaseAccess("C:\\Users\\arnaud\\git\\j-sim-forest");
 						BDD.connect();
 						ResultSet rs = BDD.getID();
 	                    ArrayList<String> temporaire = new ArrayList<String>();
@@ -288,7 +291,7 @@ public class FenêtreSave {
 				try{
 				comboBox.removeAllItems();
 				    
-				BDD = new DataBaseAccess("C:\\Users\\arnaud\\git\\j-sim-forest\\JSimBDD.sqlite");
+				BDD = new DataBaseAccess("C:\\Users\\arnaud\\git\\j-sim-forest");
 				BDD.connect();
 				ResultSet rs = BDD.getName();
 				ArrayList<String> temporaire = new ArrayList<String>();
