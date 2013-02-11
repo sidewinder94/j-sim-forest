@@ -137,7 +137,7 @@ public class FenêtreSave {
 				}
 				else
 				{ //TODO : Remplacer par un chemin relatif !
-					BDD = new DataBaseAccess("C:\\Users\\arnaud\\git\\j-sim-forest");
+					BDD = new DataBaseAccess("..\\JSimBDD.sqlite");
 					BDD.connect();
 
 					ResultSet rs = BDD.GetParametre(comboBox.getSelectedItem().toString());
@@ -193,9 +193,10 @@ public class FenêtreSave {
 			@Override
 			public void mouseClicked(MouseEvent e)
 			{//TODO
+				
 				try{
 					//TODO achever la requète, la ligne qui récupère les cellules bug...
-					if(1==2)
+					/*if(1==2)
 					{
 					Cellule[][] cells = grille.getGrille();
 					BDD = new DataBaseAccess("C:\\Users\\arnaud\\git\\j-sim-forest");
@@ -253,7 +254,7 @@ public class FenêtreSave {
 					}
 					
 					else
-					{
+					{*/
 						BDD = new DataBaseAccess("C:\\Users\\arnaud\\git\\j-sim-forest");
 						BDD.connect();
 						ResultSet rs = BDD.getID();
@@ -268,7 +269,7 @@ public class FenêtreSave {
 						String retour = BDD.Sauvegarde(index,frmJsimForest.getTxtChoixPas().getText(), frmJsimForest.getTxtDlai().getText(), frmJsimForest.getComboBox_1().getSelectedItem().toString(),comboBox.getSelectedItem().toString());
 						System.out.println(retour);
 						BDD.disconnect();
-					}
+					//}
 					}
 				catch(SQLException e1)
 				{

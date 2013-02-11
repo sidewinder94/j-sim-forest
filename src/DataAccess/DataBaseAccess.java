@@ -31,7 +31,7 @@ public class DataBaseAccess {
 		        try
 		        {
 		        	Class.forName("org.sqlite.JDBC");
-		        	dbName = "C:\\Users\\arnaud\\git\\j-sim-forest\\JSimBDD.sqlite";
+		        	dbName = "..\\JSimBDD.sqlite";
 		        	
 		        }
 		        catch (ClassNotFoundException e)
@@ -167,7 +167,7 @@ public class DataBaseAccess {
 		        return null;
 		    }
 		    
-		    
+		    //Cette méthode ne sera pas utilisée
 		    public String Sauvegardeentiere(String id_liaison, String cellule, String id_configuration, String posx, String posy, String Etat)
 		    {
 		        try

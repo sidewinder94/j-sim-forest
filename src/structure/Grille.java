@@ -11,6 +11,7 @@ public class Grille
 		return grille;
 	}
 
+	//Crée la grille et instancie l'intégralité des cases
 	public Grille(int size_x,int size_y,Mode mode)
 	{
 		this.grille = new Cellule[size_x][size_y];
@@ -24,14 +25,18 @@ public class Grille
 		}
 	}
 	
+	//Lance la mise à jour de l'intégralité des cases
 	public Grille update(int iteration, Mode mode) 
 	{
+		//Boucle de détection et de mise à jour de l'état suivant des cellules
 		for (int i = 0; i < this.grille.length; i++) {
 			for (int j = 0; j < this.grille[i].length; j++) {
 				this.grille[i][j].setMode(mode);
 				this.grille[i][j].update(iteration);
 			}
 		}
+		
+		//Boucle de mise à jour de l'état réel des cellules
 		iteration++;
 		for (int i = 0; i < this.grille.length; i++) {
 			for (int j = 0; j < this.grille[i].length; j++) {
@@ -42,6 +47,7 @@ public class Grille
 		return this;
 	}
 	
+	//Calcul des densités pour chaque état
 	public Hashtable<Etats, Float> densityCalc()
 	{
 		Hashtable<Etats, Float> result = new Hashtable<Etats, Float>();

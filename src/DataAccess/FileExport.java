@@ -9,12 +9,14 @@ public class FileExport {
 	FileWriter fw;
 	FileReader fr;
 	
+	//Constructeur, prends en argument le chemin du fichier a enregistrer
 	public FileExport(String filePath)
 	{
 			this.filePath = filePath;
 			this.file = new File(this.filePath);		
 	}
 	
+	//Fonction permettant d'écrire dans un fichier en en effaçant le contenu
 	public void write(String strToWrite)
 	{
 		try
@@ -45,6 +47,7 @@ public class FileExport {
 		}
 	}
 	
+	//Fonction permettant d'ajouter du contenu à un fichier texte
 	public void append(String strToAppend)
 	{
 		try

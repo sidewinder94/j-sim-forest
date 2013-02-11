@@ -93,7 +93,7 @@ public class Fenêtre {
 		this.comboBox_3 = comboBox_3;
 	}
 	/**
-	 * Classe MouseListener permettant de réaliser des actions souris sur les controles
+	 * Classe abstraite MouseListener permettant de réaliser des actions souris sur les controles
 	 */
 	static class MouseAbstractListener implements MouseListener
 	{
@@ -165,7 +165,9 @@ public class Fenêtre {
 		    // If Nimbus is not available, you can set the GUI to another look and feel.
 		}
 		
+		//on donne le chemin du csv
 		csv = new FileExport("./export.csv");
+		//On écrit les en-têtes de colonnes du csv
 		csv.write("\"jeune pousse\";" + "arbuste;" + "arbre;" + "vide" + "\r\n");
 		
 		fenetre = this;
@@ -367,6 +369,7 @@ public class Fenêtre {
 		frmJsimForest.getContentPane().add(lblTailleDuneCellule, gbc_lblTailleDuneCellule);
 		
 		comboBox_2 = new JComboBox();
+		//Lors du changement de la taille de la cellule, redimensionne la grille et redéfinit le pas de défilement des ascenseurs
 		comboBox_2.addItemListener(new ItemListener() {
 			public void itemStateChanged(ItemEvent arg0) {
 				if (arg0.getStateChange() == ItemEvent.SELECTED)
@@ -435,20 +438,26 @@ public class Fenêtre {
 			@Override
 			public void mouseClicked(MouseEvent e)
 			{
+				/*
+				 * Mise à zéro de l'affichage compteurs de densités
+				 * */
 				lblNewLabel_3.setText("/");
 				
 				lblNewLabel.setText("0");
 				lblNewLabel_1.setText("0");
 				lblNewLabel_2.setText("0");
 				
+				//récupération du Jscrollpane
 				JScrollPane pane = (JScrollPane)this.data;
 				
+				//Instanciation de la grille
 				GridSizes gridSize = (GridSizes)comboBox_1.getSelectedItem();
 				CellSizes cellSize = (CellSizes)comboBox_2.getSelectedItem();
 				grille = new Grille(gridSize.getEtats(), 
 									gridSize.getEtats(),
 									(Mode)comboBox.getSelectedItem());
 				
+				//Création de l'affichage de la grille
 				grid = new AffGrille(grille.getGrille());
 				
 				grid.setTaille(gridSize.getEtats());
@@ -458,6 +467,7 @@ public class Fenêtre {
 				grid.setPreferredSize(new Dimension(size,size));
 				pane.setViewportView(grid);
 				
+				//Création des évènements souris sur la grille
 				grid.addMouseMotionListener(new MouseMotionListener() {
 
 					@Override//Useless
@@ -468,19 +478,23 @@ public class Fenêtre {
 					{
 						grid.repaint();
 					}
-				});// Repeint jp2 lorsque la souris se déplace
+				});//Création de l'évènement de clic sur a grille
 				grid.addMouseListener(new MouseAbstractListener()
 				{
 					public void mouseClicked(MouseEvent arg0)
 					{
 						super.mouseClicked(arg0);
+						//Calcul des coordonnées de la cellule cliquée
 						int x = grid.numero / grid.getTaille();
 						int y = grid.numero - ( grid.getTaille() * x );
 						
+						//Récupération du tableau de cellules depuis la classe Grille
 						Cellule[][] cells = grille.getGrille();
+						//Modification de l'état de la cellule cliquée
 						cells[x][y].setState((Etats)comboBox_3.getSelectedItem());
 						grid.repaint();
 						
+						//Affichage du résultat du calcul des densités
 						Hashtable<Etats, Float> density = grille.densityCalc();
 						float trees = 0f,
 							  shrubs = 0f,
@@ -707,18 +721,16 @@ public class Fenêtre {
 }
 
 
-class AffGrille extends JPanel { /**
-	 * 
-	 */
+class AffGrille extends JPanel { //Claase permettant le dessin de la grille
 	private static final long serialVersionUID = 904846388887407799L;
-// Classe personnelle qui crée une grile
-	// hexagonale.
-	int cote; // Ceci définit la taille du côté d'un polygone
-	private int taille; //Nombre de polygones de cotés
-	int numero = 0; // Retien le n° du polygone sur lequel est la souris
+
+	int cote; 
+	private int taille;
+	int numero = 0;
 	Polygon pol;
 	Cellule[][] grid;
 
+	//Constructeur prenant la grille à afficher en argument
 	public AffGrille(Cellule[][] grid)
 	{
 		super();
@@ -749,8 +761,8 @@ class AffGrille extends JPanel { /**
 	
 	@Override
 	public void paint(Graphics arg0) {
-		Polygon p2 = getPolygon(0, 0, cote); // Crée un hexagone
-		Rectangle r = p2.getBounds(); // Récupère le plus petit rectangle // aux
+		Polygon p2 = getPolygon(0, 0, cote); // Crée un polygone
+		Rectangle r = p2.getBounds(); // Récupère le plus petit rectangle aux
 		// bord de la fenêtre dans lequel
 		// l'hexagone peut s'inscrire
 		Point hovered = null;
@@ -770,6 +782,7 @@ class AffGrille extends JPanel { /**
 				Polygon poly = getPolygon(c * r.width, (int) (l * cote), cote);
 				g2d.setPaint(getColor(state));
 				g2d.fill(poly);
+				//Détecte si la souris est sur une case
 				if (p != null && poly.contains(p)) {
 					hovered = new Point(c * r.width, (int) (l * cote));
 					numero = l * this.taille + c;
@@ -779,6 +792,7 @@ class AffGrille extends JPanel { /**
 				g2d.draw(poly);
 			}
 		}
+		//Elargissement des contours quand la case est selectionnée
 		if (hovered != null) {
 			arg0.setColor(Color.BLACK);
 			g2d.setStroke(bs3);
@@ -789,7 +803,7 @@ class AffGrille extends JPanel { /**
 
 	private Color getColor(Etats state)
 	{
-		//TODO : ajouter codes coleurs restants
+		//définition des couleurs selon les états
 		switch (state) {
 		case VIDE:
 			return Color.white;
@@ -813,7 +827,8 @@ class AffGrille extends JPanel { /**
 	public Polygon getPolHover() {
 		return pol;
 	}
-
+	
+	//Fonction permettant de dessiner des carrés
 	public static Polygon getPolygon(int x, int y, int cote) {// Forme le
 		// polygone
 		Polygon p = new Polygon();
